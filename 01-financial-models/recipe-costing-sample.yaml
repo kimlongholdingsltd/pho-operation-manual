@@ -1,0 +1,112 @@
+# =============================================================================
+# RECIPE COSTING — Phở Bò Tái Nạm (1 bát)
+# File mẫu cho 01-financial-models.
+#
+# Mục đích: mô phỏng cách tính GIÁ VỐN (Food Cost) cho 1 bát, trong đó
+#   - tỷ lệ hao hụt khi LUỘC THỊT (nạm) => yield_factor = 0.68
+#   - tỷ lệ hao hụt khi HẦM XƯƠNG (nước dùng) => yield_factor = 0.45
+#
+# Nguyên tắc: mọi định lượng, đơn giá, hệ số hao hụt đều là BIẾN SỐ riêng
+# để đội ngũ lập trình chuyển thẳng thành code/database (bảng recipe, bảng
+# ingredient, bảng cost). Không nhét số chết vào mô tả.
+# =============================================================================
+
+meta:
+  recipe_id: PHO-BO-TAI-NAM-001
+  recipe_name: "Phở Bò Tái Nạm"
+  serving_unit: bat                 # đơn vị tính: 1 bát
+  servings_per_recipe: 1
+  currency: VND
+  price_selling: 45000              # giá bán 1 bát (VND)
+  target_food_cost_percent: 0.38    # mục tiêu food cost 38% (chuẩn món phở)
+  updated_at: 2026-11-25
+  notes: >
+    Giá nguyên liệu là giá tham khảo (nhập sỉ thị trường VN). Phải cập nhật
+    theo giá nhập thực tế từng tuần — đây là biến số, không phải hằng số.
+
+# -----------------------------------------------------------------------------
+# BIẾN SỐ — HỆ SỐ HAO HỤT / THU HỒI SAU SƠ CHẾ (yield_factor)
+# yield_factor = khối lượng thu được sau sơ chế / khối lượng mua vào.
+# hao hụt % = (1 - yield_factor) * 100
+# -----------------------------------------------------------------------------
+variables:
+  yield:
+    bo_nam_luoc: 0.68    # nạm bò luộc chín còn ~68% khối lượng sống (hao hụt 32%)
+    xuong_ham: 0.45      # xương hầm: thu hồi ~45% giá trị (bã xương bỏ + nước bay hơi)
+    rau_thom_soche: 0.85 # rau thơm, giá đỗ sau nhặt/bỏ gốc còn ~85%
+  portion:               # định lượng chuẩn cho 1 bát
+    banh_pho_gram: 200
+    bo_tai_gram: 40
+    nam_chin_gram: 34    # nạm CHÍN trên bát (khối lượng sau luộc)
+
+# -----------------------------------------------------------------------------
+# NGUYÊN LIỆU & GIÁ VỐN
+#   qty_raw_per_serving_gram : lượng nguyên liệu THÔ (mua vào) cần cho 1 bát
+#   cost_per_serving         : giá vốn phân bổ cho 1 bát = qty_raw * price / 1000
+#
+# Lưu ý nạm bò: trên bát cần 34g chín => thô = 34 / 0.68 = 50g.
+# -----------------------------------------------------------------------------
+ingredients:
+  - name: "Bánh phở"
+    unit: kg
+    price_per_unit: 16000
+    yield_factor: 1.0                 # dùng trực tiếp, không hao hụt sơ chế
+    qty_raw_per_serving_gram: 200
+    cost_per_serving: 3200            # 0.2 * 16000
+
+  - name: "Thịt bò tái (thăn)"
+    unit: kg
+    price_per_unit: 150000
+    yield_factor: 1.0                 # thái sống, không hao hụt
+    qty_raw_per_serving_gram: 40
+    cost_per_serving: 6000            # 0.04 * 150000
+
+  - name: "Nạm bò"
+    unit: kg
+    price_per_unit: 130000
+    yield_factor: 0.68                # hao hụt khi luộc 32%
+    qty_raw_per_serving_gram: 50      # 34g chín / 0.68
+    cost_per_serving: 6500            # 0.05 * 130000
+
+  - name: "Xương bò (hầm nước dùng)"
+    unit: kg
+    price_per_unit: 60000
+    yield_factor: 0.45                # hao hụt khi hầm xương (bã + bay hơi)
+    qty_raw_per_serving_gram: 100     # phân bổ ~100g xương / bát
+    cost_per_serving: 6000            # 0.1 * 60000
+
+  - name: "Gia vị nước dùng (gừng, hành, hồi, quế, thảo quả, mắm, muối)"
+    unit: batch
+    price_per_unit: 0
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 0
+    cost_per_serving: 2000            # phân bổ theo mẻ nước dùng
+
+  - name: "Hành lá, rau thơm, giá đỗ"
+    unit: batch
+    price_per_unit: 0
+    yield_factor: 0.85                # hao hụt sơ chế rau 15%
+    qty_raw_per_serving_gram: 0
+    cost_per_serving: 1200
+
+  - name: "Chanh, ớt, tương, thìa đũa"
+    unit: batch
+    price_per_unit: 0
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 0
+    cost_per_serving: 800
+
+# -----------------------------------------------------------------------------
+# KẾT QUẢ (tổng hợp)
+# -----------------------------------------------------------------------------
+summary:
+  total_food_cost: 25700             # 3200+6000+6500+6000+2000+1200+800
+  price_selling: 45000
+  food_cost_percent: 0.571           # 25700 / 45000 = 57.1%
+  gross_margin: 19300                # 45000 - 25700
+  gross_margin_percent: 0.429
+  vs_target: >
+    Food cost thực tế 57.1% — CAO hơn mục tiêu 38%. Cần tối ưu bằng một trong
+    các đòn bẩy: giảm định lượng bò tái/nạm, đàm phán giá thịt sỉ, dùng phần
+    thịt rẻ hơn (gầu, bắp), hoặc tăng giá bán. Tính lại ở file khác khi thay
+    biến — KHÔNG sửa số chết trong mô tả.

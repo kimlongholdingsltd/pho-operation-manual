@@ -105,7 +105,7 @@ ingredients:
   - name: "Thịt gầu bò"
     unit: kg
     purpose: "Gầu chín trên bát phở"
-    yield_factor: null            # chưa đo riêng; tham chiếu nhóm thịt luộc (nạm 0.68) nếu cùng phương pháp
+    yield_factor: 0.65            # gầu bò luộc chín còn ~65% khối lượng sống (hao hụt 35%)
     lean_fat_ratio: "Khoảng nửa nạc nửa mỡ, có lớp nhân/gân nhẹ"
     selection:
       color: "Nạc đỏ tươi/đỏ hồng tự nhiên; mỡ vàng nhạt đều màu"

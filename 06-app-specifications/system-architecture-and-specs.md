@@ -197,3 +197,53 @@ Dashboard hiển thị theo ngày:
 - Mọi biến số có `TBD_OWNER_INPUT` (giá điện, tỷ lệ gia vị bí quyết) là **ô nhập liệu** trong App — không hard-code, không đoán nghĩa.
 - `yield_factor` và `kwh_per_batch` là biến cấu hình toàn cục, cho phép chủ quán cập nhật khi đo thực tế lệch.
 - Chuẩn dữ liệu tuân thủ quy ước `name / unit / qty_raw / price_per_unit / yield_factor / qty_net / cost` trong `CLAUDE.md`.
+
+---
+
+## 5. Bộ 6 ca kiểm thử bàn giao (Acceptance Test Cases)
+
+> Dùng khi bàn giao App cho chủ quán: đội lập trình chạy đủ 6 ca, ca nào ĐẠT mới đánh
+> dấu nghiệm thu. Mỗi ca gắn đúng 1 bảng schema + 1 phân hệ, đối chiếu số liệu gốc
+> trong `01-financial-models/*.yaml` — **không bịa số, không đoán nghĩa**.
+
+### TC-01 — Tính giá vốn 1 bát tự động (Phân hệ 1 · bảng `CongThucMon`)
+
+- **Mục tiêu:** App tự tính `cost_per_serving`, `total_food_cost`, `food_cost_percent` từ công thức.
+- **Đầu vào:** `recipe-costing-sample.yaml` (Phở Bò Tái Nạm: nạm 34g chín, xương 178,6g/tô, `price_selling` 45.000đ).
+- **Kết quả mong đợi:** `total_food_cost` = 30.414đ, `food_cost_percent` = 67,6% (khớp `summary` trong YAML).
+- **Tiêu chí ĐẠT:** sai số = 0 so với file YAML; áp dụng đúng `yield_factor` (nạm 0.68 → `34 / 0.68 = 50g` thô).
+
+### TC-02 — Cảnh báo food cost theo trần từng món (Phân hệ 1 · ĐC-01)
+
+- **Mục tiêu:** Cảnh báo VÀNG/ĐỎ theo trần của chính món đó, không dùng một ngưỡng chung cho cả menu.
+- **Đầu vào:** Tái Nạm food cost 67,6% (vượt trần chủ lực 45%); một món khác 40% (vượt 38% toàn menu nhưng dưới 45%).
+- **Kết quả mong đợi:** Tái Nạm → cảnh báo ĐỎ (chặn xuất nếu cấu hình yêu cầu); món 40% → cảnh báo VÀNG.
+- **Tiêu chí ĐẠT:** ngưỡng đọc từ `food-cost-cogs.yaml.food_cost_thresholds.canh_bao`, không hard-code 35–38%.
+
+### TC-03 — Cảnh báo lệch kho (Phân hệ 1 · bảng `PhieuKiemKho`)
+
+- **Mục tiêu:** Phát hiện thất thoát nguyên liệu khi kiểm kê lệch so với lý thuyết.
+- **Đầu vào:** Nạm bò — tồn đầu kỳ 10kg, nhập 5kg, xuất lý thuyết 4kg → tồn lý thuyết 11kg; cân thực tế 10,6kg.
+- **Kết quả mong đợi:** `chenh_lech` = −0,4kg, `chenh_lech_percent` ≈ −3,6% → vượt ngưỡng ±3% → cảnh báo "thất thoát nguyên liệu".
+- **Tiêu chí ĐẠT:** cảnh báo kèm tên nguyên liệu + giá trị tiền hao hụt (0,4kg × `price_per_unit`).
+
+### TC-04 — Timer mẻ nước dùng & luộc thịt (Phân hệ 2 · bảng `MeNuocDung`)
+
+- **Mục tiêu:** Đếm ngược đủ 6 mốc sự kiện, ghi log giờ thực tế để đối chiếu nghiệm thu.
+- **Đầu vào:** mẻ chuẩn 25kg xương / 100L nước (80–85L ban đầu + 15–20L châm bù) / 70L thành phẩm / 140 tô; ninh 20h; luộc thịt 2,5–3h.
+- **Kết quả mong đợi:** các mốc `t=0` → vớt bọt → vớt thịt (+2,5–3h) → nhấc hộp gia vị (+45 phút) → châm bù → kết thúc (+20h), khớp bảng Phân hệ 2.
+- **Tiêu chí ĐẠT:** log đủ 6 mốc; cảnh báo khi thịt chưa vớt ở `gio_luoc_max` 3h.
+
+### TC-05 — Checklist nhiệt độ & làm nguội FDA (Phân hệ 3 · bảng `CaLamViec`)
+
+- **Mục tiêu:** Cảnh báo nhiệt độ tủ lệch chuẩn + đếm ngược làm nguội thịt chín theo FDA §3-501.14.
+- **Đầu vào:** tủ đông đo −15°C (lệch, chuẩn ≤ −18°C); thịt nạm chín 57°C lúc 14h00.
+- **Kết quả mong đợi:** tủ đông → cảnh báo; nạm đạt ≤ 21°C trong ≤ 2h (16h00), ≤ 5°C trong tổng ≤ 6h (20h00); trượt mốc → "HỦY BỎ, không hâm lại".
+- **Tiêu chí ĐẠT:** ngưỡng đọc từ `storage-preservation.yaml`; nhắc khay nông ≤ 5cm kèm cảnh báo.
+
+### TC-06 — Dashboard điểm hòa vốn (Phân hệ 4 · bảng `DoanhThuNgay`)
+
+- **Mục tiêu:** Hiển thị doanh thu vs điểm hòa vốn, số tô còn thiếu, lãi đóng góp lũy kế.
+- **Đầu vào:** `Gia_ban` 45k, `Gia_von` 18k, `Bien_phi_kenh` 3k → `Lai_dong_gop` 24k; CP cố định 21,5tr/tháng, 30 ngày bán.
+- **Kết quả mong đợi:** `Diem_hoa_von_to_ngay` ≈ 30 tô (896/30); bán 25 tô → thiếu 5 tô + cảnh báo; progress bar đúng tỷ lệ.
+- **Tiêu chí ĐẠT:** công thức đúng `food-cost-cogs.yaml.breakeven`; đơn vị nhất quán (tô, VND).

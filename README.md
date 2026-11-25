@@ -1,5 +1,7 @@
 # Bộ Cẩm Nang Mở & Vận Hành Quán Phở Thực Chiến
 
+> **Phiên bản hiện tại: v1.0.0 (Commercial Release)** — phát hành thương mại, sẵn sàng bàn giao App với đặc tả schema + bộ 6 ca kiểm thử.
+
 > Tài liệu vận hành F&B chuẩn **Docs-as-Code**: mọi quy trình là file có phiên bản, review được; mọi thông số định lượng là **biến số trong YAML** — sẵn sàng chuyển thẳng thành phần mềm quản lý mà đội lập trình không cần đoán nghĩa.
 
 **Dành cho ai:** người lần đầu mở quán phở/bún bò, chủ quán đang vận hành muốn chuẩn hóa lại quy trình, và đội phát triển phần mềm cần đặc tả dữ liệu gốc.
@@ -112,7 +114,7 @@ Toàn bộ 20 ghi chú thực chiến ban đầu, giữ nguyên làm nguồn tha
 
 | Tài liệu | Nội dung |
 |---|---|
-| [`system-architecture-and-specs.md`](06-app-specifications/system-architecture-and-specs.md) | Database Schema + đặc tả 4 phân hệ tính năng |
+| [`system-architecture-and-specs.md`](06-app-specifications/system-architecture-and-specs.md) | Database Schema (6 bảng) + đặc tả 4 phân hệ + bộ 6 ca kiểm thử bàn giao |
 
 ### Quy tắc làm việc cho AI
 
@@ -128,8 +130,8 @@ Toàn bộ 20 ghi chú thực chiến ban đầu, giữ nguyên làm nguồn tha
 | **v0.2.0** | Biên tập 20 ghi chú gốc (`00-raw-notes/`) thành tài liệu chuẩn theo 5 thư mục chức năng + tách toàn bộ thông số định lượng/hệ số hao hụt thành `.yaml`. Cập nhật `yield_factor` gầu bò luộc = 0.65. |
 | **v0.3.0** | Đồng bộ 10 điểm kiểm toán ĐC-01…ĐC-10 giữa Markdown & YAML; bổ sung bảng quyết định đầu tư 300 triệu + dòng tiền 13 tuần; bộ 3 biểu mẫu nghiệm thu; nâng cấp SOP ninh xương. |
 | **v0.4.0** | Chốt định mức mẻ nước dùng chuẩn 100L (25kg xương/100L nước/70L thành phẩm/140 tô), điện năng Newsun ~32 kWh/mẻ, bí quyết tạo hương 3 lớp + hộp gia vị inox, SOP ra tô & giữ nhiệt. |
-| **v1.0.0** | Trang chủ README + đặc tả hệ thống App (`06-app-specifications/`); phát hành chính thức với tag `v1.0.0`. |
-| **v0.5.0** | Bản vá kiểm toán sau phát hành: đóng 6 điểm ĐC-01/04/05/06/07/08, chuẩn làm nguội FDA §3-501.14, chuẩn hóa nồi 100L Newsun, tách hệ số xương (vật lý vs chi phí), bổ sung ca mẫu điền đầy đủ. |
+| **v0.5.0** | Bản vá kiểm toán: đóng 6 điểm ĐC-01/04/05/06/07/08, chuẩn làm nguội FDA §3-501.14, chuẩn hóa nồi 100L Newsun, tách hệ số xương (vật lý vs chi phí), bổ sung ca mẫu điền đầy đủ. |
+| **v1.0.0 (Commercial Release)** | Trang chủ README + đặc tả hệ thống App (6 bảng DB + 4 phân hệ + bộ 6 ca kiểm thử bàn giao); phát hành thương mại với tag `v1.0.0`. |
 
 ---
 

@@ -1,0 +1,140 @@
+# =============================================================================
+# TIÊU CHUẨN CHỌN NGUYÊN LIỆU — PHỞ BÒ
+# Nguồn dữ liệu gốc (00-raw-notes/):
+#   - Cach-chon-xuong-bo.md, Chon-banh-pho.md, Chon-rau-thom.md
+#   - chon-thit-nam.md, thit-gau.md, thit-tai.md
+# Mục đích: chuẩn hóa tiêu chí chọn + tỷ lệ phối trộn từng nguyên liệu thành
+#           dữ liệu có cấu trúc để làm cơ sở dữ liệu (bảng ingredient,
+#           bảng supplier-spec, bảng recipe-portion).
+# Quy ước (CLAUDE.md): mỗi nguyên liệu có name, unit, yield_factor.
+#   yield_factor = khối lượng thu hồi sau sơ chế / khối lượng mua vào.
+#   Giá & định lượng tiền từng tô nằm ở recipe-costing-sample.yaml.
+# =============================================================================
+
+meta:
+  schema_version: "1.0"
+  category: ingredient_selection_standard
+  currency: VND
+  updated_at: 2026-11-25
+  note: >
+    Các tỷ lệ và tiêu chí là kinh nghiệm thực đo của chủ quán. KHÔNG sửa số.
+    yield_factor trùng giá trị đã chốt trong recipe-costing-sample.yaml.
+
+ingredients:
+  # ---------------------------------------------------------------------------
+  # 1. XƯƠNG BÒ — dùng ninh nước dùng
+  # ---------------------------------------------------------------------------
+  - name: "Xương bò"
+    unit: kg
+    purpose: "Ninh nước dùng phở"
+    yield_factor: 0.45            # thu hồi ~45% giá trị (bã xương bỏ + nước bay hơi)
+    blend:                        # tỷ lệ phối trộn các loại xương
+      xuong_ong_percent: 50       # xương ống: nhiều tủy, ngọt sâu, béo thơm
+      xuong_lan_percent: 50       # xương cổ/sườn/hom: cân bằng béo, tăng đậm đà, trong nước
+    selection:
+      color: "Đỏ tươi tự nhiên, không thâm xám, không nhạt tái"
+      size: "Xương ống to ~4 đốt ngón tay (bò trưởng thành), nhiều tủy"
+      smell_texture: "Không mùi lạ/hôi, chạm vào săn chắc, tươi mới"
+    avoid:
+      - "Xương đầu (dễ mùi hôi, khó xử lý)"
+      - "Xương quá nhỏ từ bò non/gầy (ít chất ngọt)"
+    prep:
+      - "Ngâm rửa muối hoặc giấm pha loãng, chần qua nước sôi để khử mùi, loại bỏ cặn bẩn"
+      - "Chặt đôi xương ống lấy tủy bằng sống dao chặt nhẹ để tránh làm vụn xương khiến nước đục"
+
+  # ---------------------------------------------------------------------------
+  # 2. BÁNH PHỞ
+  # ---------------------------------------------------------------------------
+  - name: "Bánh phở"
+    unit: kg
+    purpose: "Bánh tươi cho phở"
+    yield_factor: 1.0             # dùng trực tiếp, không hao hụt sơ chế
+    selection:
+      elasticity: "Sợi dẻo, đàn hồi nhẹ, không bở nát khi gặp nước sôi, dễ ngấm nước dùng"
+      thickness_surface: "Độ dày vừa phải, mặt láng đều; tránh quá mỏng dễ đứt nát"
+      color_smell: "Trắng ngà tự nhiên của gạo, không trắng bệch bất thường, không mùi lạ"
+      safety: "Gạo nguyên chất, cơ sở uy tín, không hàn the, không chất tẩy trắng"
+    avoid:
+      - "Sợi quá mỏng (dễ đứt, nát)"
+      - "Trắng bệch bất thường / có mùi lạ"
+    usage:
+      - "Trần nhanh qua nước sôi để bánh ấm và tơi sợi, tránh ngâm lâu làm bở bánh"
+      - "Bánh tươi mới làm trong ngày cho vị truyền thống; bánh khô cần luộc và xả nước lạnh kỹ để giữ độ dai"
+
+  # ---------------------------------------------------------------------------
+  # 3. RAU THƠM
+  # ---------------------------------------------------------------------------
+  - name: "Rau thơm (hành hoa + húng/mùi)"
+    unit: batch
+    purpose: "Rau ăn kèm phở"
+    yield_factor: 0.85            # sau nhặt/bỏ gốc còn ~85%
+    blend:
+      hanh_hoa_percent: { min: 85, max: 90 }   # hành làm chủ đạo, không át mùi nước dùng
+      rau_thom_percent: { min: 10, max: 15 }
+    regional:
+      mien_bac: "Hành hoa + húng láng (mùa ấm) hoặc rau mùi ta/ngò rí (mùa lạnh)"
+      mien_nam: "Hành lá, ngò rí + ngò gai (mùi tàu), húng quế, húng lủi, giá đỗ tùy thích"
+    selection:
+      hanh_hoa: "Cọng thẳng, lá xanh tươi, không vàng úa/nhũn/đốm đen; đầu hành trắng chắc"
+      hung: "Ngọn non, lá nguyên vẹn, không rụng lá hàng loạt, không mùi lạ, không sâu bệnh"
+      mui_ngo: "Bó tươi xanh, thân giòn, không úng nước"
+    prep:
+      - "Nhặt bỏ lá già, héo, dập và cỏ lẫn bên trong"
+      - "Rửa nhẹ tay dưới vòi nước mát hoặc ngâm loãng, để ráo trước khi thái"
+
+  # ---------------------------------------------------------------------------
+  # 4. THỊT NẠM
+  # ---------------------------------------------------------------------------
+  - name: "Thịt nạm bò"
+    unit: kg
+    purpose: "Nạm chín trên bát phở"
+    yield_factor: 0.68            # luộc chín còn ~68% khối lượng sống (hao hụt 32%)
+    cut_position: "Đoạn giữa dải cánh gầu (giữa phần gầu và phần chín), xen kẽ nạc-mỡ-gân mỏng"
+    selection:
+      color: "Đỏ au/đỏ tươi tự nhiên; mỡ vàng nhạt hoặc trắng ngà tự nhiên"
+      texture: "Ấn nhẹ đàn hồi tốt, không lõm; bề mặt khô ráo, hơi se/dính nhẹ, không nhớt/chảy dịch"
+      smell: "Mùi bò đặc trưng nhẹ, không hôi/chua/lạ"
+      fiber: "Thớ nhỏ mịn, tách biệt nạc-mỡ-gân; tránh thớ quá to và cứng"
+    avoid:
+      - "Phần cuối dải ('chín') — khô, bở, sẫm màu sau luộc/ninh"
+      - "Thịt tái xanh, đỏ sẫm bất thường, vết bầm/đen lạ"
+
+  # ---------------------------------------------------------------------------
+  # 5. THỊT GẦU
+  # ---------------------------------------------------------------------------
+  - name: "Thịt gầu bò"
+    unit: kg
+    purpose: "Gầu chín trên bát phở"
+    yield_factor: null            # chưa đo riêng; tham chiếu nhóm thịt luộc (nạm 0.68) nếu cùng phương pháp
+    lean_fat_ratio: "Khoảng nửa nạc nửa mỡ, có lớp nhân/gân nhẹ"
+    selection:
+      color: "Nạc đỏ tươi/đỏ hồng tự nhiên; mỡ vàng nhạt đều màu"
+      texture: "Thớ nhỏ mịn, ấn nhẹ đàn hồi tốt, bề mặt khô ráo, không nhớt/rỉ nước bất thường"
+      smell: "Thơm đặc trưng thịt bò tươi, không hôi chua/lạ"
+    avoid:
+      - "Mỡ quá sẫm màu hoặc nạc tái xỉn"
+      - "Phần cuối cánh gầu (dễ khô, bở)"
+    prep:
+      - "Mua nguyên tảng tương đối gọn để luộc chín đều, thái lát mỏng bản to sau khi nguội"
+      - "Luộc chín vừa tới rồi ngâm nước lạnh/để nguội bớt trước khi thái để lát giòn, giữ form, không bở nát"
+
+  # ---------------------------------------------------------------------------
+  # 6. THỊT TÁI
+  # ---------------------------------------------------------------------------
+  - name: "Thịt bò tái"
+    unit: kg
+    purpose: "Bò tái trên bát phở"
+    yield_factor: 1.0             # thái sống, không hao hụt
+    slice_thickness_mm: { min: 1.5, max: 2.0 }
+    cuts:
+      - "Thăn bò (thăn nội/ngoại/lưng): rất mềm, ít mỡ, thớ mịn"
+      - "Quả mặt / mông trên: thớ nở, mềm, giữ màu đẹp, ít trắng bệch/dai khi chần"
+      - "Diềm thăn: mềm, có chút gân/mỡ mỏng tùy miếng, đậm vị"
+      - "Bắp bò (bắp hoa/bắp dây): gân nhỏ đan xen, thái cực mỏng nếu thích giòn nhẹ"
+    selection:
+      color: "Đỏ tươi hoặc đỏ sẫm tự nhiên, không tái xanh/thâm đen bất thường"
+      texture: "Ấn nhẹ đàn hồi tốt, không lõm; dẻo dính nhẹ, ráo mặt"
+      fluid: "Không chảy nhiều nước, không mùi hôi/lạ"
+    prep:
+      - "Thái ngang thớ, thật mỏng (1.5–2 mm) để nước dùng làm chín đều, không xơ dai"
+      - "Chần nhanh: nhúng nhanh vào nước dùng nóng hoặc chan nước dùng sôi lên thịt đã xếp sẵn, tránh luộc lâu làm khô dai"

@@ -1,0 +1,41 @@
+# =============================================================================
+# VỐN & QUY MÔ — MỞ QUÁN PHỞ BÒ
+# Nguồn: 00-raw-notes/cac-buoc-cbi-co-ban.md, dieu-kien-tien-quyet.md,
+#         chua-co-thuong-hieu.md, ban-online-offline.md, nguyen-tac-chon-vi-tri.md
+# Mục đích: biến số vốn/quy mô cho app (bảng store-profile, bảng capital-plan).
+# =============================================================================
+
+meta:
+  schema_version: "1.0"
+  category: setup_capital_scale
+  currency: VND
+  updated_at: 2026-11-25
+
+quy_mo:
+  quan_nho:
+    seats: { min: 10, max: 20 }
+  quan_gia_dinh:
+    seats: { min: 30, max: 50 }
+    capital_million: { min: 150, max: 300 }
+  quan_lon_mat_pho:
+    seats: { min: 60, max: 100 }
+    capital_million: { min: 300, max: 500 }   # 500+ triệu
+
+von:
+  quan_binh_dan_toi_thieu_million: 100        # "từ khoảng 100 triệu đồng trở lên"
+  quy_du_phong_van_hanh_thang: { min: 2, max: 6 }        # chi phí cố định (cac-buoc-cbi-co-ban)
+  quy_du_phong_van_hanh_toi_thieu_thang: 3              # (chua-co-thuong-hieu)
+  quy_du_phong_online_offline_thang: { min: 2, max: 3 }  # (ban-online-offline)
+  quy_du_phong_rui_ro_percent_von: { min: 5, max: 10 }   # (dieu-kien-tien-quyet)
+  coc_mat_bang_thang: { min: 1, max: 3 }         # đặt cọc (cac-buoc-cbi-co-ban)
+  coc_vi_tri_thang: { min: 2, max: 3 }           # "cọc + 2–3 tháng đầu" (nguyen-tac-chon-vi-tri)
+
+phan_bo_ngan_sach:
+  - "Phần lớn cho mặt bằng và sửa chữa"
+  - "Thiết bị – nội thất"
+  - "Nguyên liệu ban đầu"
+  - "Marketing khai trương"
+  - "Quỹ dự phòng vận hành"
+
+nha_cung_cap:
+  so_luong_toi_thieu_nguyen_lieu_chinh: 2        # "ít nhất 2 nhà cung cấp" cho nguyên liệu chính

@@ -1,0 +1,58 @@
+# =============================================================================
+# CÔNG THỨC NINH NƯỚC DÙNG — PHỞ BÒ
+# Nguồn: 00-raw-notes/Kinh-nghiem-ninh-xuong.md
+# Mục đích: tách thông số định lượng (thời gian, nhiệt độ, nguyên liệu) thành
+#           biến số để làm cơ sở dữ liệu (bảng recipe, bảng step-timer).
+# Lưu ý: tỷ lệ gia vị & cách chế biến "nước thơm" cuối là bí quyết riêng của
+#        quán — không đưa số vào đây, chỉ đưa công đoạn & thông số đã chốt.
+# =============================================================================
+
+meta:
+  recipe_id: NUOC-DUNG-PHO-BO-001
+  recipe_name: "Nước dùng Phở Bò"
+  unit: batch                   # 1 mẻ nước dùng
+  updated_at: 2026-11-25
+
+ingredients:                    # nguyên liệu làm nước dùng (chưa gồm định lượng bí quyết)
+  - "Xương bò"
+  - "Mắm, muối, gia vị, mì chính, hạt nêm, đường phèn"
+  - "Hành củ"
+  - "Củ gừng"
+  - "Hành tây"
+  - "Quế"
+  - "Thảo quả"
+  - "Cánh hoa hồi"
+
+process:
+  - step: 1
+    name: "Rửa & khử mùi xương"
+    detail: "Rửa sạch, chà xát muối + rượu trắng, ngâm nước vỏ chanh"
+    time_min: { min: 15, max: 20 }
+
+  - step: 2
+    name: "Nướng xương"
+    detail: "Nướng trên bếp gas/than, nồi chiên không dầu hoặc lò nướng đến cháy xém, chảy mỡ thừa"
+    temp_c: { min: 200, max: 230 }
+    time_min: { min: 15, max: 20 }
+
+  - step: 3
+    name: "Rửa lại & hầm sơ, vớt bọt"
+    detail: "Rửa lại sạch, cho xương vào nồi nước, đun nhiệt cao vừa phải để bọt nổi lên, vớt sạch bọt (không để bọt tan vào nước)"
+
+  - step: 4
+    name: "Ninh xương"
+    detail: "Ninh sôi liu riu; cho thịt nạm/gầu/đuôi (nếu có) vào luộc chín rồi vớt ra để nguội trước khi thái bán"
+    time_hour: 20
+
+  - step: 5
+    name: "Làm nước lèo (nêm gia vị)"
+    detail: "Lấy nước xương ninh kỹ làm nước lèo; lúc này mới nêm gia vị + nguyên liệu tạo mùi đặc trưng (quế, hồi, thảo quả, gừng...). Tỷ lệ là bí quyết riêng."
+
+  - step: 6
+    name: "Chuẩn bị bán hàng"
+    detail: "Chuẩn bị thịt, rau thơm, bánh phở để bán"
+
+acceptance:                     # tiêu chuẩn nước dùng đạt
+  - "Nước trong vắt"
+  - "Thơm lừng, không gây (không mùi hôi bò)"
+  - "Ngọt lịm từ xương, không phải từ mì chính"

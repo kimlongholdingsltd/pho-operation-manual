@@ -1,0 +1,47 @@
+# =============================================================================
+# TỶ LỆ GIÁ THÀNH / FOOD COST / COGS — PHỞ BÒ
+# Nguồn: 00-raw-notes/ty-le-gia-thanh-COGS.md, 00-raw-notes/nguyen-tac-tke-menu.md
+# Mục đích: biến số định giá & điểm hòa vốn cho app (bảng pricing, bảng breakeven).
+# =============================================================================
+
+meta:
+  schema_version: "1.0"
+  category: food_cost_pricing
+  currency: VND
+  updated_at: 2026-11-25
+
+food_cost_target:
+  ty_le_vang_nguyen_lieu: { min: 0.30, max: 0.35 }   # 30–35% giá bán (ty-le-gia-thanh-COGS)
+  food_cost_menu: { min: 0.35, max: 0.40 }           # 35–40% giá bán (nguyen-tac-tke-menu)
+
+pricing_reference:
+  # Ví dụ từ ty-le-gia-thanh-COGS.md
+  example_gia_ban_50k:
+    price_selling: 50000
+    nguyen_lieu_toi_da_min: 15000     # 30% của 50k
+    nguyen_lieu_toi_da_max: 17500     # 35% của 50k
+    thuc_te_dao_dong_min: 20000       # thực tế nhiều quán dao động
+    thuc_te_dao_dong_max: 26000
+  # Ví dụ từ nguyen-tac-tke-menu.md
+  example_gia_von_15k:
+    gia_von_1_bat: 15000
+    gia_ban_toi_thieu: 40000          # để food cost không vượt ngưỡng, còn dư địa trả chi phí
+
+breakeven:
+  cong_thuc: "Tổng chi phí cố định tháng ÷ (Giá bán − Giá vốn 1 bát)"
+  chu_y:
+    - "Giá bán − nguyên liệu ≠ lợi nhuận ròng; phải trừ thêm chi phí cố định, vận hành, đóng gói, khuyến mãi trên mỗi tô"
+    - "Ước số tô bán/tháng theo hướng conservative (thấp) để an toàn"
+    - "Chừa biên độ biến động giá thịt bò/xương/rau theo mùa để không bị âm vốn khi giá sỉ tăng"
+
+cost_structure:
+  cac_thanh_phan_nguyen_lieu:
+    - "Thịt bò (tái, nạm, gầu)"
+    - "Xương ninh nước dùng"
+    - "Bánh phở"
+    - "Gia vị (nước dùng)"
+    - "Rau, hành"
+    - "Gia vị kèm (chanh, ớt, tương, thìa đũa)"
+  nguyen_tac_tinh:
+    - "Quy đổi giá mua từng nguyên liệu (kg/bó/lít) về chi phí theo gram/tô rồi cộng lại cho 1 tô chuẩn"
+    - "Cộng thêm hao hụt sơ chế/cắt thái và chia đều chi phí nồi nước dùng cho số tô dự kiến bán"

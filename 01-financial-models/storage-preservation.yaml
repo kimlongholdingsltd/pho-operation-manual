@@ -1,0 +1,47 @@
+# =============================================================================
+# BẢO QUẢN THỊT BÒ — NHIỆT ĐỘ & THỜI GIAN
+# Nguồn: 00-raw-notes/bao-quan-thi-tai.md (thịt TÁI), 00-raw-notes/bao-quan-thit-chin.md
+# Mục đích: biến số nhiệt độ/thời gian cho app (bảng storage-rule).
+# =============================================================================
+
+meta:
+  schema_version: "1.0"
+  category: storage_preservation
+  updated_at: 2026-11-25
+
+thit_tai_bo:                    # thịt bò TÁI (sống, bán 1–2 ngày)
+  prep:
+    - "KHÔNG rửa nước trước khi cất (nếu mặt ướt, thấm nhẹ bằng khăn giấy sạch)"
+    - "Quấn khăn vải sạch (khăn xô/cotton) để hút ẩm thừa, giữ dẻo, hạn chế khô/cháy bề mặt"
+    - "Hộp kín hoặc túi zip ép bớt khí, đặt chỗ nhiệt độ ổn định (tránh cánh cửa tủ, tránh thực phẩm nặng mùi)"
+  storage:
+    ban_1_2_ngay:
+      temp_c: { min: 0, max: 4 }        # ngăn mát
+      fast_chill_min: 30                 # ngăn đông làm lạnh nhanh (phút)
+      fast_chill_hour: 2                 # rồi chuyển xuống ngăn mát
+      keep_hour: { min: 24, max: 48 }    # giữ độ dẻo 24–48 giờ
+    chua_ban_vai_ngay:
+      temp_c: -18                        # cấp đông (chia nhỏ từng phần vừa dùng)
+      note: "Thịt cấp đông khi thái tái sẽ kém dẻo, dễ ra nước hơn thịt tươi"
+  safety:
+    - "Loại bỏ nếu có mùi lạ, nhớt bề mặt, màu biến đổi xấu hoặc để quá lâu"
+    - "Chỉ lấy đúng lượng cần bán từng ca/khung giờ — tránh rã đông rồi cấp đông lại nhiều lần"
+
+thit_bo_chin:                   # thịt bò CHÍN (nạm, gầu, bắp luộc/hầm)
+  danger_zone_c: { min: 4, max: 60 }     # vùng nhiệt độ vi khuẩn dễ phát triển
+  prep:
+    - "Cất tủ lạnh trong vòng 2 giờ đầu sau khi chín (không để ở nhiệt độ phòng quá lâu)"
+    - "Chia nhỏ theo phần bán/dùng để tránh mở nắp/hâm/rã đông nhiều lần làm thịt khô xác"
+    - "Giữ kèm chút nước luộc/nước dùng hoặc bọc kín để không khô bề mặt, giảm oxy hóa chất béo"
+  storage:
+    ngan_mat:
+      temp_c: { min: 4, max: 5 }
+      keep_day: { min: 1, max: 3 }
+      note: "Hộp kín/màng bọc chặt, dán nhãn ngày giờ chế biến, tách biệt thịt sống"
+    ngan_dong:
+      temp_c: -18
+      keep_month: { min: 2, max: 3 }
+      note: "Ưu tiên hút chân không / túi zip ép hết khí, hạn chế cháy lạnh (freezer burn)"
+  defrost_reheat:
+    - "Rã đông từ từ: chuyển ngăn đông xuống ngăn mát trước khi dùng để giữ nước ngọt, kết cấu"
+    - "Hâm nóng kỹ phần vừa đủ; nhúng/hâm cùng nước dùng nóng để thịt mềm dẻo, không bở/khô"

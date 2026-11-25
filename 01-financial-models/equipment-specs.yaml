@@ -1,0 +1,50 @@
+# =============================================================================
+# THIẾT BỊ — THÔNG SỐ KỸ THUẬT
+# Nguồn: 00-raw-notes/danh-muc-thiet-bi.md, 00-raw-notes/thiet-bi-tinh-tien.md
+# Mục đích: biến số thiết bị cho app (bảng equipment, bảng pos-spec).
+# =============================================================================
+
+meta:
+  schema_version: "1.0"
+  category: equipment_spec
+  updated_at: 2026-11-25
+
+nau_ham:
+  - name: "Nồi trụng phở (nhỏ)"
+    capacity_liter: { min: 20, max: 30 }
+    material: "Inox 304"
+  - name: "Nồi nước dùng"
+    capacity_liter: { min: 50, max: 100 }
+    material: "Inox 304"
+  - name: "Nồi hầm xương"
+    capacity_liter: { min: 100, max: 200 }   # 200L+ cho quy mô lớn
+    material: "Inox 304"
+  - name: "Sọt xương / giỏ trụng phở"
+    purpose: "Giữ xương gọn khi hầm, trụng bánh phở & rau nhanh"
+
+so_che:
+  - "Máy cưa xương: cắt xương ống/xương bò đều, nhanh (quy mô vừa–lớn)"
+  - "Máy thái thịt bò: tái/nạm/gầu lát mỏng đều (kết hợp máy xay thịt/giò nếu tự làm bò viên)"
+  - "Bàn chặt inox, thớt dày, dao sắc: chặt xương, thái thịt, sơ chế hành/gừng/rau thơm"
+  - "Rổ rá, rây lọc, vá/muỗng múc, khay: hớt bọt, lọc cặn, chia nguyên liệu"
+
+bao_quan:
+  - "Tủ đông: trữ xương bò, thịt bò dự trữ dài ngày"
+  - "Tủ mát / tủ mát bàn chặt: thịt tươi trong ngày, rau sống, hành lá, gia vị"
+  - "Tủ kính trưng bày: thịt chín/tái, bò viên, rau tại quầy bán"
+
+rua_hut_mui:
+  - "Chậu rửa công nghiệp inox 2–3 ngăn + kệ inox (rửa xương, nguyên liệu, bát đĩa, để ráo)"
+  - "Chụp hút khói, quạt hút, đường ống hút mùi (giảm hơi nóng, mùi nước dùng, khói)"
+  - "Máng thoát sàn + bể tách mỡ inox (hạn chế đọng nước trơn, chống tắc mỡ bò)"
+
+pos_printer:
+  - quy_mo_nho: "Máy POS cầm tay / máy tính bảng + máy in hóa đơn nhiệt"
+  - quy_mo_vua_lon: "Máy POS cảm ứng + máy in hóa đơn + máy in bếp (nếu tách quầy) + ngăn kéo đựng tiền"
+  - printer_width_mm: [58, 80]
+  - note: "Ưu tiên thiết bị gọn nhẹ, chịu nhiệt/độ ẩm tốt quanh khu nấu, dễ thao tác khi tay ướt"
+
+legal_hoa_don_dien_tu:
+  - "Doanh nghiệp ăn uống trực tiếp: dùng hóa đơn điện tử khởi tạo từ máy tính tiền kết nối dữ liệu với cơ quan thuế (NĐ 254/2026/NĐ-CP)"
+  - "Hộ kinh doanh doanh thu > 1 tỷ đồng/năm: bắt buộc hóa đơn điện tử có mã của cơ quan thuế hoặc hóa đơn điện tử khởi tạo từ máy tính tiền (NĐ 141/2026/NĐ-CP, NĐ 254/2026/NĐ-CP)"
+  - "Hộ kinh doanh doanh thu ≤ 1 tỷ đồng/năm: có thể đăng ký nếu đủ điều kiện và có nhu cầu"

@@ -19,14 +19,14 @@ Sau mỗi ca bán khi còn thịt tái dư (hoặc ngay khi nhập thịt chưa 
    - **Quấn khăn vải sạch** (khăn xô hoặc khăn cotton) quanh miếng thịt để hút ẩm thừa, giữ độ dẻo và hạn chế hơi lạnh làm khô/cháy bề mặt thịt.
    - **Cho vào hộp kín hoặc túi zip**: bỏ phần thịt đã quấn khăn vào hộp nhựa/thủy tinh có nắp hoặc túi zip ép bớt khí, đặt ở khu vực nhiệt độ ổn định (tránh cánh cửa tủ lạnh và tránh thực phẩm có mùi mạnh).
 2. **Lựa chọn nhiệt độ theo thời gian bán tiếp**:
-   - **Bán hết trong 1–2 ngày (ưu tiên nhất cho thịt tái)**: giữ ngăn mát ở **0–4°C**. Một số quán làm lạnh nhanh ở ngăn đông khoảng **30 phút – 2 tiếng** (có quấn khăn) rồi chuyển xuống ngăn mát để hạ nhiệt nhanh, giữ độ dẻo trong khoảng **24–48 giờ**.
+   - **Bán hết trong 1–2 ngày (ưu tiên nhất cho thịt tái)**: giữ kho mát thịt sống ở **0–3°C**. Một số quán làm lạnh nhanh ở ngăn đông khoảng **30 phút – 2 tiếng** (có quấn khăn) rồi chuyển xuống ngăn mát để hạ nhiệt nhanh, giữ độ dẻo trong khoảng **24–48 giờ**.
    - **Chưa bán ngay trong vài ngày**: chia nhỏ theo từng phần vừa dùng rồi cấp đông ở dưới **-18°C**. Lưu ý thịt cấp đông khi thái tái sẽ kém dẻo và dễ ra nước hơn thịt tươi.
 3. **Kiểm tra an toàn thực phẩm khi bán lại** (xem Mục 6).
 
 ## 5. Tiêu chuẩn nghiệm thu
 
 - Thịt giữ độ tươi dẻo, không khô mặt, không đổi màu.
-- Bọc kín, đúng nhiệt độ (0–4°C cho bán 1–2 ngày; -18°C cho cấp đông dài ngày).
+- Bọc kín, đúng nhiệt độ (kho mát thịt sống 0–3°C cho bán 1–2 ngày; kho đông ≤ -18°C cho cấp đông dài ngày).
 - Không có dấu hiệu mùi lạ, nhớt bề mặt, màu biến đổi xấu.
 
 ## 6. Lỗi thường gặp & Cách xử lý

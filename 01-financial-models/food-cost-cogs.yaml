@@ -1,6 +1,9 @@
 # =============================================================================
 # TỶ LỆ GIÁ THÀNH / FOOD COST / COGS — PHỞ BÒ
 # Nguồn: 00-raw-notes/ty-le-gia-thanh-COGS.md, 00-raw-notes/nguyen-tac-tke-menu.md
+# v0.3.0 — đối chiếu kiểm toán:
+#   ĐC-01: tách rõ 3 ngưỡng food cost (mục tiêu menu / trần món chủ lực / ví dụ)
+#   ĐC-02: sửa công thức hòa vốn theo lãi đóng góp (contribution margin)
 # Mục đích: biến số định giá & điểm hòa vốn cho app (bảng pricing, bảng breakeven).
 # =============================================================================
 
@@ -10,29 +13,60 @@ meta:
   currency: VND
   updated_at: 2026-11-25
 
-food_cost_target:
-  ty_le_vang_nguyen_lieu: { min: 0.30, max: 0.35 }   # 30–35% giá bán (ty-le-gia-thanh-COGS)
-  food_cost_menu: { min: 0.35, max: 0.40 }           # 35–40% giá bán (nguyen-tac-tke-menu)
+# -----------------------------------------------------------------------------
+# ĐC-01: 3 ngưỡng food cost tách bạch
+# -----------------------------------------------------------------------------
+food_cost_thresholds:
+  menu_target:                        # (a) ngưỡng MỤC TIÊU toàn menu
+    percent: { min: 0.35, max: 0.38 } # 35–38% giá bán
+    ap_dung: "Toàn bộ menu (bình quân có trọng số theo doanh số)"
+  flagship_ceiling:                   # (b) ngưỡng TRẦN cho món chủ lực nhiều thịt
+    percent: { min: 0.42, max: 0.45 } # tối đa 42–45% (Tái Nạm, Tái Đặc Biệt...)
+    ap_dung: "Món chủ lực nhiều thịt (Tái Nạm) — cho phép cao hơn nhưng KHÔNG vượt trần"
+  example_non_optimized:              # (c) tô mẫu chỉ là bài toán ví dụ
+    food_cost_sample_vnd: 25700
+    price_selling_sample_vnd: 45000
+    food_cost_percent_sample: 0.571   # 57.1%
+    ghi_chu: >
+      Tô mẫu 25.700đ / 45.000đ (57.1%) KHÔNG phải chuẩn vận hành. Đây là ví dụ
+      minh họa cách tính (recipe-costing-sample.yaml) khi CHƯA tối ưu định lượng
+      hoặc CHƯA điều chỉnh giá bán. Trước khi bán thật phải đưa về ngưỡng
+      flagship_ceiling (42–45%) hoặc thấp hơn.
 
+# -----------------------------------------------------------------------------
+# ĐC-02: Công thức hòa vốn theo lãi đóng góp
+# -----------------------------------------------------------------------------
+breakeven:
+  cong_thuc: "Diem_hoa_von_to_ngay = Chi_phi_co_dinh_thang / Lai_dong_gop_binh_quan_to / So_ngay_ban_thang"
+  thanh_phan:
+    lai_dong_gop_to: "Lai_dong_gop_to = Gia_ban - Gia_von_nguyen_lieu - Bien_phi_kenh"
+    bien_phi_kenh:
+      - "Bao bì đóng gói (mang về / giao hàng)"
+      - "Phí sàn app giao đồ ăn"
+      - "Khuyến mãi / chiết khấu"
+    chi_phi_co_dinh_thang:
+      - "Mặt bằng (thuê)"
+      - "Lương nhân viên"
+      - "Điện / nước / gas"
+      - "Khấu hao dụng cụ"
+  chu_y:
+    - "Giá bán − nguyên liệu ≠ lợi nhuận ròng; phải trừ thêm biến phí kênh rồi mới bù chi phí cố định"
+    - "So_ngay_ban_thang & số tô bán ước theo hướng conservative (thấp) để an toàn"
+    - "Chừa biên độ biến động giá thịt bò/xương/rau theo mùa để không bị âm vốn khi giá sỉ tăng"
+
+# -----------------------------------------------------------------------------
+# Tham chiếu giá (giữ nguyên từ ghi chú gốc)
+# -----------------------------------------------------------------------------
 pricing_reference:
-  # Ví dụ từ ty-le-gia-thanh-COGS.md
   example_gia_ban_50k:
     price_selling: 50000
-    nguyen_lieu_toi_da_min: 15000     # 30% của 50k
+    nguyen_lieu_toi_da_min: 15000     # 30% của 50k (ngưỡng gốc ty-le-gia-thanh-COGS)
     nguyen_lieu_toi_da_max: 17500     # 35% của 50k
     thuc_te_dao_dong_min: 20000       # thực tế nhiều quán dao động
     thuc_te_dao_dong_max: 26000
-  # Ví dụ từ nguyen-tac-tke-menu.md
   example_gia_von_15k:
     gia_von_1_bat: 15000
     gia_ban_toi_thieu: 40000          # để food cost không vượt ngưỡng, còn dư địa trả chi phí
-
-breakeven:
-  cong_thuc: "Tổng chi phí cố định tháng ÷ (Giá bán − Giá vốn 1 bát)"
-  chu_y:
-    - "Giá bán − nguyên liệu ≠ lợi nhuận ròng; phải trừ thêm chi phí cố định, vận hành, đóng gói, khuyến mãi trên mỗi tô"
-    - "Ước số tô bán/tháng theo hướng conservative (thấp) để an toàn"
-    - "Chừa biên độ biến động giá thịt bò/xương/rau theo mùa để không bị âm vốn khi giá sỉ tăng"
 
 cost_structure:
   cac_thanh_phan_nguyen_lieu:

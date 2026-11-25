@@ -1,6 +1,9 @@
 # =============================================================================
 # BẢO QUẢN THỊT BÒ — NHIỆT ĐỘ & THỜI GIAN
 # Nguồn: 00-raw-notes/bao-quan-thi-tai.md (thịt TÁI), 00-raw-notes/bao-quan-thit-chin.md
+# v0.3.0 — đối chiếu kiểm toán:
+#   ĐC-05: đồng bộ MỘT chuẩn nhiệt độ duy nhất giữa Markdown & YAML
+#   ĐC-06: bổ sung quy tắc làm nguội an toàn theo chuẩn FDA Food Code
 # Mục đích: biến số nhiệt độ/thời gian cho app (bảng storage-rule).
 # =============================================================================
 
@@ -9,25 +12,56 @@ meta:
   category: storage_preservation
   updated_at: 2026-11-25
 
-thit_tai_bo:                    # thịt bò TÁI (sống, bán 1–2 ngày)
+# -----------------------------------------------------------------------------
+# ĐC-05: CHUẨN NHIỆT ĐỘ DUY NHẤT (áp dụng chung cho Markdown & YAML)
+# -----------------------------------------------------------------------------
+temperature_standard:
+  kho_dong:
+    temp_c: -18                      # ≤ -18°C
+    ap_dung: "Cấp đông dài ngày cho cả thịt sống và thịt chín"
+  kho_mat_thit_song:
+    temp_c: { min: 0, max: 3 }       # 0°C đến 3°C
+    ap_dung: "Thịt bò SỐNG (tái chưa chần, thịt mới nhập dùng 1–2 ngày)"
+  kho_mat_thit_chin:
+    temp_c: { min: 2, max: 4 }       # 2°C đến 4°C
+    ap_dung: "Thịt CHÍN / đồ đã chế biến — TÁCH NGĂN hoặc hộp kín riêng biệt với thịt sống"
+
+# -----------------------------------------------------------------------------
+# ĐC-06: QUY TẮC LÀM NGUỘI AN TOÀN — FDA Food Code
+# -----------------------------------------------------------------------------
+cooling_rule_fda:
+  source: "FDA Food Code — quy tắc 2 giờ / 4 giờ (tổng ≤ 6 giờ)"
+  steps:
+    - "Chia thực phẩm vào khay nông, độ dày lớp thực phẩm < 5 cm để tản nhiệt nhanh"
+    - "Hạ từ 60°C xuống 21°C trong TỐI ĐA 2 giờ"
+    - "Hạ tiếp từ 21°C xuống ≤ 4°C trong TỐI ĐA 4 giờ tiếp theo"
+    - "Không đạt mốc nhiệt độ đúng giờ => hâm lại ≥ 74°C rồi làm nguội lại, hoặc loại bỏ"
+
+# -----------------------------------------------------------------------------
+# Thịt bò TÁI (sống) — quy trình sơ chế & bảo quản
+# -----------------------------------------------------------------------------
+thit_tai_bo:
   prep:
     - "KHÔNG rửa nước trước khi cất (nếu mặt ướt, thấm nhẹ bằng khăn giấy sạch)"
     - "Quấn khăn vải sạch (khăn xô/cotton) để hút ẩm thừa, giữ dẻo, hạn chế khô/cháy bề mặt"
     - "Hộp kín hoặc túi zip ép bớt khí, đặt chỗ nhiệt độ ổn định (tránh cánh cửa tủ, tránh thực phẩm nặng mùi)"
   storage:
     ban_1_2_ngay:
-      temp_c: { min: 0, max: 4 }        # ngăn mát
+      temp_c: { min: 0, max: 3 }        # kho mát thịt sống (chuẩn ĐC-05)
       fast_chill_min: 30                 # ngăn đông làm lạnh nhanh (phút)
       fast_chill_hour: 2                 # rồi chuyển xuống ngăn mát
       keep_hour: { min: 24, max: 48 }    # giữ độ dẻo 24–48 giờ
     chua_ban_vai_ngay:
-      temp_c: -18                        # cấp đông (chia nhỏ từng phần vừa dùng)
+      temp_c: -18                        # kho đông ≤ -18°C (chia nhỏ từng phần vừa dùng)
       note: "Thịt cấp đông khi thái tái sẽ kém dẻo, dễ ra nước hơn thịt tươi"
   safety:
     - "Loại bỏ nếu có mùi lạ, nhớt bề mặt, màu biến đổi xấu hoặc để quá lâu"
     - "Chỉ lấy đúng lượng cần bán từng ca/khung giờ — tránh rã đông rồi cấp đông lại nhiều lần"
 
-thit_bo_chin:                   # thịt bò CHÍN (nạm, gầu, bắp luộc/hầm)
+# -----------------------------------------------------------------------------
+# Thịt bò CHÍN (nạm, gầu, bắp luộc/hầm)
+# -----------------------------------------------------------------------------
+thit_bo_chin:
   danger_zone_c: { min: 4, max: 60 }     # vùng nhiệt độ vi khuẩn dễ phát triển
   prep:
     - "Cất tủ lạnh trong vòng 2 giờ đầu sau khi chín (không để ở nhiệt độ phòng quá lâu)"
@@ -35,13 +69,14 @@ thit_bo_chin:                   # thịt bò CHÍN (nạm, gầu, bắp luộc/h
     - "Giữ kèm chút nước luộc/nước dùng hoặc bọc kín để không khô bề mặt, giảm oxy hóa chất béo"
   storage:
     ngan_mat:
-      temp_c: { min: 4, max: 5 }
+      temp_c: { min: 2, max: 4 }        # kho mát thịt chín (chuẩn ĐC-05)
       keep_day: { min: 1, max: 3 }
-      note: "Hộp kín/màng bọc chặt, dán nhãn ngày giờ chế biến, tách biệt thịt sống"
+      note: "Hộp kín/màng bọc chặt, dán nhãn ngày giờ chế biến, TÁCH NGĂN riêng với thịt sống"
     ngan_dong:
-      temp_c: -18
+      temp_c: -18                        # kho đông ≤ -18°C
       keep_month: { min: 2, max: 3 }
       note: "Ưu tiên hút chân không / túi zip ép hết khí, hạn chế cháy lạnh (freezer burn)"
+  cooling: "Khi cần làm nguội nhanh thịt chín trước khi cất, áp dụng cooling_rule_fda ở trên"
   defrost_reheat:
     - "Rã đông từ từ: chuyển ngăn đông xuống ngăn mát trước khi dùng để giữ nước ngọt, kết cấu"
     - "Hâm nóng kỹ phần vừa đủ; nhúng/hâm cùng nước dùng nóng để thịt mềm dẻo, không bở/khô"

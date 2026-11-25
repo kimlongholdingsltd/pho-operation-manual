@@ -32,7 +32,7 @@ meta:
 variables:
   yield:
     bo_nam_luoc: 0.68    # nạm bò luộc chín còn ~68% khối lượng sống (hao hụt 32%)
-    xuong_ham: 0.45      # xương hầm: thu hồi ~45% giá trị (bã xương bỏ + nước bay hơi)
+    xuong_ham: 0.45      # xương hầm: HỆ SỐ QUY ĐỔI CHI PHÍ phân bổ (bã xương bỏ + nước bay hơi) — ĐC-08
     rau_thom_soche: 0.85 # rau thơm, giá đỗ sau nhặt/bỏ gốc còn ~85%
   portion:               # định lượng chuẩn cho 1 bát
     banh_pho_gram: 200
@@ -71,7 +71,7 @@ ingredients:
   - name: "Xương bò (hầm nước dùng)"
     unit: kg
     price_per_unit: 60000
-    yield_factor: 0.45                # hao hụt khi hầm xương (bã + bay hơi)
+    yield_factor: 0.45                # hệ số quy đổi chi phí phân bổ (bã + bay hơi), không phải tỷ lệ kg thu hồi — ĐC-08
     qty_raw_per_serving_gram: 100     # phân bổ ~100g xương / bát
     cost_per_serving: 6000            # 0.1 * 60000
 

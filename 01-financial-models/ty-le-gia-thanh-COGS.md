@@ -1,6 +1,6 @@
 # Tỷ lệ giá thành / COGS — phở bò
 
-Để có lãi khi mở quán phở bò, cần tính ngược từ giá bán thị trường để khống chế giá cost nguyên liệu thường ở mức 30% – 35% giá bán, đồng thời cộng đủ chi phí cố định và vận hành trên mỗi tô.
+Để có lãi khi mở quán phở bò, cần tính ngược từ giá bán thị trường để khống chế giá cost nguyên liệu. Ghi chú gốc nêu ngưỡng 30% – 35% giá bán; sau đối chiếu kiểm toán v0.3.0 (ĐC-01), chốt 3 ngưỡng: mục tiêu toàn menu 35–38%, trần món chủ lực nhiều thịt tối đa 42–45%, và tô mẫu 25.700đ/45.000đ (57.1%) chỉ là ví dụ chưa tối ưu định lượng/giá bán.
 
 ## 1. Xác định giá nguyên liệu tối đa (Cost nguyên liệu)
 
@@ -12,6 +12,7 @@
 ## 2. Lưu ý khi tính toán giá bán
 
 - **Gánh đủ chi phí cố định theo sản lượng**: lấy tổng chi phí cố định tháng (mặt bằng, lương nhân viên, điện nước, khấu hao dụng cụ) chia cho số tô bán dự kiến mỗi tháng (nên ước conservative/thấp để an toàn) để ra phần chi phí cố định mỗi tô phải gánh.
+- **Tính điểm hòa vốn (ĐC-02)**: `Điểm hòa vốn (tô/ngày) = Chi phí cố định tháng ÷ Lãi đóng góp bình quân/tô ÷ Số ngày bán/tháng`, trong đó `Lãi đóng góp/tô = Giá bán − Giá vốn nguyên liệu − Biến phí kênh` (bao bì, phí sàn app, khuyến mãi).
 - **Đừng chỉ nhìn lãi gộp**: giá bán trừ nguyên liệu chưa phải lợi nhuận ròng; phải trừ tiếp phần chi phí cố định và vận hành/đóng gói/khuyến mãi trên mỗi tô.
 - **Tham khảo mặt bằng giá khu vực**: đặt giá sát với phân khúc khách hàng và đối thủ quanh khu vực mở quán; giá quá thấp dễ gây nghi ngờ chất lượng, còn quá cao sẽ khó kéo khách mới.
 - **Tối ưu thực đơn bán kèm**: dùng các món/topping dễ bán hoặc đồ uống có biên lợi nhuận tốt để tăng giá trị trung bình trên mỗi lượt khách.

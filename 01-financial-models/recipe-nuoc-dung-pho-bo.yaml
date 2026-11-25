@@ -1,10 +1,14 @@
 # =============================================================================
 # CÔNG THỨC NINH NƯỚC DÙNG — PHỞ BÒ
 # Nguồn: 00-raw-notes/Kinh-nghiem-ninh-xuong.md
+# v0.3.0 — đối chiếu kiểm toán:
+#   ĐC-07: thống nhất MỘT luồng sơ chế xương (nhận hàng → ngâm rửa/chần →
+#           nướng (nếu áp dụng) → vào nồi ninh) giữa chon-xuong-bo.md,
+#           ninh-xuong-bo.md và file YAML này.
+#   ĐC-08: tách rõ biến lít nước dùng thành phẩm / mẻ và định mức mL/tô (TBD).
 # Mục đích: tách thông số định lượng (thời gian, nhiệt độ, nguyên liệu) thành
 #           biến số để làm cơ sở dữ liệu (bảng recipe, bảng step-timer).
-# Lưu ý: tỷ lệ gia vị & cách chế biến "nước thơm" cuối là bí quyết riêng của
-#        quán — không đưa số vào đây, chỉ đưa công đoạn & thông số đã chốt.
+# Lưu ý: tỷ lệ gia vị & "nước thơm" cuối là BÍ QUYẾT riêng — để TBD_OWNER_INPUT.
 # =============================================================================
 
 meta:
@@ -23,34 +27,67 @@ ingredients:                    # nguyên liệu làm nước dùng (chưa gồm
   - "Thảo quả"
   - "Cánh hoa hồi"
 
+# -----------------------------------------------------------------------------
+# ĐC-07: LUỒNG SƠ CHẾ XƯƠNG DUY NHẤT (khớp chon-xuong-bo.md & ninh-xuong-bo.md)
+# -----------------------------------------------------------------------------
+prep_flow_xuong:
+  - buoc: "Nhận hàng & kiểm tra tươi"
+    noi_dung: "Kiểm tra màu đỏ tươi, xương ống to ~4 đốt ngón tay, nhiều tủy, không mùi hôi (tiêu chí ở ingredients-standards.yaml)"
+  - buoc: "Ngâm rửa / chần khử mùi"
+    noi_dung: "Chà muối + rượu trắng, ngâm nước vỏ chanh 15–20 phút; hoặc ngâm rửa muối/giấm pha loãng, chần qua nước sôi để loại cặn bẩn"
+  - buoc: "Nướng xương (nếu áp dụng)"
+    noi_dung: "Nướng bếp gas/than, nồi chiên không dầu hoặc lò nướng 200–230°C trong 15–20 phút đến cháy xém, chảy mỡ thừa"
+  - buoc: "Vào nồi ninh"
+    noi_dung: "Rửa lại sạch, cho vào nồi nước, đun vừa để vớt bọt rồi ninh liu riu (xem process bên dưới)"
+
 process:
   - step: 1
     name: "Rửa & khử mùi xương"
     detail: "Rửa sạch, chà xát muối + rượu trắng, ngâm nước vỏ chanh"
     time_min: { min: 15, max: 20 }
-
   - step: 2
     name: "Nướng xương"
     detail: "Nướng trên bếp gas/than, nồi chiên không dầu hoặc lò nướng đến cháy xém, chảy mỡ thừa"
     temp_c: { min: 200, max: 230 }
     time_min: { min: 15, max: 20 }
-
   - step: 3
     name: "Rửa lại & hầm sơ, vớt bọt"
     detail: "Rửa lại sạch, cho xương vào nồi nước, đun nhiệt cao vừa phải để bọt nổi lên, vớt sạch bọt (không để bọt tan vào nước)"
-
   - step: 4
     name: "Ninh xương"
     detail: "Ninh sôi liu riu; cho thịt nạm/gầu/đuôi (nếu có) vào luộc chín rồi vớt ra để nguội trước khi thái bán"
     time_hour: 20
-
   - step: 5
     name: "Làm nước lèo (nêm gia vị)"
     detail: "Lấy nước xương ninh kỹ làm nước lèo; lúc này mới nêm gia vị + nguyên liệu tạo mùi đặc trưng (quế, hồi, thảo quả, gừng...). Tỷ lệ là bí quyết riêng."
-
   - step: 6
     name: "Chuẩn bị bán hàng"
     detail: "Chuẩn bị thịt, rau thơm, bánh phở để bán"
+
+# -----------------------------------------------------------------------------
+# ĐC-08: BIẾN SỐ DO CHỦ QUÁN ĐO THỰC TẾ (TBD_OWNER_INPUT)
+# -----------------------------------------------------------------------------
+variables_owner_input:
+  ty_le_xuong_nuoc:
+    gia_tri: TBD_OWNER_INPUT
+    don_vi: "kg xương / lít nước đầu vào"
+    huong_dan_do: "Cân kg xương cho vào nồi, đo lít nước châm ban đầu; ghi vào phieu-me-nuoc-dung.md. Không tự đặt số lý thuyết."
+  so_lit_nuoc_dung_thanh_pham_per_me:
+    gia_tri: TBD_OWNER_INPUT
+    don_vi: "lít / mẻ (sau lọc)"
+    huong_dan_do: "Đo lít nước dùng thành phẩm sau khi lọc cặn/bọt, trước khi nêm nước lèo. Dùng thước chia vạch nồi hoặc xô đong."
+  dinh_muc_ml_nuoc_dung_per_to:
+    gia_tri: TBD_OWNER_INPUT
+    don_vi: "mL / tô"
+    huong_dan_do: "Dùng muôi/ca đong có vạch, đong chuẩn 1 tô; ghi vào phieu-ra-to-chuan.md theo từng cỡ tô."
+
+# -----------------------------------------------------------------------------
+# ĐC-08: 0.45 của xương = HỆ SỐ QUY ĐỔI CHI PHÍ PHÂN BỔ (không phải tỷ lệ kg thu hồi)
+# -----------------------------------------------------------------------------
+xuong_cost_allocation:
+  he_so_phan_bo: 0.45
+  y_nghia: "Hệ số quy đổi CHI PHÍ phân bổ cho nước dùng (bã xương bỏ + nước bay hơi). KHÔNG phải tỷ lệ kg thu hồi."
+  cach_tinh_cost_per_to: "Cost xương/tô = (kg xương/me × giá/kg) × he_so_phan_bo / so_to_thanh_pham_cua_me"
 
 acceptance:                     # tiêu chuẩn nước dùng đạt
   - "Nước trong vắt"

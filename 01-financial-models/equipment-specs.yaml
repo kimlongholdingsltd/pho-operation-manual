@@ -1,6 +1,9 @@
 # =============================================================================
 # THIẾT BỊ — THÔNG SỐ KỸ THUẬT
 # Nguồn: 00-raw-notes/danh-muc-thiet-bi.md, 00-raw-notes/thiet-bi-tinh-tien.md
+# v0.3.0 — đối chiếu kiểm toán:
+#   ĐC-09: chuyển mốc "X+" (200L+, 500 triệu+) thành min + recommended_max
+#   ĐC-10: giữ nguyên điều kiện ngoại lệ xuất hóa đơn của mô hình ăn uống trực tiếp
 # Mục đích: biến số thiết bị cho app (bảng equipment, bảng pos-spec).
 # =============================================================================
 
@@ -17,7 +20,9 @@ nau_ham:
     capacity_liter: { min: 50, max: 100 }
     material: "Inox 304"
   - name: "Nồi hầm xương"
-    capacity_liter: { min: 100, max: 200 }   # 200L+ cho quy mô lớn
+    capacity_liter:
+      min: 100
+      recommended_max: 200             # 200L+ cho quy mô lớn — gợi ý, KHÔNG khóa cứng trần (ĐC-09)
     material: "Inox 304"
   - name: "Sọt xương / giỏ trụng phở"
     purpose: "Giữ xương gọn khi hầm, trụng bánh phở & rau nhanh"
@@ -29,8 +34,8 @@ so_che:
   - "Rổ rá, rây lọc, vá/muỗng múc, khay: hớt bọt, lọc cặn, chia nguyên liệu"
 
 bao_quan:
-  - "Tủ đông: trữ xương bò, thịt bò dự trữ dài ngày"
-  - "Tủ mát / tủ mát bàn chặt: thịt tươi trong ngày, rau sống, hành lá, gia vị"
+  - "Tủ đông: trữ xương bò, thịt bò dự trữ dài ngày (≤ -18°C — xem storage-preservation.yaml)"
+  - "Tủ mát / tủ mát bàn chặt: thịt tươi trong ngày, rau sống, hành lá, gia vị (thịt sống 0–3°C, thịt chín 2–4°C)"
   - "Tủ kính trưng bày: thịt chín/tái, bò viên, rau tại quầy bán"
 
 rua_hut_mui:
@@ -44,7 +49,10 @@ pos_printer:
   - printer_width_mm: [58, 80]
   - note: "Ưu tiên thiết bị gọn nhẹ, chịu nhiệt/độ ẩm tốt quanh khu nấu, dễ thao tác khi tay ướt"
 
+# -----------------------------------------------------------------------------
+# ĐC-10: giữ nguyên điều kiện NGOẠI LỆ xuất hóa đơn của mô hình ăn uống trực tiếp
+# -----------------------------------------------------------------------------
 legal_hoa_don_dien_tu:
-  - "Doanh nghiệp ăn uống trực tiếp: dùng hóa đơn điện tử khởi tạo từ máy tính tiền kết nối dữ liệu với cơ quan thuế (NĐ 254/2026/NĐ-CP)"
+  - "Doanh nghiệp ăn uống trực tiếp: dùng hóa đơn điện tử khởi tạo từ máy tính tiền kết nối dữ liệu với cơ quan thuế — TRỪ trường hợp thuộc diện NGOẠI LỆ theo quy định tại Nghị định 254/2026/NĐ-CP"
   - "Hộ kinh doanh doanh thu > 1 tỷ đồng/năm: bắt buộc hóa đơn điện tử có mã của cơ quan thuế hoặc hóa đơn điện tử khởi tạo từ máy tính tiền (NĐ 141/2026/NĐ-CP, NĐ 254/2026/NĐ-CP)"
   - "Hộ kinh doanh doanh thu ≤ 1 tỷ đồng/năm: có thể đăng ký nếu đủ điều kiện và có nhu cầu"

@@ -1,6 +1,6 @@
 # Nguyên tắc thiết kế menu và định giá
 
-Nguyên tắc vàng: giữ menu tinh gọn xoay quanh món chủ lực và định giá bán sao cho giá vốn thực phẩm (food cost) không vượt quá 35–40% để đảm bảo lợi nhuận và tốc độ phục vụ.
+Nguyên tắc vàng: giữ menu tinh gọn xoay quanh món chủ lực và định giá bán sao cho giá vốn thực phẩm (food cost) bình quân toàn menu ở mức 35–38%, tối đa 42–45% cho món chủ lực nhiều thịt, để đảm bảo lợi nhuận và tốc độ phục vụ.
 
 ## 1. Nguyên tắc vàng thiết kế menu
 
@@ -11,8 +11,8 @@ Nguyên tắc vàng: giữ menu tinh gọn xoay quanh món chủ lực và đị
 
 ## 2. Nguyên tắc vàng định giá bán
 
-- **Kiểm soát Food Cost ở mức 35–40%**: giá vốn nguyên vật liệu cốt lõi (xương, thịt, bánh phở, gia vị) nên chiếm khoảng 35–40% giá bán lẻ. Ví dụ, nếu giá vốn 1 bát phở là 15.000đ, mức giá bán tối thiểu nên từ 40.000đ trở lên để còn dư địa trả mặt bằng, nhân sự và tạo lãi.
-- **Tính điểm hòa vốn rõ ràng**: xác định số bát cần bán mỗi ngày bằng công thức: `Tổng chi phí cố định tháng ÷ (Giá bán − Giá vốn 1 bát)`.
+- **Kiểm soát Food Cost theo 3 ngưỡng (ĐC-01)**: ngưỡng mục tiêu toàn menu 35–38%; ngưỡng trần cho món chủ lực nhiều thịt (Tái Nạm) tối đa 42–45%. Ví dụ, nếu giá vốn 1 bát phở là 15.000đ, mức giá bán tối thiểu nên từ 40.000đ trở lên để còn dư địa trả mặt bằng, nhân sự và tạo lãi.
+- **Tính điểm hòa vốn rõ ràng (ĐC-02)**: `Điểm hòa vốn (tô/ngày) = Chi phí cố định tháng ÷ Lãi đóng góp bình quân/tô ÷ Số ngày bán/tháng`, trong đó `Lãi đóng góp/tô = Giá bán − Giá vốn nguyên liệu − Biến phí kênh` (bao bì, phí sàn app, khuyến mãi).
 - **Bán theo combo & món kèm**: ghép Phở + Quẩy + Trà đá hoặc Phở đặc biệt + Trứng chần giúp tăng giá trị trung bình mỗi đơn hàng và tận dụng biên lợi nhuận tốt từ đồ uống, món phụ.
 - **Khảo sát đối thủ và tập khách hàng**: cân chỉnh giá theo thu nhập khu vực và mặt bằng giá đối thủ quanh quán để không bị "lệch pha" quá xa.
 

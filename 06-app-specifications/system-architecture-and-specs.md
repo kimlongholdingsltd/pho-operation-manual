@@ -32,6 +32,8 @@ Nguồn: `ingredients-standards.yaml` + `recipe-costing-sample.yaml`.
 | `unit` | varchar | Đơn vị tính (`kg`, `batch`) | `ingredients[].unit` |
 | `category` | varchar | Nhóm: xương / thịt / bánh / rau / gia vị | `ingredients[].purpose` |
 | `yield_factor` | decimal(3,2) | Hệ số thu hồi sau sơ chế (nạm 0.68, gầu 0.65, rau 0.85, tái 1.0, xương 1.0) | `ingredients[].yield_factor` |
+| `physical_yield_factor` | decimal(3,2) | ĐC-07: tỷ lệ thu hồi VẬT LÝ sau sơ chế (xương 0.45 — chỉ theo dõi hao hụt vật lý) | `ingredients[].physical_yield_factor` |
+| `cost_allocation_ratio` | decimal(3,2) | ĐC-07: tỷ lệ chi phí phân bổ vào món (xương 1.0 = toàn bộ tính chi phí) | `ingredients[].cost_allocation_ratio` |
 | `price_per_unit` | decimal | Giá mua / đơn vị (VND) | `recipe-costing-sample.ingredients[].price_per_unit` |
 | `selection_criteria` | json | Tiêu chí chọn (màu, thớ, mùi, tránh…) | `ingredients[].selection`, `avoid` |
 | `storage_rule` | varchar | Liên kết quy tắc nhiệt độ bảo quản | `storage-preservation.temperature_standard` |
@@ -161,15 +163,16 @@ Từ `storage-preservation.yaml`:
 
 | Khu vực | Ngưỡng chuẩn | Cảnh báo khi |
 |---|---|---|
-| Kho đông | ≤ -18°C | > -18°C |
+| Kho đông | ≤ -18°C (điểm đặt tủ -20°C) | > -18°C |
+| Ngăn đông mềm | -1°C đến -3°C (tối đa 48h) | ngoài -1..-3°C |
 | Kho mát thịt sống | 0–3°C | ngoài 0–3°C |
 | Kho mát thịt chín | 2–4°C | ngoài 2–4°C |
 
-**Làm nguội thịt chín (đóng ca) — quy tắc FDA 2h/4h:**
+**Làm nguội thịt chín (đóng ca) — quy tắc FDA §3-501.14 (ĐC-06):**
 
-- Đếm ngược: 60°C → 21°C trong ≤ 2 giờ; 21°C → ≤ 4°C trong ≤ 4 giờ tiếp theo.
-- Không đạt mốc → cảnh báo "hâm lại ≥ 74°C rồi làm nguội lại, hoặc loại bỏ".
-- Khay nông < 5 cm, chia nhỏ phần bán/dùng.
+- Đếm ngược nhiệt độ TÂM: 57°C → 21°C trong ≤ 2 giờ; 21°C → ≤ 5°C trong tổng ≤ 6 giờ.
+- Khay nông ≤ 5 cm, chia nhỏ phần bán/dùng.
+- Trượt mốc thời gian làm nguội → cảnh báo "HỦY BỎ, không hâm lại".
 
 ### Phân hệ 4 — Dashboard điểm hòa vốn theo ngày
 

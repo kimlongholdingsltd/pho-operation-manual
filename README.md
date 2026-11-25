@@ -91,6 +91,7 @@ Toàn bộ 20 ghi chú thực chiến ban đầu, giữ nguyên làm nguồn tha
 | [`phieu-me-nuoc-dung.md`](03-sop-operations/forms/phieu-me-nuoc-dung.md) | Phiếu theo dõi mẻ nước dùng |
 | [`phieu-luoc-va-thu-hoi-thit.md`](03-sop-operations/forms/phieu-luoc-va-thu-hoi-thit.md) | Phiếu cân luộc & thu hồi thịt |
 | [`phieu-ra-to-chuan.md`](03-sop-operations/forms/phieu-ra-to-chuan.md) | Phiếu ra tô chuẩn (định lượng) |
+| [`example-filled-forms.md`](03-sop-operations/forms/example-filled-forms.md) | Ca mẫu điền đầy đủ 1 ngày vận hành |
 
 ### 04 — Nhân sự & Đào tạo
 
@@ -128,6 +129,7 @@ Toàn bộ 20 ghi chú thực chiến ban đầu, giữ nguyên làm nguồn tha
 | **v0.3.0** | Đồng bộ 10 điểm kiểm toán ĐC-01…ĐC-10 giữa Markdown & YAML; bổ sung bảng quyết định đầu tư 300 triệu + dòng tiền 13 tuần; bộ 3 biểu mẫu nghiệm thu; nâng cấp SOP ninh xương. |
 | **v0.4.0** | Chốt định mức mẻ nước dùng chuẩn 100L (25kg xương/100L nước/70L thành phẩm/140 tô), điện năng Newsun ~32 kWh/mẻ, bí quyết tạo hương 3 lớp + hộp gia vị inox, SOP ra tô & giữ nhiệt. |
 | **v1.0.0** | Trang chủ README + đặc tả hệ thống App (`06-app-specifications/`); phát hành chính thức với tag `v1.0.0`. |
+| **v0.5.0** | Bản vá kiểm toán sau phát hành: đóng 6 điểm ĐC-01/04/05/06/07/08, chuẩn làm nguội FDA §3-501.14, chuẩn hóa nồi 100L Newsun, tách hệ số xương (vật lý vs chi phí), bổ sung ca mẫu điền đầy đủ. |
 
 ---
 

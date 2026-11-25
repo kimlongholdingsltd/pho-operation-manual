@@ -4,7 +4,7 @@
 
 ## 1. Xác định giá nguyên liệu tối đa (Cost nguyên liệu)
 
-- **Áp dụng tỷ lệ vàng**: giữ tổng tiền nguyên liệu (thịt bò, xương ninh, bánh phở, gia vị, rau hành, gia vị kèm) khoảng 30% – 35% giá bán. Ví dụ: với giá bán 50.000đ/tô, mức nguyên liệu tối đa nên quanh 15.000đ – 17.500đ/tô (thực tế nhiều quán có thể dao động quanh 20.000đ – 26.000đ tùy định lượng thịt và phân khúc).
+- **Áp dụng tỷ lệ vàng (ĐC-01)**: giữ tổng tiền nguyên liệu (thịt bò, xương ninh, bánh phở, gia vị, rau hành, gia vị kèm) ở **bình quân toàn menu 35–38%** giá bán, và **trần món chủ lực nhiều thịt (như Tái Nạm) tối đa 42–45%**. Ví dụ: với giá bán 50.000đ/tô, mức nguyên liệu mục tiêu nên quanh 17.500đ – 19.000đ/tô (thực tế nhiều quán có thể dao động quanh 20.000đ – 26.000đ tùy định lượng thịt và phân khúc).
 - **Tính theo định lượng chuẩn**: quy đổi giá mua từng nguyên liệu (kg, bó, lít) về chi phí theo gram/tô rồi cộng lại cho 1 tô tiêu chuẩn, tránh ước lượng cảm tính.
 - **Tính cả hao hụt và phần dùng chung**: cộng thêm phần hao hụt khi sơ chế/cắt thái và chia đều chi phí nồi nước dùng (xương, gia vị, nhiên liệu ninh) cho số tô dự kiến bán.
 - **Chừa biên độ biến động giá**: giá thịt bò, xương và rau dễ biến động theo mùa hoặc thị trường, nên chừa một khoảng đệm để không bị âm vốn khi giá sỉ tăng.

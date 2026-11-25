@@ -11,8 +11,9 @@ Trước khi mở quán, cần đạt các điều kiện tiên quyết về ph�
 ## 2. Vốn đầu tư và dự phòng tài chính
 
 - **Vốn ban đầu phù hợp quy mô**: chuẩn bị đủ vốn theo mô hình dự kiến (ví dụ: quán nhỏ ít chỗ ngồi vốn thấp hơn, quán gia đình 30–50 chỗ khoảng 150–300 triệu đồng, quán lớn mặt phố 300–500+ triệu đồng).
-- **Phân bổ vốn cân đối**: không dồn hết tiền vào mặt bằng; giữ lại phần vốn cho sửa chữa, thiết bị bếp (nồi hầm, tủ mát/đông, bàn ghế), nguyên liệu đầu kỳ, khai trương và quỹ dự phòng rủi ro (khoảng 5–10% vốn).
-- **Vốn lưu động vận hành**: có sẵn tiền mặt/dòng tiền duy trì ít nhất vài tháng đầu cho thuê nhà, điện nước, lương nhân viên và nguyên liệu khi lượng khách chưa ổn định.
+- **Phân bổ vốn cân đối**: không dồn hết tiền vào mặt bằng; giữ lại phần vốn cho sửa chữa, thiết bị bếp (nồi hầm, tủ mát/đông, bàn ghế), nguyên liệu đầu kỳ và khai trương.
+- **Dự phòng phát sinh thi công/mua sắm (ĐC-04)**: tách riêng **5–10% CAPEX** (tính trên tổng tiền cải tạo + thiết bị) để xử lý phát sinh khi thi công — không gộp chung với quỹ vận hành.
+- **Quỹ tiền mặt duy trì vận hành (ĐC-04)**: có sẵn tiền mặt/dòng tiền **tối thiểu 3 tháng chi phí cố định** (thuê nhà, điện nước, lương nhân viên, nguyên liệu) cho giai đoạn lượng khách chưa ổn định.
 
 ## 3. Công thức chuẩn và nguồn cung ổn định
 

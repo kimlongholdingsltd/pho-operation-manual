@@ -29,22 +29,22 @@ ingredients:                    # nguyên liệu làm nước dùng (chưa gồm
   - "Nước mắm cốt độ đạm cao"
 
 # -----------------------------------------------------------------------------
-# ĐC-07: LUỒNG SƠ CHẾ XƯƠNG DUY NHẤT (khớp chon-xuong-bo.md & ninh-xuong-bo.md)
+# ĐC-08: LUỒNG SƠ CHẾ XƯƠNG DUY NHẤT (khớp chon-xuong-bo.md & ninh-xuong-bo.md)
 # -----------------------------------------------------------------------------
 prep_flow_xuong:
-  - buoc: "Nhận hàng & kiểm tra tươi"
-    noi_dung: "Kiểm tra màu đỏ tươi, xương ống to ~4 đốt ngón tay, nhiều tủy, không mùi hôi (tiêu chí ở ingredients-standards.yaml)"
-  - buoc: "Ngâm rửa / chần khử mùi"
-    noi_dung: "Chà muối + rượu trắng, ngâm nước vỏ chanh 15–20 phút; hoặc ngâm rửa muối/giấm pha loãng, chần qua nước sôi để loại cặn bẩn"
-  - buoc: "Nướng xương (nếu áp dụng)"
+  - buoc: "Ngâm khử mùi"
+    noi_dung: "Chà muối + rượu trắng (hoặc ngâm giấm pha loãng); có thể ngâm nước vỏ chanh 15–20 phút"
+  - buoc: "Chần nước sôi rửa sạch"
+    noi_dung: "Chần qua nước sôi rồi rửa lại sạch để loại cặn bẩn"
+  - buoc: "Nướng thơm xương ống (nếu áp dụng)"
     noi_dung: "Nướng bếp gas/than, nồi chiên không dầu hoặc lò nướng 200–230°C trong 15–20 phút đến cháy xém, chảy mỡ thừa"
   - buoc: "Vào nồi ninh"
     noi_dung: "Rửa lại sạch, cho vào nồi nước, đun vừa để vớt bọt rồi ninh liu riu (xem process bên dưới)"
 
 process:
   - step: 1
-    name: "Rửa & khử mùi xương"
-    detail: "Rửa sạch, chà xát muối + rượu trắng, ngâm nước vỏ chanh"
+    name: "Ngâm khử mùi & chần rửa sạch"
+    detail: "Chà muối + rượu trắng (hoặc ngâm giấm pha loãng), có thể ngâm nước vỏ chanh; rồi chần qua nước sôi, rửa lại sạch"
     time_min: { min: 15, max: 20 }
   - step: 2
     name: "Nướng xương"
@@ -59,8 +59,8 @@ process:
     detail: "Ninh sôi liu riu (mặt nước sôi lăn tăn, không sôi sùng sục); duy trì suốt ~20 tiếng, châm bù bằng nước sôi khi cạn dưới xương."
     time_hour: 20
   - step: 5
-    name: "Luộc thịt nạm/gầu"
-    detail: "Thịt cho vào ngay sau khi vớt sạch bọt đợt đầu, luộc 2.5–3 giờ đến chín mềm rồi vớt; để nguội tự nhiên (kiểm soát thời gian/nhiệt độ tránh vùng nguy cơ), chia túi/hộp → ngăn đông mềm (bán hôm sau) hoặc cấp đông sâu (dài ngày)."
+    name: "Luộc thịt nạm/gầu (song song trong 20 giờ ninh)"
+    detail: "Thịt cho vào ngay sau khi vớt sạch bọt đợt đầu, luộc 2.5–3 giờ đến chín mềm rồi vớt (KHÔNG cộng thêm vào 20 giờ ninh). Làm nguội nhanh FDA §3-501.14: khay nông ≤5cm, 57°C→21°C ≤2h, →≤5°C tổng ≤6h; chia túi/hộp → ngăn đông mềm -1°C..-3°C (tối đa 48h, bán hôm sau) hoặc cấp đông ≤ -18°C (dài ngày)."
     time_hour: { min: 2.5, max: 3 }
   - step: 6
     name: "Làm nước lèo (tạo hương & nêm gia vị)"
@@ -73,12 +73,16 @@ process:
 # ĐỊNH MỨC MẺ CHUẨN (v0.4.0 — số thực đo, thay TBD_OWNER_INPUT cũ)
 # -----------------------------------------------------------------------------
 batch_spec:
-  noi_chuan: "Nồi điện Newsun 100L (công suất max 6kW)"
+  noi_chuan: "Nồi điện Newsun 100L (công suất max 6kW, dung tích DANH ĐỊNH)"
   kg_xuong_per_me: 25               # 25 kg xương ống/xương cục
-  lit_nuoc_dau_vao: 100             # 100 lít nước ban đầu
+  the_tich_xuong_chiem_lit: { min: 18, max: 20 }   # 25 kg xương chiếm ~18–20 L thể tích nồi
+  lit_nuoc_dau_vao: 100             # tổng nước cấp vào cả mẻ = 100 L (= lit_nuoc_lanh_nap_ban_dau + lit_nuoc_cham_bu)
+  lit_nuoc_lanh_nap_ban_dau: { min: 80, max: 85 }  # nước lạnh nạp ban đầu (đến vạch an toàn, chừa chỗ xương + châm bù)
+  lit_nuoc_cham_bu: { min: 15, max: 20 }           # châm bù nước SÔI trong quá trình ninh
   lit_thanh_pham_sau_loc: 70        # 70 lít nước dùng bán được sau lọc
   so_to_thanh_pham: 140             # 70 L ÷ 0.5 L/tô = 140 tô chuẩn
-  ty_le_xuong_nuoc: 0.25            # 25 kg / 100 L = 0.25 kg xương / lít nước đầu vào
+  ty_le_xuong_nuoc_ban_dau: 0.25    # 25 kg / 100 L nước đầu vào (định mức mẻ chuẩn) = 0.25 kg xương / lít
+  ty_le_xuong_nuoc_tong: 0.25       # 25 kg / tổng nước cấp vào thực tế (100 L = 80–85 L ban đầu + 15–20 L châm bù) = 0.25
   dinh_muc_ml_nuoc_dung_per_to: 500 # 500 mL nước dùng/tô
   gram_xuong_per_to: 178.6          # 25,000 g / 140 tô
 
@@ -114,12 +118,14 @@ huong_lieu:
   nuoc_mam: "Nước mắm cốt độ đạm cao để tạo vị ngọt hậu tự nhiên"
 
 # -----------------------------------------------------------------------------
-# GIÁ VỐN XƯƠNG — PHÂN BỔ THEO MẺ THỰC ĐO (thay hệ số 0.45 cũ của ĐC-08)
+# GIÁ VỐN XƯƠNG — TÁCH 2 HỆ SỐ ĐỘC LẬP (ĐC-07)
 # -----------------------------------------------------------------------------
 xuong_cost_allocation:
-  cach_tinh_cost_per_to: "Cost xương/tô = kg_xuong_per_me × giá/kg / so_to_thanh_pham"
-  vi_du: "25 kg × 60.000 VND/kg ÷ 140 tô = 10.714 VND/tô"
-  ghi_chu: "v0.4.0 thay hệ số ước 0.45 (ĐC-08) bằng số mẻ thực đo; toàn bộ 25 kg xương mua vào được phân bổ 100% chi phí vào nước dùng."
+  physical_yield_factor: 0.45       # tỷ lệ xác xương thu hồi VẬT LÝ sau ninh (chỉ dùng theo dõi hao hụt vật lý)
+  cost_allocation_ratio: 1.0        # 100% chi phí 25 kg xương mua vào phân bổ vào nồi nước dùng
+  cach_tinh_cost_per_to: "Cost xương/tô = kg_xuong_per_me × giá/kg × cost_allocation_ratio / so_to_thanh_pham"
+  vi_du: "25 kg × 60.000 VND/kg × 1.0 ÷ 140 tô = 10.714 VND/tô"
+  ghi_chu: "physical_yield_factor 0.45 chỉ theo dõi hao hụt VẬT LÝ (bã xương bỏ); cost_allocation_ratio 1.0 nghĩa là toàn bộ 25kg mua vào tính chi phí (không dùng hệ số 0.45 để tính giá vốn)."
 
 acceptance:                     # tiêu chuẩn nước dùng đạt
   - "Nước trong vắt"

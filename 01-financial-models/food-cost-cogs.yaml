@@ -33,6 +33,12 @@ food_cost_thresholds:
       bổ xương theo mẻ thực đo 25kg/140 tô (v0.4.0) — CHƯA tối ưu định lượng hoặc
       CHƯA điều chỉnh giá bán. Trước khi bán thật phải đưa về ngưỡng
       flagship_ceiling (42–45%) hoặc thấp hơn.
+  canh_bao:                           # (d) ĐC-01: cảnh báo theo trần của CHÍNH món đó
+    quy_tac: >
+      Mỗi món gắn 1 loại trần theo chính nó: món chủ lực nhiều thịt (Tái Nạm...)
+      dùng flagship_ceiling (42–45%), các món còn lại dùng menu_target (35–38%).
+      Hệ thống cảnh báo VÀNG khi vượt ngưỡng mục tiêu của món và ĐỎ khi vượt trần
+      hiệu lực của chính món đó — không áp 1 ngưỡng chung cho toàn menu.
 
 # -----------------------------------------------------------------------------
 # ĐC-02: Công thức hòa vốn theo lãi đóng góp
@@ -61,8 +67,9 @@ breakeven:
 pricing_reference:
   example_gia_ban_50k:
     price_selling: 50000
-    nguyen_lieu_toi_da_min: 15000     # 30% của 50k (ngưỡng gốc ty-le-gia-thanh-COGS)
-    nguyen_lieu_toi_da_max: 17500     # 35% của 50k
+    nguyen_lieu_toi_da_min: 17500     # 35% của 50k (ngưỡng menu_target ĐC-01)
+    nguyen_lieu_toi_da_max: 19000     # 38% của 50k
+    nguyen_lieu_tran_chu_luc_max: 22500   # 45% của 50k (trần món chủ lực)
     thuc_te_dao_dong_min: 20000       # thực tế nhiều quán dao động
     thuc_te_dao_dong_max: 26000
   example_gia_von_15k:

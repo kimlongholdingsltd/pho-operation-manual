@@ -10,7 +10,7 @@ Trình tự chuẩn bị: nghiên cứu thị trường và xác định mô hì
 ## 2. Lập kế hoạch vốn và dòng tiền
 
 - **Vốn mở quán**: quán bình dân thường cần từ khoảng 100 triệu đồng trở lên; quy mô lớn hơn cần mức vốn cao hơn tương ứng.
-- **Phân bổ ngân sách**: dành phần lớn cho mặt bằng và sửa chữa, tiếp đến là thiết bị – nội thất, nguyên liệu ban đầu, marketing khai trương và quỹ dự phòng vận hành (nên có ít nhất 2–6 tháng chi phí cố định để không bị hụt vốn giai đoạn đầu).
+- **Phân bổ ngân sách**: dành phần lớn cho mặt bằng và sửa chữa, tiếp đến là thiết bị – nội thất, nguyên liệu ban đầu, marketing khai trương. Tách bạch hai khoản dự phòng độc lập (ĐC-04): (1) **Dự phòng phát sinh thi công/mua sắm = 5–10% CAPEX** (tính trên tiền cải tạo + thiết bị), và (2) **Quỹ tiền mặt duy trì vận hành = tối thiểu 3 tháng chi phí cố định** (thuê nhà, lương, điện nước) để không bị hụt vốn giai đoạn đầu.
 
 ## 3. Tìm mặt bằng phù hợp
 

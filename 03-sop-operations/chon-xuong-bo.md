@@ -18,10 +18,10 @@ Mỗi lần nhập nguyên liệu (hàng ngày hoặc theo lịch nhập).
    - Xương ống: nhiều tủy, giúp nước dùng ngọt sâu và béo thơm.
    - Xương cổ, sườn, hom: cân bằng vị béo của xương ống, tăng độ đậm đà và trong nước.
 2. **Kiểm tra dấu hiệu tươi ngon** (màu, kích thước, mùi, độ đàn hồi — xem Mục 5).
-3. **Sơ chế theo luồng chuẩn** (thống nhất với `ninh-xuong-bo.md` và `../01-financial-models/recipe-nuoc-dung-pho-bo.yaml` — ĐC-07):
-   - **Nhận hàng** → kiểm tra tươi (Mục 5).
-   - **Ngâm rửa/chần khử mùi**: ngâm rửa muối hoặc giấm pha loãng, chần qua nước sôi; hoặc chà muối + rượu trắng, ngâm nước vỏ chanh 15–20 phút.
-   - **Nướng xương (nếu áp dụng)**: 200–230°C trong 15–20 phút đến cháy xém, chảy mỡ thừa.
+3. **Sơ chế theo luồng chuẩn duy nhất** (thống nhất với `ninh-xuong-bo.md` và `../01-financial-models/recipe-nuoc-dung-pho-bo.yaml` — ĐC-08):
+   - **Ngâm khử mùi**: chà muối + rượu trắng (hoặc ngâm giấm pha loãng), có thể ngâm nước vỏ chanh 15–20 phút.
+   - **Chần nước sôi rửa sạch**: chần qua nước sôi rồi rửa lại sạch để loại cặn bẩn.
+   - **Nướng thơm xương ống (nếu áp dụng)**: 200–230°C trong 15–20 phút đến cháy xém, chảy mỡ thừa.
    - **Vào nồi ninh**.
    - Nếu chặt đôi xương ống để lấy tủy, dùng sống dao chặt nhẹ để tránh làm vụn xương khiến nước đục.
 

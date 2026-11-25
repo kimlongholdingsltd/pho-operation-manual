@@ -27,7 +27,9 @@ ingredients:
   - name: "Xương bò"
     unit: kg
     purpose: "Ninh nước dùng phở"
-    yield_factor: 1.0            # v0.4.0: toàn bộ 25kg mua vào phân bổ 100% chi phí vào nước dùng (bã là phế phẩm); hệ số 0.45 cũ (ĐC-08) đã bị thay bằng batch_spec thực đo
+    physical_yield_factor: 0.45   # ĐC-07: tỷ lệ xác xương thu hồi VẬT LÝ sau ninh (chỉ theo dõi hao hụt vật lý)
+    cost_allocation_ratio: 1.0    # ĐC-07: 100% chi phí 25kg xương mua vào phân bổ vào nồi nước dùng
+    yield_factor: 1.0             # giữ = cost_allocation_ratio để tính giá vốn (toàn bộ xương mua vào tính chi phí)
     batch_spec:
       kg_xuong_per_me: 25
       lit_nuoc_dau_vao: 100
@@ -45,7 +47,9 @@ ingredients:
       - "Xương đầu (dễ mùi hôi, khó xử lý)"
       - "Xương quá nhỏ từ bò non/gầy (ít chất ngọt)"
     prep:
-      - "Ngâm rửa muối hoặc giấm pha loãng, chần qua nước sôi để khử mùi, loại bỏ cặn bẩn"
+      - "Ngâm khử mùi: chà muối + rượu trắng (hoặc ngâm giấm pha loãng), có thể ngâm nước vỏ chanh 15–20 phút"
+      - "Chần qua nước sôi rồi rửa lại sạch để loại cặn bẩn"
+      - "Nướng thơm xương ống (nếu áp dụng): 200–230°C trong 15–20 phút đến cháy xém, chảy mỡ thừa"
       - "Chặt đôi xương ống lấy tủy bằng sống dao chặt nhẹ để tránh làm vụn xương khiến nước đục"
 
   # ---------------------------------------------------------------------------

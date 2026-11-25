@@ -27,7 +27,13 @@ ingredients:
   - name: "Xương bò"
     unit: kg
     purpose: "Ninh nước dùng phở"
-    yield_factor: 0.45            # HỆ SỐ QUY ĐỔI CHI PHÍ phân bổ (bã xương bỏ + nước bay hơi), KHÔNG phải tỷ lệ kg thu hồi — ĐC-08
+    yield_factor: 1.0            # v0.4.0: toàn bộ 25kg mua vào phân bổ 100% chi phí vào nước dùng (bã là phế phẩm); hệ số 0.45 cũ (ĐC-08) đã bị thay bằng batch_spec thực đo
+    batch_spec:
+      kg_xuong_per_me: 25
+      lit_nuoc_dau_vao: 100
+      lit_thanh_pham_sau_loc: 70
+      so_to_thanh_pham: 140
+      gram_xuong_per_to: 178.6
     blend:                        # tỷ lệ phối trộn các loại xương
       xuong_ong_percent: 50       # xương ống: nhiều tủy, ngọt sâu, béo thơm
       xuong_lan_percent: 50       # xương cổ/sườn/hom: cân bằng béo, tăng đậm đà, trong nước

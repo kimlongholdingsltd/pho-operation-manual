@@ -1,15 +1,19 @@
 # Phiếu ra tô chuẩn (định lượng)
 
 > Mục đích: chốt định lượng gram/mL cho từng cỡ tô để ra tô đồng đều và kiểm soát
-> food cost. Điền số thực tế của quán. Đối chiếu `dinh_muc_ml_nuoc_dung_per_to`
-> trong `../../01-financial-models/recipe-nuoc-dung-pho-bo.yaml`.
+> food cost. **Múc chuẩn nước dùng: 500 mL/tô** (mẻ chuẩn 100L → 140 tô). Điền số
+> thực tế của quán. Đối chiếu `dinh_muc_ml_nuoc_dung_per_to` trong
+> `../../01-financial-models/recipe-nuoc-dung-pho-bo.yaml`.
+>
+> Quy tắc giữ nhiệt: duy trì nồi nước chan SÔI suốt giờ bán; tráng tô bằng nước sôi
+> trước khi xếp bánh/thịt để giữ trọn độ nóng (xem `../ra-to-va-giu-nhiet.md`).
 
 ## 1. Định lượng tô ăn tại quán
 
 | Cỡ tô | Bánh phở (g) | Thịt (g) | Hành/rau (g) | Nước dùng (mL) | Ghi chú |
 |---|---|---|---|---|---|
 | Tô nhỏ | | | | | |
-| Tô thường | | | | | |
+| Tô thường | | | | 500 | |
 | Tô lớn | | | | | |
 
 > Tham khảo mẫu (recipe-costing-sample.yaml): bánh phở 200g, bò tái 40g, nạm chín

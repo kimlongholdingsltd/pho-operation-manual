@@ -24,13 +24,14 @@ food_cost_thresholds:
     percent: { min: 0.42, max: 0.45 } # tối đa 42–45% (Tái Nạm, Tái Đặc Biệt...)
     ap_dung: "Món chủ lực nhiều thịt (Tái Nạm) — cho phép cao hơn nhưng KHÔNG vượt trần"
   example_non_optimized:              # (c) tô mẫu chỉ là bài toán ví dụ
-    food_cost_sample_vnd: 25700
+    food_cost_sample_vnd: 30414
     price_selling_sample_vnd: 45000
-    food_cost_percent_sample: 0.571   # 57.1%
+    food_cost_percent_sample: 0.676   # 67.6% (chưa gồm điện năng ~0.23 kWh/tô)
     ghi_chu: >
-      Tô mẫu 25.700đ / 45.000đ (57.1%) KHÔNG phải chuẩn vận hành. Đây là ví dụ
-      minh họa cách tính (recipe-costing-sample.yaml) khi CHƯA tối ưu định lượng
-      hoặc CHƯA điều chỉnh giá bán. Trước khi bán thật phải đưa về ngưỡng
+      Tô mẫu 30.414đ / 45.000đ (67.6%, chưa gồm điện năng) KHÔNG phải chuẩn vận
+      hành. Đây là ví dụ minh họa cách tính (recipe-costing-sample.yaml) khi phân
+      bổ xương theo mẻ thực đo 25kg/140 tô (v0.4.0) — CHƯA tối ưu định lượng hoặc
+      CHƯA điều chỉnh giá bán. Trước khi bán thật phải đưa về ngưỡng
       flagship_ceiling (42–45%) hoặc thấp hơn.
 
 # -----------------------------------------------------------------------------

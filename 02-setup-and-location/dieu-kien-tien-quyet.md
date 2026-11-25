@@ -24,6 +24,7 @@ Trước khi mở quán, cần đạt các điều kiện tiên quyết về ph�
 
 - **Vị trí phù hợp tệp khách**: phù hợp với khách mục tiêu (khu dân cư, văn phòng, trường học, trục đường thuận tiện, có chỗ để xe an toàn) và tương xứng với mức giá bán.
 - **Hạ tầng kỹ thuật đạt yêu cầu**: hệ thống cấp thoát nước tốt, thông gió/hút mùi hiệu quả, nguồn điện/gas đủ tải cho nồi nấu phở và thiết bị lạnh, khu sơ chế tách biệt với khu phục vụ và vệ sinh.
+- **Nguồn nước đạt chất lượng**: kiểm tra chất lượng nước máy khu vực thuê mặt bằng (độ cứng, hàm lượng clo) — độ cứng/clo trong nước máy ảnh hưởng trực tiếp đến màu và vị nước dùng. Nếu nước không đạt, lắp bộ lọc đầu nguồn trước khi đưa vào nấu.
 
 ## 5. Nhân sự và quy trình vận hành
 

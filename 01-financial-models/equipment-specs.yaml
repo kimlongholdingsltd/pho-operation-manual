@@ -24,6 +24,11 @@ nau_ham:
       min: 100
       recommended_max: 200             # 200L+ cho quy mô lớn — gợi ý, KHÔNG khóa cứng trần (ĐC-09)
     material: "Inox 304"
+  - name: "Nồi hầm xương điện (chuẩn — Newsun 100L)"
+    capacity_liter: 100
+    cong_suat_max_kw: 6
+    material: "Inox 304"
+    ghi_chu: "Mẻ chuẩn 25kg xương + 100L nước → 70L thành phẩm (xem recipe-nuoc-dung-pho-bo.yaml)"
   - name: "Sọt xương / giỏ trụng phở"
     purpose: "Giữ xương gọn khi hầm, trụng bánh phở & rau nhanh"
 

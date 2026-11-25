@@ -1,9 +1,9 @@
 # Phiếu theo dõi mẻ nước dùng
 
-> Mục đích: đo thực tế để điền các biến `TBD_OWNER_INPUT` trong
-> `../../01-financial-models/recipe-nuoc-dung-pho-bo.yaml`
-> (`ty_le_xuong_nuoc`, `so_lit_nuoc_dung_thanh_pham_per_me`). Điền đầy đủ mỗi mẻ,
-> không ước lượng.
+> Mục đích: theo dõi mỗi mẻ để đối chiếu định mức chuẩn đã chốt (25 kg xương +
+> 100 L nước → 70 L thành phẩm; tỷ lệ xương/nước 0.25 kg/L) trong
+> `../../01-financial-models/recipe-nuoc-dung-pho-bo.yaml`. Điền đầy đủ mỗi mẻ,
+> không ước lượng — phát hiện sớm mẻ lệch định mức.
 
 | Trường | Giá trị |
 |---|---|
@@ -40,11 +40,10 @@
 | Gas/điện tiêu thụ (ghi đơn vị) | |
 | Thời gian ninh thực tế (giờ) | |
 
-## 4. Đối chiếu & chuyển vào YAML
+## 4. Đối chiếu với định mức chuẩn
 
-- `ty_le_xuong_nuoc` = tổng kg xương ÷ tổng lít nước → điền vào
-  `recipe-nuoc-dung-pho-bo.yaml`.
-- `so_lit_nuoc_dung_thanh_pham_per_me` = lít thành phẩm sau lọc → điền vào
-  `recipe-nuoc-dung-pho-bo.yaml`.
+- Tỷ lệ xương/nước thực tế đối chiếu chuẩn **0.25 kg/L** (25 kg / 100 L).
+- Lít thành phẩm sau lọc đối chiếu chuẩn **70 L** (140 tô × 500 mL).
+- Lệch quá mức → kiểm tra lại quy trình (hao nước quá nhanh, lọc hao, sai định lượng nước đầu vào).
 
 Ký tên bếp phụ: ____________

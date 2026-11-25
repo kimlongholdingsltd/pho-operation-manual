@@ -18,6 +18,7 @@ Mỗi lần nhập nguyên liệu.
 2. **Chọn đúng vị trí**: nên chọn phần gầu ngon thay vì lấy lẫn phần cuối cánh gầu vốn dễ khô, bở.
 3. **Kiểm tra màu sắc, thớ, độ đàn hồi và mùi** (xem Mục 5).
 4. **Sơ chế khi mua**: mua nguyên tảng tương đối gọn để dễ luộc chín đều và thái lát mỏng bản to sau khi thịt nguội; luộc chín vừa tới rồi ngâm nước lạnh hoặc để nguội bớt trước khi thái để lát gầu giữ form đẹp, giòn và không bị bở nát.
+5. **Luộc & bảo quản sau khi chọn**: cho gầu vào nồi nước dùng **ngay sau khi vớt sạch bọt đợt đầu**, luộc **2,5–3 giờ** đến chín mềm rồi vớt; để nguội tự nhiên (kiểm soát thời gian/nhiệt độ tránh vùng nguy cơ 4–60°C), chia túi/hộp vào **ngăn đông mềm** (bán ngay hôm sau) hoặc **cấp đông lạnh sâu** (bảo quản dài ngày). Chi tiết: xem `ninh-xuong-bo.md` và `bao-quan-thit-chin.md`.
 
 ## 5. Tiêu chuẩn nghiệm thu
 

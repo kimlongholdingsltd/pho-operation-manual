@@ -17,6 +17,7 @@ Mỗi lần nhập nguyên liệu.
 1. **Chọn đúng vị trí nạm chuẩn**: chọn phần nạm ở giữa dải gầu – nạm – chín. Phần này thường có các lớp cơ, mỡ và gân/màng xen kẽ (như lớp gân bọc, thịt, mỡ và gân giòn), giúp miếng thịt mềm ngọt, hơi giòn và béo nhẹ mà không ngấy.
 2. **Kiểm tra thớ thịt**: ưu tiên miếng có thớ thịt nhỏ, mịn, tách biệt rõ ràng giữa nạc, mỡ và gân; tránh thớ quá to và cứng.
 3. **Kiểm tra độ tươi ngon** (màu, độ đàn hồi, mùi — xem Mục 5).
+4. **Luộc & bảo quản sau khi chọn**: cho nạm vào nồi nước dùng **ngay sau khi vớt sạch bọt đợt đầu**, luộc **2,5–3 giờ** đến chín mềm rồi vớt; để nguội tự nhiên (kiểm soát thời gian/nhiệt độ tránh vùng nguy cơ 4–60°C), chia túi/hộp vào **ngăn đông mềm** (bán ngay hôm sau) hoặc **cấp đông lạnh sâu** (bảo quản dài ngày). Chi tiết: xem `ninh-xuong-bo.md` và `bao-quan-thit-chin.md`.
 
 ## 5. Tiêu chuẩn nghiệm thu
 

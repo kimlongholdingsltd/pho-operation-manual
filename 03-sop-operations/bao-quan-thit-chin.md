@@ -21,7 +21,8 @@ Sau mỗi ca bán khi còn thịt chín dư (nạm, gầu, bắp luộc/hầm).
    - **Giữ độ ẩm cho bề mặt thịt**: với thịt bò chín (nạm, gầu, bắp luộc/hầm), có thể giữ kèm chút nước luộc/nước dùng hoặc bọc kín kỹ để không bị khô bề mặt và giảm oxy hóa chất béo.
 2. **Đóng gói và chọn nhiệt độ bảo quản**:
    - **Kho mát thịt chín (2°C–4°C)**: phù hợp cho phần bán trong **1–3 ngày** tới. Dùng hộp kín hoặc màng bọc thực phẩm bọc chặt, dán nhãn ngày giờ chế biến và đặt TÁCH NGĂN/hộp kín riêng biệt với thịt sống.
-   - **Kho đông (≤ -18°C)**: phù hợp nếu tồn hàng nhiều chưa bán hết trong vài ngày, giữ chất lượng tốt khoảng **2–3 tháng**. Ưu tiên túi hút chân không hoặc hộp/túi zip ép hết không khí để hạn chế cháy lạnh (freezer burn).
+   - **Ngăn đông mềm (bán ngay hôm sau)**: phần thịt nạm/gầu vừa luộc từ mẻ ninh dùng để bán hôm sau cho vào ngăn đông mềm (thịt mềm, chưa đông cứng hoàn toàn) — giữ độ mềm ngọt, rã đông nhanh hơn khi bán.
+   - **Kho đông / cấp đông lạnh sâu (≤ -18°C)**: phù hợp nếu tồn hàng nhiều chưa bán hết trong vài ngày hoặc bảo quản dài ngày, giữ chất lượng tốt khoảng **2–3 tháng**. Ưu tiên túi hút chân không hoặc hộp/túi zip ép hết không khí để hạn chế cháy lạnh (freezer burn).
 3. **Rã đông và hâm nóng để giữ chất lượng** (xem Mục 6).
 
 ## 5. Tiêu chuẩn nghiệm thu

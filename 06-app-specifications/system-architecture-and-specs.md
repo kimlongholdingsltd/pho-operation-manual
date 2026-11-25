@@ -10,9 +10,9 @@
 
 | File nguồn | Vai trò trong hệ thống |
 |---|---|
-| `01-financial-models/ingredients-standards.yaml` | Bảng `NguyenVatLieu` + tiêu chí chọn + `yield_factor` |
-| `01-financial-models/recipe-costing-sample.yaml` | Bảng `CongThucMon` + định lượng + giá vốn 1 bát |
-| `01-financial-models/recipe-nuoc-dung-pho-bo.yaml` | Bảng `MeNuocDung` (mẻ chuẩn 100L, điện năng, hương liệu) |
+| `01-financial-models/ingredients-standards.yaml` | Bảng `NguyenVatLieu` + tiêu chí chọn + `yield_factor` + định lượng thịt ra tô |
+| `01-financial-models/recipe-costing-sample.yaml` | Bảng `CongThucMon` + định lượng + giá vốn 1 bát (Tái Chín 60g + 40g) |
+| `01-financial-models/recipe-nuoc-dung-pho-bo.yaml` | Bảng `MeNuocDung` (xương bò/heo, tôm khô, đồ thơm 3 lớp, nước nèo, dầu chưng cất, điện năng) |
 | `01-financial-models/food-cost-cogs.yaml` | Ngưỡng food cost + công thức hòa vốn (Dashboard) |
 | `01-financial-models/storage-preservation.yaml` | Quy tắc nhiệt độ + làm nguội (Checklist an toàn) |
 | `03-sop-operations/ninh-xuong-bo.md`, `ra-to-va-giu-nhiet.md` | Đồng hồ đếm ngược mẻ ninh/luộc + quy trình ra tô |
@@ -61,7 +61,11 @@ Nguồn: `recipe-nuoc-dung-pho-bo.yaml`.
 | `id` | int (PK) | Mã mẻ | — |
 | `ngay` | date | Ngày ninh | — |
 | `noi_chuan` | varchar | Nồi chuẩn (Newsun 100L, 6kW) | `batch_spec.noi_chuan` |
-| `kg_xuong_per_me` | decimal | Đầu vào xương (25 kg) | `batch_spec.kg_xuong_per_me` |
+| `kg_xuong_per_me` | decimal | Đầu vào xương (25 kg = 20 bò + 5 heo) | `batch_spec.kg_xuong_per_me` |
+| `kg_xuong_bo_per_me` | decimal | Xương bò (20 kg) | `batch_spec.kg_xuong_bo_per_me` |
+| `kg_xuong_heo_per_me` | decimal | Xương heo (5 kg) | `batch_spec.kg_xuong_heo_per_me` |
+| `tom_kho_g` | decimal | Tôm khô cốt ngọt (600 g) | `cot_tao_ngot.tom_kho_g` |
+| `gung_tuoi_g` | decimal | Gừng tươi cốt ngọt (1000 g) | `cot_tao_ngot.gung_tuoi_g` |
 | `lit_nuoc_dau_vao` | decimal | Nước ban đầu (100 L) | `batch_spec.lit_nuoc_dau_vao` |
 | `lit_thanh_pham_sau_loc` | decimal | Thành phẩm sau lọc (70 L) | `batch_spec.lit_thanh_pham_sau_loc` |
 | `so_to_thanh_pham` | int | Số tô (140) | `batch_spec.so_to_thanh_pham` |
@@ -115,6 +119,30 @@ Nguồn: `recipe-nuoc-dung-pho-bo.yaml`.
 | `lai_dong_gop` | decimal | = doanh thu − nguyên liệu − biến phí kênh |
 | `diem_hoa_von_to` | decimal | Đối chiếu điểm hòa vốn (xem Phân hệ 4) |
 
+### 2.7 Bảng `DinhLuongThitRaTo` (định lượng thịt/tô — v1.1.0)
+
+Nguồn: `ingredients-standards.yaml.portion_thit_ra_to` + `forms/phieu-ra-to-chuan.md`.
+
+| Cột | Kiểu | Ý nghĩa |
+|---|---|---|
+| `tai_g` | int | Tái 60 g/tô |
+| `chin_g` | int | Chín (nạm/gầu) 40 g/tô |
+| `bap_g` | int | Bắp 60 g/tô |
+| `gan_g` | int | Gân 80 g/tô |
+| `xao_lan_g` | int | Xào lăn 70 g/tô |
+| `duoi_bo_g` | int | Đuôi bò 150 g/tô |
+
+### 2.8 Cấu hình mẻ mở rộng (nước nèo + dầu hương vị + đồ thơm 3 lớp)
+
+Nguồn: `recipe-nuoc-dung-pho-bo.yaml` (`.cot_tao_ngot`, `.dong_thom_3_lop`, `.nuoc_neo`, `.dau_huong_vi_chung_cat`).
+
+| Khối cấu hình | Biến chính | Cách App dùng |
+|---|---|---|
+| `cot_tao_ngot` | `tom_kho_g` 600, `gung_tuoi_g` 1000 | phân bổ ÷ 140 tô |
+| `dong_thom_3_lop` | lớp 1 nướng (gừng 500, hành khô 250, hành tây 200) · lớp 2 tươi (gừng 300) · lớp 3 chưng dầu (gừng 200, hành khô 200, quế 100, thảo quả 80) | phân bổ ÷ 140 tô |
+| `nuoc_neo` | per 10L: mì chính 70g, đường phèn 120g, hạt nêm 50g, muối 40g, nước mắm 350g | tự nhân ×7 cho 70L, ÷ 140 tô |
+| `dau_huong_vi_chung_cat` | mẻ 5L: dầu 5L, gừng 1,5kg, hành tím 900g, tỏi 200g, quế 100g, thảo quả 70g, hoa hồi 70g | phân bổ/mẻ 100L = `TBD_OWNER_INPUT` |
+
 ---
 
 ## 3. Đặc tả 4 phân hệ tính năng cốt lõi
@@ -129,7 +157,7 @@ cost_per_serving = qty_raw_gram × price_per_unit / 1000
 food_cost_percent = total_food_cost / price_selling
 ```
 
-Ví dụ (từ `recipe-costing-sample.yaml`): nạm 34g chín → `34 / 0.68 = 50g` thô; xương mẻ chuẩn → `25kg / 140 tô = 178.6g/tô`.
+Ví dụ (từ `recipe-costing-sample.yaml`): nạm 40g chín → `40 / 0.68 = 58.8g` thô; xương mẻ chuẩn → `20kg bò + 5kg heo / 140 tô`.
 
 **Cảnh báo ngưỡng food cost** (từ `food-cost-cogs.yaml`):
 
@@ -209,15 +237,15 @@ Dashboard hiển thị theo ngày:
 ### TC-01 — Tính giá vốn 1 bát tự động (Phân hệ 1 · bảng `CongThucMon`)
 
 - **Mục tiêu:** App tự tính `cost_per_serving`, `total_food_cost`, `food_cost_percent` từ công thức.
-- **Đầu vào:** `recipe-costing-sample.yaml` (Phở Bò Tái Nạm: nạm 34g chín, xương 178,6g/tô, `price_selling` 45.000đ).
-- **Kết quả mong đợi:** `total_food_cost` = 30.414đ, `food_cost_percent` = 67,6% (khớp `summary` trong YAML).
-- **Tiêu chí ĐẠT:** sai số = 0 so với file YAML; áp dụng đúng `yield_factor` (nạm 0.68 → `34 / 0.68 = 50g` thô).
+- **Đầu vào:** `recipe-costing-sample.yaml` (Phở Bò Tái Chín: tái 60g, nạm chín 40g, xương 20kg bò + 5kg heo, `price_selling` 45.000đ).
+- **Kết quả mong đợi:** `total_food_cost` = 35.099đ, `food_cost_percent` = 78,0% (khớp `summary` trong YAML, giá tham khảo).
+- **Tiêu chí ĐẠT:** sai số = 0 so với file YAML; áp dụng đúng `yield_factor` (nạm 0.68 → `40 / 0.68 = 58,8g` thô); gia vị tính theo phân bổ itemized (nước nèo ×7 + tôm khô + đồ thơm 3 lớp) ÷ 140 tô.
 
 ### TC-02 — Cảnh báo food cost theo trần từng món (Phân hệ 1 · ĐC-01)
 
 - **Mục tiêu:** Cảnh báo VÀNG/ĐỎ theo trần của chính món đó, không dùng một ngưỡng chung cho cả menu.
-- **Đầu vào:** Tái Nạm food cost 67,6% (vượt trần chủ lực 45%); một món khác 40% (vượt 38% toàn menu nhưng dưới 45%).
-- **Kết quả mong đợi:** Tái Nạm → cảnh báo ĐỎ (chặn xuất nếu cấu hình yêu cầu); món 40% → cảnh báo VÀNG.
+- **Đầu vào:** Phở Bò Tái Chín food cost 78,0% (vượt trần chủ lực 45%); một món khác 40% (vượt 38% toàn menu nhưng dưới 45%).
+- **Kết quả mong đợi:** Tái Chín → cảnh báo ĐỎ (chặn xuất nếu cấu hình yêu cầu); món 40% → cảnh báo VÀNG.
 - **Tiêu chí ĐẠT:** ngưỡng đọc từ `food-cost-cogs.yaml.food_cost_thresholds.canh_bao`, không hard-code 35–38%.
 
 ### TC-03 — Cảnh báo lệch kho (Phân hệ 1 · bảng `PhieuKiemKho`)

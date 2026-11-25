@@ -1,11 +1,13 @@
 # =============================================================================
 # CÔNG THỨC NINH NƯỚC DÙNG — PHỞ BÒ (MẺ CHUẨN 100L)
-# Nguồn: 00-raw-notes/Kinh-nghiem-ninh-xuong.md + thông số thực chiến chủ quán
-# v0.4.0 — chốt định lượng mẻ chuẩn & điện năng thực đo:
-#   - Nồi điện Newsun 100L (công suất max 6kW).
-#   - Đầu vào 25 kg xương + 100 L nước → 70 L thành phẩm sau lọc (140 tô × 500 mL).
-#   - Điện năng ~32 kWh/mẻ (xem dien_nang bên dưới).
-#   - Thay các biến TBD_OWNER_INPUT cũ (v0.3.0) bằng số thực đo.
+# Nguồn: 00-raw-notes/Kinh-nghiem-ninh-xuong.md + công thức chi tiết của chủ quán
+# v1.1.0 — bổ sung công thức chi tiết do chủ quán cung cấp:
+#   - Xương: 20 kg xương bò + 5 kg xương heo (tổng 25 kg).
+#   - Cốt tạo ngọt tự nhiên: 600 g tôm khô + 1.000 g gừng tươi.
+#   - Đồ thơm 3 lớp (nướng / tươi / chưng dầu) — định lượng rõ cho mẻ 100L.
+#   - Nước nèo chuẩn trên cơ sở 10 L nước dùng (×7 cho 70 L thành phẩm).
+#   - Dầu hương vị chưng cất (mẻ 5 L dầu ăn) + kỹ thuật chưng theo thứ tự.
+# v0.4.0 — chốt định lượng mẻ chuẩn & điện năng thực đo (nồi Newsun 100L, 6kW).
 # Mục đích: tách thông số định lượng (thời gian, nhiệt độ, nguyên liệu, điện) thành
 #           biến số để làm cơ sở dữ liệu (bảng recipe, bảng step-timer, bảng cost).
 # =============================================================================
@@ -17,16 +19,20 @@ meta:
   noi_chuan: "Nồi điện Newsun 100L (công suất max 6kW)"
   updated_at: 2026-11-25
 
-ingredients:                    # nguyên liệu làm nước dùng (chưa gồm định lượng bí quyết)
+ingredients:                    # nguyên liệu làm nước dùng (định lượng chi tiết ở các mục dưới)
   - "Xương bò (ống + lẫn)"
-  - "Mắm, muối, gia vị, mì chính, hạt nêm, đường phèn"
-  - "Hành củ"
-  - "Củ gừng"
+  - "Xương heo (ống/cục)"
+  - "Tôm khô"
+  - "Gừng tươi"
+  - "Hành khô (hành tím)"
   - "Hành tây"
+  - "Tỏi"
   - "Quế"
   - "Thảo quả"
   - "Cánh hoa hồi"
+  - "Dầu ăn"
   - "Nước mắm cốt độ đạm cao"
+  - "Mì chính, hạt nêm, đường phèn, muối trắng"
 
 # -----------------------------------------------------------------------------
 # ĐC-08: LUỒNG SƠ CHẾ XƯƠNG DUY NHẤT (khớp chon-xuong-bo.md & ninh-xuong-bo.md)
@@ -74,7 +80,9 @@ process:
 # -----------------------------------------------------------------------------
 batch_spec:
   noi_chuan: "Nồi điện Newsun 100L (công suất max 6kW, dung tích DANH ĐỊNH)"
-  kg_xuong_per_me: 25               # 25 kg xương ống/xương cục
+  kg_xuong_per_me: 25               # tổng 25 kg xương = 20 kg xương bò + 5 kg xương heo
+  kg_xuong_bo_per_me: 20            # v1.1.0: 20 kg xương bò (ống + lẫn)
+  kg_xuong_heo_per_me: 5            # v1.1.0: 5 kg xương heo (ống/cục)
   the_tich_xuong_chiem_lit: { min: 18, max: 20 }   # 25 kg xương chiếm ~18–20 L thể tích nồi
   lit_nuoc_dau_vao: 100             # tổng nước cấp vào cả mẻ = 100 L (= lit_nuoc_lanh_nap_ban_dau + lit_nuoc_cham_bu)
   lit_nuoc_lanh_nap_ban_dau: { min: 80, max: 85 }  # nước lạnh nạp ban đầu (đến vạch an toàn, chừa chỗ xương + châm bù)
@@ -111,10 +119,18 @@ huong_lieu:
     cach_dung: "Toàn bộ thảo mộc (quế, hồi, thảo quả...) cho vào hộp inox lưới nhúng trong nồi nước dùng; tuyệt đối KHÔNG thả trực tiếp."
     thoi_gian_nhac_ra_phut: 45       # nhấc hộp gia vị ra sau ~45 phút
     muc_dich: "Nước dùng thanh, không bị nồng/đắng mùi quế hồi"
-  phoi_hop_3_lop:
-    lop_1: "Gừng, hành tây, quế hồi nướng thơm trước khi cho vào hộp"
-    lop_2: "Một phần gia vị để tươi (không nướng) cho cùng vào hộp để giữ hậu vị tươi"
-    lop_3: "Hương vị chưng cất cùng dầu ăn (dầu điều/mỡ hành gia vị chưng) để tạo độ béo và dậy mùi đặc trưng"
+  phoi_hop_3_lop:                  # định lượng cho mẻ 100L (v1.1.0)
+    lop_1_nuong_thom:
+      gung_nuong_g: 500
+      hanh_kho_nuong_g: 250
+      hanh_tay_nuong_g: 200         # 1 củ ~200g
+    lop_2_de_tuoi:
+      gung_tuoi_g: 300
+    lop_3_chung_dau:                # phân bổ cho mẻ 100L (nguồn từ dầu hương vị chưng cất)
+      gung_chung_g: 200
+      hanh_kho_chung_g: 200
+      que_chung_g: 100
+      thao_qua_chung_g: 80
   nuoc_mam: "Nước mắm cốt độ đạm cao để tạo vị ngọt hậu tự nhiên"
 
 # -----------------------------------------------------------------------------
@@ -122,10 +138,57 @@ huong_lieu:
 # -----------------------------------------------------------------------------
 xuong_cost_allocation:
   physical_yield_factor: 0.45       # tỷ lệ xác xương thu hồi VẬT LÝ sau ninh (chỉ dùng theo dõi hao hụt vật lý)
-  cost_allocation_ratio: 1.0        # 100% chi phí 25 kg xương mua vào phân bổ vào nồi nước dùng
-  cach_tinh_cost_per_to: "Cost xương/tô = kg_xuong_per_me × giá/kg × cost_allocation_ratio / so_to_thanh_pham"
-  vi_du: "25 kg × 60.000 VND/kg × 1.0 ÷ 140 tô = 10.714 VND/tô"
-  ghi_chu: "physical_yield_factor 0.45 chỉ theo dõi hao hụt VẬT LÝ (bã xương bỏ); cost_allocation_ratio 1.0 nghĩa là toàn bộ 25kg mua vào tính chi phí (không dùng hệ số 0.45 để tính giá vốn)."
+  cost_allocation_ratio: 1.0        # 100% chi phí xương mua vào phân bổ vào nồi nước dùng
+  cach_tinh_cost_per_to: "Cost xương/tô = (kg_xuong_bo_per_me × giá bò + kg_xuong_heo_per_me × giá heo) × cost_allocation_ratio / so_to_thanh_pham"
+  vi_du: "20 kg bò × 60.000 + 5 kg heo × TBD_OWNER_INPUT → ÷ 140 tô (xem recipe-costing-sample.yaml)"
+  ghi_chu: "physical_yield_factor 0.45 chỉ theo dõi hao hụt VẬT LÝ (bã xương bỏ); cost_allocation_ratio 1.0 nghĩa là toàn bộ xương mua vào tính chi phí (không dùng hệ số 0.45 để tính giá vốn)."
+
+# -----------------------------------------------------------------------------
+# CỐT TẠO NGỌT TỰ NHIÊN (v1.1.0)
+# -----------------------------------------------------------------------------
+cot_tao_ngot:
+  tom_kho_g: 600                   # tôm khô tạo ngọt hậu tự nhiên
+  gung_tuoi_g: 1000                # 1 kg gừng tươi
+
+# -----------------------------------------------------------------------------
+# NƯỚC NÈO (NÊM NẾM) — cơ sở 10 L nước dùng (v1.1.0)
+# Mẻ 70 L thành phẩm = ×7; chia đều cho 140 tô để tính giá vốn/tô.
+# -----------------------------------------------------------------------------
+nuoc_neo:
+  co_so: "10 lít nước dùng"
+  he_so_nhan_70L: 7                # 70 L thành phẩm = 7 × 10 L
+  thanh_phan_per_10L:
+    mi_chinh_g: 70
+    duong_phen_g: 120
+    hat_nem_g: 50
+    muoi_trang_g: 40
+    nuoc_mam_cot_g: 350
+  thanh_phan_per_70L:              # = per_10L × 7
+    mi_chinh_g: 490
+    duong_phen_g: 840
+    hat_nem_g: 350
+    muoi_trang_g: 280
+    nuoc_mam_cot_g: 2450
+  cach_ap_dung: "Nêm theo tỷ lệ nước nèo/10L nước dùng; mẻ 70L nhân hệ số 7; chia đều cho 140 tô để tính giá vốn/tô."
+
+# -----------------------------------------------------------------------------
+# DẦU HƯƠNG VỊ CHƯNG CẤT — MẺ 5 LÍT (v1.1.0)
+# Nguồn cung cấp phần "lớp 3 — chưng dầu" của đồ thơm 3 lớp.
+# -----------------------------------------------------------------------------
+dau_huong_vi_chung_cat:
+  batch: "Mẻ 5 lít dầu ăn"
+  nguyen_lieu:
+    dau_an_lit: 5
+    gung_thai_lat_kg: 1.5          # gừng thái lát mỏng
+    hanh_tim_dap_g: 900            # hành tím đập dập
+    toi_g: 200                     # tỏi lột vỏ
+    que_g: 100                     # quế
+    thao_qua_g: 70                 # thảo quả
+    hoa_hoi_g: 70                  # hoa hồi
+  ky_thuat_nhiet:
+    - "Chưng gừng thái lát trước cho đến khi gừng quắt lại"
+    - "Sau đó mới thả hành tím đập dập, tỏi, hoa hồi, thảo quả, quế vào chưng tiếp để lấy hương, tránh bị đắng/cháy thảo mộc"
+  phan_bo_cho_noi_100L: "TBD_OWNER_INPUT (lượng dầu hương vị dùng cho 1 mẻ 100L do chủ quán chốt theo thực tế)."
 
 acceptance:                     # tiêu chuẩn nước dùng đạt
   - "Nước trong vắt"

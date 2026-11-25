@@ -31,14 +31,18 @@ ingredients:
     cost_allocation_ratio: 1.0    # ĐC-07: 100% chi phí 25kg xương mua vào phân bổ vào nồi nước dùng
     yield_factor: 1.0             # giữ = cost_allocation_ratio để tính giá vốn (toàn bộ xương mua vào tính chi phí)
     batch_spec:
-      kg_xuong_per_me: 25
+      kg_xuong_per_me: 25         # tổng = 20 kg xương bò + 5 kg xương heo (v1.1.0)
+      kg_xuong_bo_per_me: 20
+      kg_xuong_heo_per_me: 5
       lit_nuoc_dau_vao: 100
       lit_thanh_pham_sau_loc: 70
       so_to_thanh_pham: 140
-      gram_xuong_per_to: 178.6
-    blend:                        # tỷ lệ phối trộn các loại xương
-      xuong_ong_percent: 50       # xương ống: nhiều tủy, ngọt sâu, béo thơm
-      xuong_lan_percent: 50       # xương cổ/sườn/hom: cân bằng béo, tăng đậm đà, trong nước
+      gram_xuong_per_to: 178.6    # tổng 25kg / 140 tô
+      gram_xuong_bo_per_to: 142.9 # 20kg bò / 140 tô
+      gram_xuong_heo_per_to: 35.7 # 5kg heo / 140 tô
+    blend:                        # tỷ lệ phối trộn trong 20 kg xương BÒ
+      xuong_ong_percent: 50       # xương ống bò: nhiều tủy, ngọt sâu, béo thơm
+      xuong_lan_percent: 50       # xương cổ/sườn/hom bò: cân bằng béo, tăng đậm đà, trong nước
     selection:
       color: "Đỏ tươi tự nhiên, không thâm xám, không nhạt tái"
       size: "Xương ống to ~4 đốt ngón tay (bò trưởng thành), nhiều tủy"
@@ -51,6 +55,25 @@ ingredients:
       - "Chần qua nước sôi rồi rửa lại sạch để loại cặn bẩn"
       - "Nướng thơm xương ống (nếu áp dụng): 200–230°C trong 15–20 phút đến cháy xém, chảy mỡ thừa"
       - "Chặt đôi xương ống lấy tủy bằng sống dao chặt nhẹ để tránh làm vụn xương khiến nước đục"
+
+  # ---------------------------------------------------------------------------
+  # 1b. XƯƠNG HEO — bổ sung v1.1.0 (phối trộn 20kg bò + 5kg heo)
+  # ---------------------------------------------------------------------------
+  - name: "Xương heo"
+    unit: kg
+    purpose: "Ninh nước dùng phở (5 kg/mẻ, bổ sung độ ngọt thanh cho xương bò)"
+    physical_yield_factor: 0.45   # tỷ lệ xác xương thu hồi VẬT LÝ sau ninh (theo dõi hao hụt)
+    cost_allocation_ratio: 1.0    # 100% chi phí xương heo mua vào phân bổ vào nồi nước dùng
+    yield_factor: 1.0
+    batch_spec:
+      kg_xuong_heo_per_me: 5
+      gram_xuong_heo_per_to: 35.7
+    selection:
+      color: "Trắng hồng tự nhiên, không tái xám, không mùi hôi"
+      size: "Xương ống heo to vừa, có tủy; tránh xương vụn/đầu sụn quá nhỏ"
+      smell_texture: "Không mùi lạ, săn chắc, tươi mới"
+    prep:
+      - "Sơ chế cùng luồng với xương bò (ngâm khử mùi → chần → nướng thơm nếu áp dụng)"
 
   # ---------------------------------------------------------------------------
   # 2. BÁNH PHỞ
@@ -148,3 +171,16 @@ ingredients:
     prep:
       - "Thái ngang thớ, thật mỏng (1.5–2 mm) để nước dùng làm chín đều, không xơ dai"
       - "Chần nhanh: nhúng nhanh vào nước dùng nóng hoặc chan nước dùng sôi lên thịt đã xếp sẵn, tránh luộc lâu làm khô dai"
+
+# -----------------------------------------------------------------------------
+# ĐỊNH LƯỢNG THỊT RA TÔ (v1.1.0 — chủ quán chốt)
+# Đồng bộ 03-sop-operations/forms/phieu-ra-to-chuan.md và recipe-costing-sample.yaml.
+# -----------------------------------------------------------------------------
+portion_thit_ra_to:
+  tai_g: 60          # thịt bò tái (thái sống, chần nhanh)
+  chin_g: 40         # nạm/gầu chín
+  bap_g: 60          # bắp bò (thái lát)
+  gan_g: 80          # gân bò (hầm mềm)
+  xao_lan_g: 70      # thịt xào lăn
+  duoi_bo_g: 150     # đuôi bò (hầm mềm)
+  ghi_chu: "Định lượng chuẩn/tô do chủ quán chốt v1.1.0; tô mẫu Phở Bò Tái Chín = 60g tái + 40g chín."

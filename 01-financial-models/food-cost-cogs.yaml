@@ -24,15 +24,16 @@ food_cost_thresholds:
     percent: { min: 0.42, max: 0.45 } # tối đa 42–45% (Tái Nạm, Tái Đặc Biệt...)
     ap_dung: "Món chủ lực nhiều thịt (Tái Nạm) — cho phép cao hơn nhưng KHÔNG vượt trần"
   example_non_optimized:              # (c) tô mẫu chỉ là bài toán ví dụ
-    food_cost_sample_vnd: 30414
+    food_cost_sample_vnd: 35099
     price_selling_sample_vnd: 45000
-    food_cost_percent_sample: 0.676   # 67.6% (chưa gồm điện năng ~0.23 kWh/tô)
+    food_cost_percent_sample: 0.780   # 78.0% (giá tham khảo, chưa gồm điện năng + dầu hương vị)
     ghi_chu: >
-      Tô mẫu 30.414đ / 45.000đ (67.6%, chưa gồm điện năng) KHÔNG phải chuẩn vận
-      hành. Đây là ví dụ minh họa cách tính (recipe-costing-sample.yaml) khi phân
-      bổ xương theo mẻ thực đo 25kg/140 tô (v0.4.0) — CHƯA tối ưu định lượng hoặc
-      CHƯA điều chỉnh giá bán. Trước khi bán thật phải đưa về ngưỡng
-      flagship_ceiling (42–45%) hoặc thấp hơn.
+      Tô mẫu 35.099đ / 45.000đ (78.0%, giá tham khảo, chưa gồm điện năng + dầu
+      hương vị) KHÔNG phải chuẩn vận hành. Đây là ví dụ minh họa cách tính
+      (recipe-costing-sample.yaml) theo công thức chi tiết v1.1.0 (tái 60g + chín
+      40g, xương 20kg bò + 5kg heo, gia vị itemized nước nèo + tôm khô + đồ thơm 3
+      lớp) — CHƯA tối ưu định lượng hoặc CHƯA điều chỉnh giá bán. Trước khi bán thật
+      phải đưa về ngưỡng flagship_ceiling (42–45%) hoặc thấp hơn.
   canh_bao:                           # (d) ĐC-01: cảnh báo theo trần của CHÍNH món đó
     quy_tac: >
       Mỗi món gắn 1 loại trần theo chính nó: món chủ lực nhiều thịt (Tái Nạm...)

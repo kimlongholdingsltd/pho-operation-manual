@@ -1,21 +1,24 @@
 # =============================================================================
-# RECIPE COSTING — Phở Bò Tái Nạm (1 bát)
+# RECIPE COSTING — Phở Bò Tái Chín (1 bát)
 # File mẫu cho 01-financial-models.
 #
 # Mục đích: mô phỏng cách tính GIÁ VỐN (Food Cost) cho 1 bát.
-# v0.4.0 — phân bổ xương theo MẺ THỰC ĐO (25 kg xương / 140 tô), thay ước tính cũ:
-#   - xương: 25 kg × 60.000 VND/kg ÷ 140 tô = 10.714 VND/tô (trước đây ước 6.000đ)
-#   - điện năng: ~32 kWh/mẻ ÷ 140 tô = 0.229 kWh/tô (giá điện là biến TBD)
-#   - tỷ lệ hao hụt khi LUỘC THỊT (nạm) => yield_factor = 0.68
+# v1.1.0 — đồng bộ công thức chi tiết của chủ quán:
+#   - Định lượng thịt ra tô chuẩn mới: tái 60g + chín (nạm) 40g/tô.
+#   - Xương: 20 kg xương bò + 5 kg xương heo (tổng 25 kg) ÷ 140 tô.
+#   - Thay ước tính "gia vị 2.000đ/tô" bằng phép phân bổ chính xác từ nước nèo
+#     + tôm khô + đồ thơm 3 lớp chia cho 140 tô (xem recipe-nuoc-dung-pho-bo.yaml).
+#   - Giá các nguyên liệu mới là GIÁ THAM KHẢO (nhập sỉ thị trường VN); thay bằng
+#     giá nhập thực tế từng tuần — đây là biến số, không phải hằng số. Nguyên liệu
+#     chưa có giá chốt (điện, dầu hương vị phân bổ) để TBD_OWNER_INPUT.
 #
-# Nguyên tắc: mọi định lượng, đơn giá, hệ số hao hụt đều là BIẾN SỐ riêng
-# để đội ngũ lập trình chuyển thẳng thành code/database (bảng recipe, bảng
-# ingredient, bảng cost). Không nhét số chết vào mô tả.
+# Nguyên tắc: mọi định lượng, đơn giá, hệ số hao hụt đều là BIẾN SỐ riêng để đội
+# lập trình chuyển thẳng thành code/database. Không nhét số chết vào mô tả.
 # =============================================================================
 
 meta:
-  recipe_id: PHO-BO-TAI-NAM-001
-  recipe_name: "Phở Bò Tái Nạm"
+  recipe_id: PHO-BO-TAI-CHIN-001
+  recipe_name: "Phở Bò Tái Chín"
   serving_unit: bat                 # đơn vị tính: 1 bát
   servings_per_recipe: 1
   currency: VND
@@ -23,8 +26,9 @@ meta:
   target_food_cost_percent: 0.38    # mục tiêu food cost 38% (chuẩn món phở)
   updated_at: 2026-11-25
   notes: >
-    Giá nguyên liệu là giá tham khảo (nhập sỉ thị trường VN). Phải cập nhật
-    theo giá nhập thực tế từng tuần — đây là biến số, không phải hằng số.
+    Giá nguyên liệu là giá THAM KHẢO (nhập sỉ thị trường VN). Phải cập nhật theo
+    giá nhập thực tế từng tuần — đây là biến số, không phải hằng số. Điện năng và
+    lượng dầu hương vị phân bổ/mẻ là TBD_OWNER_INPUT (chủ quán điền).
 
 # -----------------------------------------------------------------------------
 # BIẾN SỐ — HỆ SỐ HAO HỤT / THU HỒI SAU SƠ CHẾ (yield_factor)
@@ -35,68 +39,154 @@ variables:
   yield:
     bo_nam_luoc: 0.68    # nạm bò luộc chín còn ~68% khối lượng sống (hao hụt 32%)
     rau_thom_soche: 0.85 # rau thơm, giá đỗ sau nhặt/bỏ gốc còn ~85%
-    # v0.4.0: xương KHÔNG dùng hệ số 0.45 nữa — phân bổ theo mẻ thực đo 25kg/140 tô
-    # (xem xuong_cost_allocation trong recipe-nuoc-dung-pho-bo.yaml)
-  portion:               # định lượng chuẩn cho 1 bát
+  portion:               # định lượng chuẩn cho 1 bát (v1.1.0)
     banh_pho_gram: 200
-    bo_tai_gram: 40
-    nam_chin_gram: 34    # nạm CHÍN trên bát (khối lượng sau luộc)
+    bo_tai_gram: 60      # v1.1.0: tái 60g/tô
+    nam_chin_gram: 40    # v1.1.0: chín (nạm) 40g/tô — khối lượng CHÍN trên bát
 
 # -----------------------------------------------------------------------------
 # NGUYÊN LIỆU & GIÁ VỐN
 #   qty_raw_per_serving_gram : lượng nguyên liệu THÔ (mua vào) cần cho 1 bát
 #   cost_per_serving         : giá vốn phân bổ cho 1 bát
 #
-# Lưu ý nạm bò: trên bát cần 34g chín => thô = 34 / 0.68 = 50g.
-# Lưu ý xương (v0.4.0): 25 kg xương/mẻ ÷ 140 tô = 178.6g/tô => 178.6 × 60.000/1000 = 10.714đ.
+# Nạm bò: trên bát cần 40g chín => thô = 40 / 0.68 = 58.8g.
+# Xương (v1.1.0): 20kg bò + 5kg heo ÷ 140 tô; bò = 142.9g/tô, heo = 35.7g/tô.
 # -----------------------------------------------------------------------------
 ingredients:
+  # --- Trên bát (trực tiếp) ---
   - name: "Bánh phở"
     unit: kg
-    price_per_unit: 16000
-    yield_factor: 1.0                 # dùng trực tiếp, không hao hụt sơ chế
+    price_per_unit: 16000           # giá tham khảo
+    yield_factor: 1.0
     qty_raw_per_serving_gram: 200
-    cost_per_serving: 3200            # 0.2 * 16000
+    cost_per_serving: 3200          # 0.2 * 16000
 
   - name: "Thịt bò tái (thăn)"
     unit: kg
-    price_per_unit: 150000
-    yield_factor: 1.0                 # thái sống, không hao hụt
-    qty_raw_per_serving_gram: 40
-    cost_per_serving: 6000            # 0.04 * 150000
+    price_per_unit: 150000          # giá tham khảo
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 60    # v1.1.0: 60g/tô
+    cost_per_serving: 9000          # 0.06 * 150000
 
-  - name: "Nạm bò"
+  - name: "Nạm bò (chín)"
     unit: kg
-    price_per_unit: 130000
-    yield_factor: 0.68                # hao hụt khi luộc 32%
-    qty_raw_per_serving_gram: 50      # 34g chín / 0.68
-    cost_per_serving: 6500            # 0.05 * 130000
+    price_per_unit: 130000          # giá tham khảo
+    yield_factor: 0.68
+    qty_raw_per_serving_gram: 58.8  # 40g chín / 0.68
+    cost_per_serving: 7647          # 0.0588 * 130000
 
+  # --- Nước dùng (phân bổ ÷ 140 tô) ---
   - name: "Xương bò (hầm nước dùng)"
     unit: kg
-    price_per_unit: 60000
-    yield_factor: 1.0                 # v0.4.0: toàn bộ 25kg mua vào phân bổ 100% chi phí vào nước dùng (bã là phế phẩm đã trả tiền)
-    qty_raw_per_serving_gram: 179     # 25,000g / 140 tô ≈ 178.6g
-    cost_per_serving: 10714           # 25kg × 60000 / 140 tô
+    price_per_unit: 60000           # giá tham khảo
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 142.9 # 20,000g / 140 tô
+    cost_per_serving: 8571          # 20kg × 60000 / 140
+
+  - name: "Xương heo (hầm nước dùng)"
+    unit: kg
+    price_per_unit: 30000           # giá tham khảo (ống/cục heo)
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 35.7  # 5,000g / 140 tô
+    cost_per_serving: 1071          # 5kg × 30000 / 140
 
   - name: "Điện năng ninh (nồi Newsun 100L)"
     unit: kWh
-    price_per_unit: TBD_OWNER_INPUT   # electricity_unit_price (VND/kWh) — bậc giá điện kinh doanh khu vực
+    price_per_unit: TBD_OWNER_INPUT # electricity_unit_price (VND/kWh) — bậc giá điện kinh doanh
     yield_factor: 1.0
-    qty_raw_per_serving_kwh: 0.229    # 32 kWh / 140 tô ≈ 0.2286
+    qty_raw_per_serving_kwh: 0.229  # 32 kWh / 140 tô
     cost_per_serving: TBD_OWNER_INPUT # = 0.2286 × electricity_unit_price
 
-  - name: "Gia vị nước dùng (gừng, hành, hồi, quế, thảo quả, mắm, muối)"
+  # --- Cốt ngọt + đồ thơm 3 lớp + nước nèo (thay ước tính 2.000đ cũ) ---
+  - name: "Tôm khô (cốt ngọt)"
+    unit: kg
+    price_per_unit: 180000          # giá tham khảo
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 4.29  # 600g / 140 tô
+    cost_per_serving: 771           # 0.6 × 180000 / 140
+
+  - name: "Gừng (tươi + nướng + chưng)"
+    unit: kg
+    price_per_unit: 40000           # giá tham khảo
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 14.29 # 2,000g (1kg cốt ngọt + 500 nướng + 300 tươi + 200 chưng) / 140
+    cost_per_serving: 571           # 2 × 40000 / 140
+
+  - name: "Hành khô (nướng + chưng)"
+    unit: kg
+    price_per_unit: 25000           # giá tham khảo
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 3.21  # 450g (250 nướng + 200 chưng) / 140
+    cost_per_serving: 80            # 0.45 × 25000 / 140
+
+  - name: "Hành tây (nướng)"
+    unit: kg
+    price_per_unit: 20000           # giá tham khảo
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 1.43  # 200g (1 củ) / 140
+    cost_per_serving: 29            # 0.2 × 20000 / 140
+
+  - name: "Quế (chưng dầu)"
+    unit: kg
+    price_per_unit: 120000          # giá tham khảo
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 0.71  # 100g / 140
+    cost_per_serving: 86            # 0.1 × 120000 / 140
+
+  - name: "Thảo quả (chưng dầu)"
+    unit: kg
+    price_per_unit: 200000          # giá tham khảo
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 0.57  # 80g / 140
+    cost_per_serving: 114           # 0.08 × 200000 / 140
+
+  - name: "Nước nèo — mì chính"
+    unit: kg
+    price_per_unit: 50000           # giá tham khảo
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 3.5   # 490g (70g×7) / 140
+    cost_per_serving: 175           # 0.49 × 50000 / 140
+
+  - name: "Nước nèo — đường phèn"
+    unit: kg
+    price_per_unit: 30000           # giá tham khảo
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 6.0   # 840g (120g×7) / 140
+    cost_per_serving: 180           # 0.84 × 30000 / 140
+
+  - name: "Nước nèo — hạt nêm"
+    unit: kg
+    price_per_unit: 75000           # giá tham khảo
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 2.5   # 350g (50g×7) / 140
+    cost_per_serving: 188           # 0.35 × 75000 / 140
+
+  - name: "Nước nèo — muối trắng"
+    unit: kg
+    price_per_unit: 8000            # giá tham khảo
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 2.0   # 280g (40g×7) / 140
+    cost_per_serving: 16            # 0.28 × 8000 / 140
+
+  - name: "Nước nèo — nước mắm cốt độ đạm cao"
+    unit: kg
+    price_per_unit: 80000           # giá tham khảo
+    yield_factor: 1.0
+    qty_raw_per_serving_gram: 17.5  # 2450g (350g×7) / 140
+    cost_per_serving: 1400          # 2.45 × 80000 / 140
+
+  - name: "Dầu hương vị chưng cất (mẻ 5L, phân bổ)"
     unit: batch
-    price_per_unit: 0
+    price_per_unit: TBD_OWNER_INPUT # lượng dùng/mẻ 100L do chủ quán chốt (xem recipe-nuoc-dung-pho-bo.yaml)
     yield_factor: 1.0
     qty_raw_per_serving_gram: 0
-    cost_per_serving: 2000            # phân bổ theo mẻ nước dùng
+    cost_per_serving: TBD_OWNER_INPUT
 
+  # --- Gia vị kèm (giữ nguyên) ---
   - name: "Hành lá, rau thơm, giá đỗ"
     unit: batch
     price_per_unit: 0
-    yield_factor: 0.85                # hao hụt sơ chế rau 15%
+    yield_factor: 0.85
     qty_raw_per_serving_gram: 0
     cost_per_serving: 1200
 
@@ -111,16 +201,21 @@ ingredients:
 # KẾT QUẢ (tổng hợp)
 # -----------------------------------------------------------------------------
 summary:
-  total_food_cost_nguyen_lieu: 30414  # 3200+6000+6500+10714+2000+1200+800 (CHƯA gồm điện năng)
+  # Tổng theo GIÁ THAM KHẢO (chưa gồm điện năng + dầu hương vị phân bổ):
+  # 3200 + 9000 + 7647 + 8571 + 1071 + 771 + 571 + 80 + 29 + 86 + 114
+  #   + 175 + 180 + 188 + 16 + 1400 + 1200 + 800
+  total_food_cost_nguyen_lieu: 35099   # giá tham khảo, chưa gồm điện + dầu hương vị
   electricity_cost_per_serving: TBD_OWNER_INPUT
+  dau_huong_vi_cost_per_serving: TBD_OWNER_INPUT
   price_selling: 45000
-  food_cost_percent_nguyen_lieu: 0.676 # 30414 / 45000 = 67.6% (chưa gồm điện)
-  gross_margin_nguyen_lieu: 14586      # 45000 - 30414
-  gross_margin_percent_nguyen_lieu: 0.324
+  food_cost_percent_nguyen_lieu: 0.780 # 35099 / 45000 = 78.0% (giá tham khảo, chưa gồm điện + dầu)
+  gross_margin_nguyen_lieu: 9901       # 45000 - 35099
+  gross_margin_percent_nguyen_lieu: 0.220
   vs_target: >
-    Food cost nguyên liệu 67.6% (chưa gồm điện) — CAO hơn mục tiêu 38% và trần
-    món chủ lực 42–45%. Nguyên nhân chính: xương thực tế 10.714đ/tô (gần gấp đôi
-    ước tính cũ 6.000đ — v0.4.0 phân bổ 25kg/140 tô). Cần tối ưu bằng một trong
-    các đòn bẩy: tăng giá bán, giảm định lượng bò tái/nạm, đàm phán giá xương/thịt
-    sỉ, hoặc dùng phần thịt rẻ hơn (gầu, bắp). Điện năng (~0.23 kWh/tô) cộng thêm
-    tùy giá điện. Tính lại ở file khác khi thay biến — KHÔNG sửa số chết.
+    Food cost nguyên liệu 78.0% (giá tham khảo, CHƯA gồm điện năng + dầu hương vị)
+    — CAO hơn nhiều so với mục tiêu 38% và trần món chủ lực 42–45%. Nguyên nhân:
+    (1) định lượng thịt tăng (tái 60g, chín 40g) → thịt 16.647đ/tô (37% giá bán);
+    (2) xương bò+heo 9.642đ/tô (21%); (3) gia vị/tôm khô/đồ thơm đã itemized
+    3.610đ/tô thay ước tính 2.000đ. Đây là tín hiệu CHƯA tối ưu: bắt buộc tăng giá
+    bán, giảm định lượng thịt, đàm phán giá xương/thịt sỉ, hoặc dùng phần thịt rẻ
+    hơn (gầu, bắp). Điện năng (~0.23 kWh/tô) và dầu hương vị cộng thêm tùy giá thực.

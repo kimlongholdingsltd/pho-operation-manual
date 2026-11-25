@@ -1,6 +1,6 @@
 # Bộ Cẩm Nang Mở & Vận Hành Quán Phở Thực Chiến
 
-> **Phiên bản hiện tại: v1.0.0 (Commercial Release)** — phát hành thương mại, sẵn sàng bàn giao App với đặc tả schema + bộ 6 ca kiểm thử.
+> **Phiên bản hiện tại: v1.1.0** — bổ sung công thức chi tiết 100L nước dùng, dầu chưng cất 5L, nước nèo & định lượng thịt ra tô.
 
 > Tài liệu vận hành F&B chuẩn **Docs-as-Code**: mọi quy trình là file có phiên bản, review được; mọi thông số định lượng là **biến số trong YAML** — sẵn sàng chuyển thẳng thành phần mềm quản lý mà đội lập trình không cần đoán nghĩa.
 
@@ -51,7 +51,7 @@ Toàn bộ 20 ghi chú thực chiến ban đầu, giữ nguyên làm nguồn tha
 | Tài liệu | Nội dung |
 |---|---|
 | [`ingredients-standards.yaml`](01-financial-models/ingredients-standards.yaml) | Tiêu chuẩn chọn nguyên liệu + `yield_factor` từng loại |
-| [`recipe-costing-sample.yaml`](01-financial-models/recipe-costing-sample.yaml) | Mẫu tính giá vốn 1 bát (Phở Bò Tái Nạm) |
+| [`recipe-costing-sample.yaml`](01-financial-models/recipe-costing-sample.yaml) | Mẫu tính giá vốn 1 bát (Phở Bò Tái Chín) |
 | [`recipe-nuoc-dung-pho-bo.yaml`](01-financial-models/recipe-nuoc-dung-pho-bo.yaml) | Công thức ninh nước dùng — mẻ chuẩn 100L (25kg/100L/70L/140 tô) + điện năng |
 | [`food-cost-cogs.yaml`](01-financial-models/food-cost-cogs.yaml) | Ngưỡng food cost + công thức hòa vốn theo lãi đóng góp |
 | [`storage-preservation.yaml`](01-financial-models/storage-preservation.yaml) | Chuẩn nhiệt độ bảo quản + quy tắc làm nguội FDA |
@@ -132,6 +132,7 @@ Toàn bộ 20 ghi chú thực chiến ban đầu, giữ nguyên làm nguồn tha
 | **v0.4.0** | Chốt định mức mẻ nước dùng chuẩn 100L (25kg xương/100L nước/70L thành phẩm/140 tô), điện năng Newsun ~32 kWh/mẻ, bí quyết tạo hương 3 lớp + hộp gia vị inox, SOP ra tô & giữ nhiệt. |
 | **v0.5.0** | Bản vá kiểm toán: đóng 6 điểm ĐC-01/04/05/06/07/08, chuẩn làm nguội FDA §3-501.14, chuẩn hóa nồi 100L Newsun, tách hệ số xương (vật lý vs chi phí), bổ sung ca mẫu điền đầy đủ. |
 | **v1.0.0 (Commercial Release)** | Trang chủ README + đặc tả hệ thống App (6 bảng DB + 4 phân hệ + bộ 6 ca kiểm thử bàn giao); phát hành thương mại với tag `v1.0.0`. |
+| **v1.1.0** | Bổ sung công thức chi tiết: xương 20kg bò + 5kg heo, cốt ngọt tôm khô + gừng, đồ thơm 3 lớp định lượng, nước nèo (cơ sở 10L ×7), dầu hương vị chưng cất 5L; chuẩn hóa định lượng thịt ra tô (tái 60/chín 40/bắp 60/gân 80/xào lăn 70/đuôi 150); thay ước tính gia vị 2.000đ bằng phân bổ itemized chính xác. |
 
 ---
 

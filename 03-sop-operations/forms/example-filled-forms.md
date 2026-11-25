@@ -10,8 +10,9 @@
 
 | Nguyên liệu | Khối lượng | Đơn giá | Kiểm tra tươi (tiêu chí chọn) |
 |---|---|---|---|
-| Xương ống | 12,5 kg | 60.000 đ/kg | Đỏ tươi, ống to ~4 đốt ngón tay, nhiều tủy, không hôi |
-| Xương lẫn (cổ/sườn/hom) | 12,5 kg | 60.000 đ/kg | Săn chắc, không mùi lạ |
+| Xương bò — ống | 10 kg | 60.000 đ/kg | Đỏ tươi, ống to ~4 đốt ngón tay, nhiều tủy, không hôi |
+| Xương bò — lẫn (cổ/sườn/hom) | 10 kg | 60.000 đ/kg | Săn chắc, không mùi lạ |
+| Xương heo (ống/cục) | 5 kg | 30.000 đ/kg | Trắng hồng, có tủy, không hôi |
 | Thịt nạm | 5,0 kg | 130.000 đ/kg | Đỏ au, thớ mịn, đàn hồi tốt |
 | Thịt gầu | 3,0 kg | 120.000 đ/kg | Nửa nạc nửa mỡ, mỡ vàng nhạt |
 | Thịt tái (thăn) | 4,0 kg | 150.000 đ/kg | Đỏ tươi, ráo mặt; thái mỏng 1,5–2 mm |
@@ -23,7 +24,7 @@
 | Mục | Giá trị | Đối chiếu chuẩn |
 |---|---|---|
 | Nồi | Newsun 100L (6kW) | danh định 100L |
-| Tổng xương | 25 kg (12,5 ống + 12,5 lẫn) | 25 kg |
+| Tổng xương | 25 kg (20 kg bò + 5 kg heo) | 25 kg |
 | Nước lạnh nạp ban đầu | 82 L | 80–85 L |
 | Châm bù nước sôi | 18 L (3 lần × 6 L) | 15–20 L |
 | Tổng nước cấp vào | 100 L | 100 L |
@@ -50,7 +51,7 @@
 
 | Cỡ tô | Bánh phở (g) | Thịt (g) | Hành/rau (g) | Nước dùng (mL) |
 |---|---|---|---|---|
-| Tô thường | 200 | 40 tái + 34 nạm | 15 | 500 |
+| Tô thường | 200 | 60 tái + 40 chín (nạm) | 15 | 500 |
 
 > Duy trì nồi nước chan SÔI, tráng tô bằng nước sôi trước khi xếp bánh/thịt
 > (xem `ra-to-va-giu-nhiet.md`).
@@ -61,11 +62,13 @@
 |---|---|
 | Số tô bán trong ngày | 140 tô (hết mẻ 70L) |
 | Doanh thu | 140 × 45.000 = 6.300.000 đ |
-| Giá vốn nguyên liệu (mẫu) | 140 × 30.414 = 4.257.960 đ (chưa gồm điện năng) |
-| Food cost nguyên liệu | 67,6% → **vượt trần 42–45%, cảnh báo ĐỎ** |
+| Giá vốn nguyên liệu (mẫu) | 140 × 35.099 = 4.913.860 đ (giá tham khảo, chưa gồm điện năng) |
+| Food cost nguyên liệu | 78,0% → **vượt trần 42–45%, cảnh báo ĐỎ** |
 | Kết luận | Mẫu CHƯA tối ưu: cần giảm định lượng thịt/tăng giá/đàm phán giá xương về ngưỡng ≤ 45% |
 
-> Lưu ý: food cost 67,6% là con số của tô MẪU (`recipe-costing-sample.yaml`) khi
-> phân bổ xương 25 kg/140 tô (10.714 đ/tô). Đây là **tín hiệu cảnh báo để tối ưu**,
-> không phải chuẩn vận hành — trước khi bán thật phải đưa về 35–38% (toàn menu) hoặc
-> tối đa 42–45% (món chủ lực nhiều thịt).
+> Lưu ý: food cost 78,0% là con số của tô MẪU (`recipe-costing-sample.yaml`, giá
+> tham khảo) khi phân bổ xương 20 kg bò + 5 kg heo/140 tô và định lượng mới (tái 60g
+> + chín 40g) — gia vị đã itemized (nước nèo + tôm khô + đồ thơm 3 lớp) thay ước tính
+> 2.000đ. Đây là **tín hiệu cảnh báo để tối ưu**, không phải chuẩn vận hành — trước
+> khi bán thật phải đưa về 35–38% (toàn menu) hoặc tối đa 42–45% (món chủ lực nhiều
+> thịt).

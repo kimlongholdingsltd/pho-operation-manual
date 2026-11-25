@@ -28,7 +28,7 @@ nau_ham:
     capacity_liter: 100
     cong_suat_max_kw: 6
     material: "Inox 304"
-    ghi_chu: "Mẻ chuẩn 25kg xương + 100L nước → 70L thành phẩm (xem recipe-nuoc-dung-pho-bo.yaml)"
+    ghi_chu: "Mẻ chuẩn 20kg xương bò + 5kg xương heo + 100L nước → 70L thành phẩm (xem recipe-nuoc-dung-pho-bo.yaml)"
   - name: "Sọt xương / giỏ trụng phở"
     purpose: "Giữ xương gọn khi hầm, trụng bánh phở & rau nhanh"
 

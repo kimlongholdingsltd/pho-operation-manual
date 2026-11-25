@@ -1,25 +1,40 @@
 # Phiếu ra tô chuẩn (định lượng)
 
-> Mục đích: chốt định lượng gram/mL cho từng cỡ tô để ra tô đồng đều và kiểm soát
-> food cost. **Múc chuẩn nước dùng: 500 mL/tô** (mẻ chuẩn 100L → 140 tô). Điền số
-> thực tế của quán. Đối chiếu `dinh_muc_ml_nuoc_dung_per_to` trong
-> `../../01-financial-models/recipe-nuoc-dung-pho-bo.yaml`.
+> Mục đích: chốt định lượng gram/mL cho từng loại thịt và cỡ tô để ra tô đồng đều,
+> kiểm soát food cost. **Múc chuẩn nước dùng: 500 mL/tô** (mẻ chuẩn 100L → 140 tô).
+> Đối chiếu `dinh_muc_ml_nuoc_dung_per_to` trong
+> `../../01-financial-models/recipe-nuoc-dung-pho-bo.yaml` và `portion_thit_ra_to`
+> trong `../../01-financial-models/ingredients-standards.yaml`.
 >
 > Quy tắc giữ nhiệt: duy trì nồi nước chan SÔI suốt giờ bán; tráng tô bằng nước sôi
 > trước khi xếp bánh/thịt để giữ trọn độ nóng (xem `../ra-to-va-giu-nhiet.md`).
 
-## 1. Định lượng tô ăn tại quán
+## 1. Định lượng thịt ra tô (chuẩn v1.1.0)
 
-| Cỡ tô | Bánh phở (g) | Thịt (g) | Hành/rau (g) | Nước dùng (mL) | Ghi chú |
-|---|---|---|---|---|---|
-| Tô nhỏ | | | | | |
-| Tô thường | | | | 500 | |
-| Tô lớn | | | | | |
+| Loại thịt | Gram / tô |
+|---|---|
+| Tái | 60 g |
+| Chín (nạm/gầu) | 40 g |
+| Bắp | 60 g |
+| Gân | 80 g |
+| Xào lăn | 70 g |
+| Đuôi bò | 150 g |
 
-> Tham khảo mẫu (recipe-costing-sample.yaml): bánh phở 200g, bò tái 40g, nạm chín
-> 34g — đây là SỐ MẪU để minh họa, chủ quán phải đo và chốt lại theo nồi/quy mô.
+> Định lượng chuẩn do chủ quán chốt (v1.1.0). Tô mẫu **Phở Bò Tái Chín** = 60 g tái
+> + 40 g chín (xem `../../01-financial-models/recipe-costing-sample.yaml`).
 
-## 2. Quy cách đóng gói mang về
+## 2. Cỡ tô & nước dùng
+
+| Cỡ tô | Bánh phở (g) | Hành/rau (g) | Nước dùng (mL) | Ghi chú |
+|---|---|---|---|---|
+| Tô nhỏ | | | | |
+| Tô thường | 200 | 15 | 500 | chuẩn 1 tô |
+| Tô lớn | | | | |
+
+> Tham khảo mẫu (recipe-costing-sample.yaml): bánh phở 200g, nước dùng 500 mL/tô.
+> Chủ quán đo và chốt lại theo nồi/quy mô thực tế.
+
+## 3. Quy cách đóng gói mang về
 
 | Thành phần | Quy cách | Ghi chú |
 |---|---|---|

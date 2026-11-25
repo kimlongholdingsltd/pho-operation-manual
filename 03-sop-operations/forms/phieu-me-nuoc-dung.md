@@ -1,9 +1,9 @@
 # Phiếu theo dõi mẻ nước dùng
 
 > Mục đích: theo dõi mỗi mẻ để đối chiếu định mức chuẩn đã chốt (nồi 100L danh định:
-> 25 kg xương + 100 L nước tổng → 70 L thành phẩm). Tách hai tỷ lệ xương/nước:
-> `ty_le_xuong_nuoc_ban_dau` (25/100 = 0.25) và `ty_le_xuong_nuoc_tong` (25 / tổng
-> nước cấp vào thực tế). Điền đầy đủ mỗi mẻ, không ước lượng — phát hiện sớm mẻ lệch.
+> 20 kg xương bò + 5 kg xương heo + 100 L nước tổng → 70 L thành phẩm). Tách hai tỷ
+> lệ xương/nước: `ty_le_xuong_nuoc_ban_dau` (25/100 = 0.25) và `ty_le_xuong_nuoc_tong`
+> (25 / tổng nước cấp vào thực tế). Điền đầy đủ mỗi mẻ, không ước lượng.
 
 | Trường | Giá trị |
 |---|---|
@@ -17,9 +17,10 @@
 
 | Loại xương | kg | Ghi chú |
 |---|---|---|
-| Xương ống | | |
-| Xương lẫn (cổ/sườn/hom) | | |
-| **TỔNG xương** | | |
+| Xương bò — ống | | |
+| Xương bò — lẫn (cổ/sườn/hom) | | |
+| Xương heo (ống/cục) | | |
+| **TỔNG xương** | 25 | 20 kg bò + 5 kg heo |
 
 ## 2. Nước
 

@@ -12,6 +12,8 @@ hero:
     - theme: alt
       text: "Tải Bộ Công Cụ Excel"
       link: /downloads/Bo-Cong-Cu-Tai-Chinh-Quan-Pho-v1.1.xlsx
+      target: _blank
+      rel: noopener
 
 features:
   - title: "Tránh bẫy mất vốn"
@@ -61,7 +63,7 @@ features:
 
 Bộ công cụ Excel 3 sheet (dự toán vốn 300 triệu · tính giá vốn food cost · hòa vốn theo kênh & dòng tiền 13 tuần) với công thức sống `=SUM`/`=IF` và cảnh báo đỏ khi vượt trần 45% — mở bằng Microsoft Excel hoặc Google Sheets.
 
-<a class="download-cta" href="/downloads/Bo-Cong-Cu-Tai-Chinh-Quan-Pho-v1.1.xlsx" download>⬇ Tải Bộ Công Cụ Excel (v1.1.xlsx)</a>
+<a class="download-cta" href="/downloads/Bo-Cong-Cu-Tai-Chinh-Quan-Pho-v1.1.xlsx" download="Bo-Cong-Cu-Tai-Chinh-Quan-Pho-v1.1.xlsx" target="_blank" rel="noopener">⬇ Tải Bộ Công Cụ Excel (v1.1.xlsx)</a>
 
 ## Lịch sử phiên bản
 

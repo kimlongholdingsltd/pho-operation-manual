@@ -1,6 +1,13 @@
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vitepress'
 
+// Thêm xlsx/xls vào danh sách "đuôi file KHÔNG phải HTML" của VitePress.
+// Mặc định VitePress coi `/downloads/*.xlsx` là route HTML nên (1) SPA router
+// chặn click báo 404 và (2) normalizeLink nối thêm `.html` → sai URL. Đặt vào
+// process.env để Vite copy sang import.meta.env cho cả SSR lẫn client (xem
+// treatAsHtml / KNOWN_EXTENSIONS trong vitepress).
+process.env.VITE_EXTRA_EXTENSIONS = 'xlsx,xls'
+
 /**
  * Gấp dấu tiếng Việt (nước → nuoc) để khách gõ không dấu vẫn tra cứu được
  * toàn văn. Dùng cho bộ chỉ mục tìm kiếm local của VitePress/MiniSearch.
@@ -165,6 +172,8 @@ export default defineConfig({
       {
         text: 'Tải Excel',
         link: '/downloads/Bo-Cong-Cu-Tai-Chinh-Quan-Pho-v1.1.xlsx',
+        target: '_blank',
+        rel: 'noopener',
       },
     ],
 

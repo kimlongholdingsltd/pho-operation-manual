@@ -62,11 +62,11 @@
 |---|---|
 | Số tô bán trong ngày | 140 tô (hết mẻ 70L) |
 | Doanh thu | 140 × 45.000 = 6.300.000 đ |
-| Giá vốn nguyên liệu (mẫu) | 140 × 35.099 = 4.913.860 đ (giá tham khảo, chưa gồm điện năng) |
-| Food cost nguyên liệu | 78,0% → **vượt trần 42–45%, cảnh báo ĐỎ** |
+| Giá vốn nguyên liệu (mẫu) | 140 × 35.963 = 5.034.820 đ (giá tham khảo, đã gồm điện năng + dầu hương vị) |
+| Food cost nguyên liệu | 79,9% → **vượt trần 42–45%, cảnh báo ĐỎ** |
 | Kết luận | Mẫu CHƯA tối ưu: cần giảm định lượng thịt/tăng giá/đàm phán giá xương về ngưỡng ≤ 45% |
 
-> Lưu ý: food cost 78,0% là con số của tô MẪU (`recipe-costing-sample.yaml`, giá
+> Lưu ý: food cost 79,9% là con số của tô MẪU (`recipe-costing-sample.yaml`, giá
 > tham khảo) khi phân bổ xương 20 kg bò + 5 kg heo/140 tô và định lượng mới (tái 60g
 > + chín 40g) — gia vị đã itemized (nước nèo + tôm khô + đồ thơm 3 lớp) thay ước tính
 > 2.000đ. Đây là **tín hiệu cảnh báo để tối ưu**, không phải chuẩn vận hành — trước

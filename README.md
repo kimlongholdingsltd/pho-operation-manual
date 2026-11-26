@@ -1,6 +1,6 @@
 # Bộ Cẩm Nang Mở & Vận Hành Quán Phở Thực Chiến
 
-> **Phiên bản hiện tại: v1.1.3** — đóng 2 điểm chặn kiểm toán cuối (đồng bộ TC-01/TC-02 về 35.963đ/tô, biến phí kênh 3.000đ/tô, chặn chia âm hòa vốn Excel).
+> **Phiên bản hiện tại: v1.1.5** — bảo vệ chia âm/chia 0 cho cột "Hòa vốn theo tháng" (E13:E14) khớp cột D; đồng bộ nhãn phiên bản phát hành.
 
 > Tài liệu vận hành F&B chuẩn **Docs-as-Code**: mọi quy trình là file có phiên bản, review được; mọi thông số định lượng là **biến số trong YAML** — sẵn sàng chuyển thẳng thành phần mềm quản lý mà đội lập trình không cần đoán nghĩa.
 
@@ -137,6 +137,8 @@ Toàn bộ 20 ghi chú thực chiến ban đầu, giữ nguyên làm nguồn tha
 | **v1.1.1** | Hoàn thiện phân bổ chi phí điện năng (32 kWh × 3.000đ = 96.000đ/mẻ → 686đ/tô) + dầu hương vị chưng cất (1L/mẻ 100L = 1/5 mẻ 5L → 470đ/tô) vào tổng giá vốn; bổ sung mô phỏng "giá bán đạt chuẩn food cost 42%"; xuất bộ công cụ tài chính Excel 3 sheet (dự toán vốn 300tr · tính giá vốn food cost · hòa vốn theo kênh & dòng tiền 13 tuần) với công thức sống `=SUM`/`=IF` và cảnh báo đỏ khi vượt trần 45%. |
 | **v1.1.2** | Xác nhận "Đồ thơm lớp 3 (chưng dầu)" = 1,0 L dầu hương vị múc từ mẻ 5L; bỏ các dòng chưng dầu lẻ (gừng 200g, hành khô 200g, quế 100g, thảo quả 80g) khỏi giá vốn mẻ 100L để không tính trùng 2 lần (tổng giá vốn mẫu còn 35.963đ/tô, food cost 79,9%). |
 | **v1.1.3** | Đóng 2 điểm chặn kiểm toán cuối: (1) đồng bộ ca kiểm thử TC-01/TC-02 về 35.963đ/tô (79,9%) + ghi rõ quy tắc làm tròn (tính số thực 35.963,0588đ, chỉ làm tròn đơn vị ở hiển thị); (2) thống nhất biến phí kênh tại quán 3.000đ/tô (số dư tiền mặt cuối tuần 13 = ~178,58–178,60 triệu) + chặn chia âm ở công thức hòa vốn Excel (hiển thị "Không thể hòa vốn" khi lãi đóng góp ≤ 0). |
+| **v1.1.4** | Đồng bộ số liệu 35.963đ/tô (79,9% — đã gồm điện năng 32 kWh + 1,0L dầu hương vị chưng cất) trên toàn bộ tài liệu mẫu (`ty-le-gia-thanh-COGS.md` + `example-filled-forms.md`). |
+| **v1.1.5** | Bảo vệ chia âm/chia 0 cho cột "Hòa vốn theo tháng" E13:E14 (khớp công thức bảo vệ cột D: hiển thị "Không thể hòa vốn" khi lãi đóng góp ≤ 0); đồng bộ nhãn phiên bản README. |
 
 ---
 

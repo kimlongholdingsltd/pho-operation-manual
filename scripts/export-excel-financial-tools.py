@@ -538,7 +538,7 @@ ws3.cell(row=r, column=1, value="Tại quán (ăn tại chỗ)").alignment = LEF
 b = ws3.cell(row=r, column=2, value=3000); style_cell(b, fill=INPUT_FILL, num_fmt=CURRENCY, align=RIGHT)
 c = ws3.cell(row=r, column=3, value=f"=B{gia_ban_row}-B{gia_von_row}-B{r}"); style_cell(c, fill=CALC_FILL, num_fmt=CURRENCY, align=RIGHT)
 d = ws3.cell(row=r, column=4, value=f'=IF(C{r}<=0,"Không thể hòa vốn",ROUNDUP(B{cpcd_row}/B{songay_row}/C{r},0))'); style_cell(d, fill=CALC_FILL, num_fmt=INT, align=RIGHT)
-e = ws3.cell(row=r, column=5, value=f"=B{cpcd_row}/C{r}"); style_cell(e, fill=CALC_FILL, num_fmt=INT, align=RIGHT)
+e = ws3.cell(row=r, column=5, value=f'=IF(C{r}<=0,"Không thể hòa vốn",ROUNDUP(B{cpcd_row}/C{r},0))'); style_cell(e, fill=CALC_FILL, num_fmt=INT, align=RIGHT)
 ws3.cell(row=r, column=6, value="Bao bì + khuyến mãi 3.000đ (ăn tại chỗ)").alignment = LEFT
 atquan_row = r
 r += 1
@@ -548,7 +548,7 @@ ws3.cell(row=r, column=1, value="App giao đồ ăn").alignment = LEFT
 b = ws3.cell(row=r, column=2, value=f"=0.2*B{gia_ban_row}+2000"); style_cell(b, fill=CALC_FILL, num_fmt=CURRENCY, align=RIGHT)
 c = ws3.cell(row=r, column=3, value=f"=B{gia_ban_row}-B{gia_von_row}-B{r}"); style_cell(c, fill=CALC_FILL, num_fmt=CURRENCY, align=RIGHT)
 d = ws3.cell(row=r, column=4, value=f'=IF(C{r}<=0,"Không thể hòa vốn",ROUNDUP(B{cpcd_row}/B{songay_row}/C{r},0))'); style_cell(d, fill=CALC_FILL, num_fmt=INT, align=RIGHT)
-e = ws3.cell(row=r, column=5, value=f"=B{cpcd_row}/C{r}"); style_cell(e, fill=CALC_FILL, num_fmt=INT, align=RIGHT)
+e = ws3.cell(row=r, column=5, value=f'=IF(C{r}<=0,"Không thể hòa vốn",ROUNDUP(B{cpcd_row}/C{r},0))'); style_cell(e, fill=CALC_FILL, num_fmt=INT, align=RIGHT)
 ws3.cell(row=r, column=6, value="Phí sàn 20% + bao bì 2.000đ").alignment = LEFT
 app_row = r
 r += 2

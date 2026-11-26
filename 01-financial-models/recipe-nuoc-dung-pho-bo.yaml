@@ -121,18 +121,16 @@ huong_lieu:
     cach_dung: "Toàn bộ thảo mộc (quế, hồi, thảo quả...) cho vào hộp inox lưới nhúng trong nồi nước dùng; tuyệt đối KHÔNG thả trực tiếp."
     thoi_gian_nhac_ra_phut: 45       # nhấc hộp gia vị ra sau ~45 phút
     muc_dich: "Nước dùng thanh, không bị nồng/đắng mùi quế hồi"
-  phoi_hop_3_lop:                  # định lượng cho mẻ 100L (v1.1.0)
+  phoi_hop_3_lop:                  # định lượng cho mẻ 100L (v1.1.0; lớp 3 cập nhật v1.1.2)
     lop_1_nuong_thom:
       gung_nuong_g: 500
       hanh_kho_nuong_g: 250
       hanh_tay_nuong_g: 200         # 1 củ ~200g
     lop_2_de_tuoi:
       gung_tuoi_g: 300
-    lop_3_chung_dau:                # phân bổ cho mẻ 100L (nguồn từ dầu hương vị chưng cất)
-      gung_chung_g: 200
-      hanh_kho_chung_g: 200
-      que_chung_g: 100
-      thao_qua_chung_g: 80
+    lop_3_chung_dau:                # = 1,0 L dầu hương vị chưng cất múc từ mẻ 5L (v1.1.2 — chủ quán xác nhận)
+      dau_huong_vi_lit: 1           # 1 L / mẻ 100L (tức 1/5 mẻ 5L); KHÔNG itemize gừng/hành/quế/thảo quả riêng
+      ghi_chu: "Các hương liệu chưng đã nằm trong giá vốn mẻ dầu 5L (dau_huong_vi_chung_cat) — tránh tính trùng."
   nuoc_mam: "Nước mắm cốt độ đạm cao để tạo vị ngọt hậu tự nhiên"
 
 # -----------------------------------------------------------------------------

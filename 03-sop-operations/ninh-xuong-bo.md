@@ -46,7 +46,7 @@ Hàng ngày (ninh trước ngày bán, tổng thời gian ninh khoảng 20 tiế
    - **Đồ thơm 3 lớp (định lượng cho mẻ 100L)**:
      + **Lớp 1 — Nướng thơm**: gừng nướng 500 g, hành khô nướng 250 g, hành tây nướng 1 củ (~200 g).
      + **Lớp 2 — Để tươi**: gừng tươi 300 g.
-     + **Lớp 3 — Chưng dầu (phân bổ cho 100L)**: gừng chưng 200 g, hành khô chưng 200 g, quế chưng 100 g, thảo quả chưng 80 g.
+     + **Lớp 3 — Chưng dầu (phân bổ cho 100L)**: 1,0 lít dầu hương vị chưng cất múc từ mẻ 5L (tức 1/5 mẻ dầu chưng 5L). Không itemize riêng gừng/hành/quế/thảo quả — các hương liệu này đã nằm trong giá vốn mẻ dầu 5L (xem `../01-financial-models/recipe-costing-sample.yaml`).
    - **Nước nèo (nêm trên cơ sở 10 lít nước dùng, tự nhân hệ số 7 cho 70L thành phẩm)**: 70 g mì chính + 120 g đường phèn + 50 g hạt nêm + 40 g muối trắng + 350 g nước mắm cốt độ đạm cao. Mẻ 70L nhân hệ số 7 = 490 g mì chính + 840 g đường phèn + 350 g hạt nêm + 280 g muối trắng + 2.450 g nước mắm.
    - **Dầu hương vị chưng cất (mẻ 5 lít dầu ăn)**: 5 lít dầu ăn + 1,5 kg gừng thái lát mỏng + 900 g hành tím đập dập + 200 g tỏi lột vỏ + 100 g quế + 70 g thảo quả + 70 g hoa hồi. **Kỹ thuật nhiệt**: chưng gừng thái lát TRƯỚC cho đến khi gừng quắt lại → mới thả hành tím đập dập, tỏi, hoa hồi, thảo quả, quế vào chưng tiếp để lấy hương mà không bị đắng/cháy thảo mộc. **Phân bổ**: giả định 1 mẻ 100L dùng 1,0 lít dầu hương vị (tức 1/5 mẻ 5L) — chủ quán chỉnh theo thực tế; giá vốn tham khảo 470đ/tô (xem `../01-financial-models/recipe-costing-sample.yaml`).
 9. **Bàn giao qua đêm**: ca đêm nhận bàn giao phải biết rõ (a) mực nước hiện tại, (b) mốc châm bù tiếp theo, (c) giờ dự kiến vớt thịt/vớt xương. Ghi vào sổ bàn giao để ca sáng không phải đoán.

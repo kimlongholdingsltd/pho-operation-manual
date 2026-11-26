@@ -7,10 +7,13 @@
 #   - Định lượng thịt ra tô chuẩn mới: tái 60g + chín (nạm) 40g/tô.
 #   - Xương: 20 kg xương bò + 5 kg xương heo (tổng 25 kg) ÷ 140 tô.
 #   - Thay ước tính "gia vị 2.000đ/tô" bằng phép phân bổ chính xác từ nước nèo
-#     + tôm khô + đồ thơm 3 lớp chia cho 140 tô (xem recipe-nuoc-dung-pho-bo.yaml).
+#     + tôm khô + đồ thơm chia cho 140 tô (xem recipe-nuoc-dung-pho-bo.yaml).
 #   - Giá các nguyên liệu mới là GIÁ THAM KHẢO (nhập sỉ thị trường VN); thay bằng
-#     giá nhập thực tế từng tuần — đây là biến số, không phải hằng số. Nguyên liệu
-#     chưa có giá chốt (điện, dầu hương vị phân bổ) để TBD_OWNER_INPUT.
+#     giá nhập thực tế từng tuần — đây là biến số, không phải hằng số.
+# v1.1.1 — phân bổ điện năng (686đ/tô) + dầu hương vị (470đ/tô) vào tổng giá vốn.
+# v1.1.2 — xác nhận "Đồ thơm lớp 3 (chưng dầu)" = 1,0 L dầu hương vị múc từ mẻ 5L;
+#          bỏ các dòng chưng dầu lẻ (gừng 200g, hành khô 200g, quế 100g, thảo quả
+#          80g) để không tính trùng chi phí với dòng dầu hương vị 1L.
 #
 # Nguyên tắc: mọi định lượng, đơn giá, hệ số hao hụt đều là BIẾN SỐ riêng để đội
 # lập trình chuyển thẳng thành code/database. Không nhét số chết vào mô tả.
@@ -105,19 +108,19 @@ ingredients:
     qty_raw_per_serving_gram: 4.29  # 600g / 140 tô
     cost_per_serving: 771           # 0.6 × 180000 / 140
 
-  - name: "Gừng (tươi + nướng + chưng)"
+  - name: "Gừng (tươi + nướng)"
     unit: kg
     price_per_unit: 40000           # giá tham khảo
     yield_factor: 1.0
-    qty_raw_per_serving_gram: 14.29 # 2,000g (1kg cốt ngọt + 500 nướng + 300 tươi + 200 chưng) / 140
-    cost_per_serving: 571           # 2 × 40000 / 140
+    qty_raw_per_serving_gram: 12.86 # 1,800g (1kg cốt ngọt + 500 nướng + 300 tươi) / 140 — v1.1.2 bỏ 200g chưng dầu
+    cost_per_serving: 514           # 1.8 × 40000 / 140
 
-  - name: "Hành khô (nướng + chưng)"
+  - name: "Hành khô (nướng)"
     unit: kg
     price_per_unit: 25000           # giá tham khảo
     yield_factor: 1.0
-    qty_raw_per_serving_gram: 3.21  # 450g (250 nướng + 200 chưng) / 140
-    cost_per_serving: 80            # 0.45 × 25000 / 140
+    qty_raw_per_serving_gram: 1.79  # 250g nướng / 140 — v1.1.2 bỏ 200g chưng dầu
+    cost_per_serving: 45            # 0.25 × 25000 / 140
 
   - name: "Hành tây (nướng)"
     unit: kg
@@ -125,20 +128,6 @@ ingredients:
     yield_factor: 1.0
     qty_raw_per_serving_gram: 1.43  # 200g (1 củ) / 140
     cost_per_serving: 29            # 0.2 × 20000 / 140
-
-  - name: "Quế (chưng dầu)"
-    unit: kg
-    price_per_unit: 120000          # giá tham khảo
-    yield_factor: 1.0
-    qty_raw_per_serving_gram: 0.71  # 100g / 140
-    cost_per_serving: 86            # 0.1 × 120000 / 140
-
-  - name: "Thảo quả (chưng dầu)"
-    unit: kg
-    price_per_unit: 200000          # giá tham khảo
-    yield_factor: 1.0
-    qty_raw_per_serving_gram: 0.57  # 80g / 140
-    cost_per_serving: 114           # 0.08 × 200000 / 140
 
   - name: "Nước nèo — mì chính"
     unit: kg
@@ -175,13 +164,13 @@ ingredients:
     qty_raw_per_serving_gram: 17.5  # 2450g (350g×7) / 140
     cost_per_serving: 1400          # 2.45 × 80000 / 140
 
-  - name: "Dầu hương vị chưng cất (1L/mẻ 100L)"
+  - name: "Dầu hương vị chưng cất — Đồ thơm lớp 3 (1L/mẻ 100L)"
     unit: lit
     price_per_unit: 65800           # giá 1 L dầu hương vị = tổng mẻ 5L (329.000đ) ÷ 5
     yield_factor: 1.0
     qty_raw_per_serving_lit: 0.00714  # 1 L ÷ 140 tô
     cost_per_serving: 470           # 65.800đ ÷ 140 tô
-    ghi_chu: "Mẻ 5L: dầu 5L×40k + gừng 1,5kg×40k + hành tím 900g×25k + tỏi 200g×50k + quế 100g×120k + thảo quả 70g×200k + hoa hồi 70g×150k = 329.000đ"
+    ghi_chu: "Lớp 3 = 1L dầu múc từ mẻ 5L (v1.1.2). Mẻ 5L: dầu 5L×40k + gừng 1,5kg×40k + hành tím 900g×25k + tỏi 200g×50k + quế 100g×120k + thảo quả 70g×200k + hoa hồi 70g×150k = 329.000đ"
 
   # --- Gia vị kèm (giữ nguyên) ---
   - name: "Hành lá, rau thơm, giá đỗ"
@@ -202,21 +191,21 @@ ingredients:
 # KẾT QUẢ (tổng hợp)
 # -----------------------------------------------------------------------------
 summary:
-  # Tổng theo GIÁ THAM KHẢO (đã gồm điện năng 686đ + dầu hương vị 470đ):
-  # 3200 + 9000 + 7647 + 8571 + 1071 + 686 + 771 + 571 + 80 + 29 + 86 + 114
+  # Tổng theo GIÁ THAM KHẢO (đã gồm điện năng 686đ + dầu hương vị 470đ; v1.1.2 bỏ lớp 3 chưng dầu trùng):
+  # 3200 + 9000 + 7647 + 8571 + 1071 + 686 + 771 + 514 + 45 + 29
   #   + 175 + 180 + 188 + 16 + 1400 + 470 + 1200 + 800
-  total_food_cost_nguyen_lieu: 36255   # giá tham khảo, đã gồm điện năng + dầu hương vị
+  total_food_cost_nguyen_lieu: 35963   # giá tham khảo, đã gồm điện năng + dầu hương vị
   electricity_cost_per_serving: 686     # 32 kWh × 3.000đ ÷ 140 tô
   dau_huong_vi_cost_per_serving: 470    # 1L dầu hương vị (65.800đ) ÷ 140 tô
   price_selling: 45000
-  food_cost_percent_nguyen_lieu: 0.806  # 36255 / 45000 = 80.6% (giá tham khảo, đầy đủ chi phí)
-  gross_margin_nguyen_lieu: 8745        # 45000 - 36255
-  gross_margin_percent_nguyen_lieu: 0.194
+  food_cost_percent_nguyen_lieu: 0.799  # 35963 / 45000 = 79.9% (giá tham khảo, đầy đủ chi phí)
+  gross_margin_nguyen_lieu: 9037        # 45000 - 35963
+  gross_margin_percent_nguyen_lieu: 0.201
   vs_target: >
-    Food cost nguyên liệu 80.6% (giá tham khảo, đã gồm điện năng + dầu hương vị)
+    Food cost nguyên liệu 79.9% (giá tham khảo, đã gồm điện năng + dầu hương vị)
     — CAO hơn nhiều so với mục tiêu 38% và trần món chủ lực 42–45%. Nguyên nhân:
     (1) định lượng thịt tăng (tái 60g, chín 40g) → thịt 16.647đ/tô (37% giá bán);
-    (2) xương bò+heo 9.642đ/tô (21%); (3) gia vị/tôm khô/đồ thơm itemized 3.610đ/tô;
+    (2) xương bò+heo 9.642đ/tô (21%); (3) gia vị/tôm khô/đồ thơm itemized 3.318đ/tô;
     (4) điện năng 686đ + dầu hương vị 470đ. Đây là tín hiệu CHƯA tối ưu — xem
     gia_ban_de_xuat bên dưới để thấy giá bán cần đạt cho food cost 42%.
 
@@ -227,10 +216,10 @@ gia_ban_de_xuat:
   cong_thuc: "Gia_ban = total_food_cost_nguyen_lieu / food_cost_target_percent"
   food_cost_target_percent: 0.42     # trần món chủ lực nhiều thịt (ĐC-01)
   gia_ban_hien_tai: 45000
-  gia_ban_dat_42_percent: 86321      # 36.255 / 0.42
-  chenh_lech_can_tang: 41321         # 86.321 - 45.000
+  gia_ban_dat_42_percent: 85626      # 35.963 / 0.42
+  chenh_lech_can_tang: 40626         # 85.626 - 45.000
   ghi_chu: >
     Với định lượng thịt hiện tại (tái 60g + chín 40g) và giá tham khảo, muốn đạt
-    food cost 42% phải bán ~86.300đ/tô — chênh rất xa so với 45.000đ hiện tại.
+    food cost 42% phải bán ~85.600đ/tô — chênh rất xa so với 45.000đ hiện tại.
     Đòn bẩy ngược lại: giảm định lượng thịt/xương, hoặc đàm phán giá nguyên liệu
     sỉ về mức để food cost nằm trong 42–45% ở mức giá bán mong muốn.

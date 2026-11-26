@@ -278,18 +278,16 @@ broth = [
     ("Xương bò", 20, "kg", 60000, "20 kg/mẻ (ống + lẫn)"),
     ("Xương heo", 5, "kg", 30000, "5 kg/mẻ (ống/cục)"),
     ("Tôm khô (cốt ngọt)", 0.6, "kg", 180000, "600 g/mẻ"),
-    ("Gừng (cốt ngọt + đồ thơm 3 lớp)", 2, "kg", 40000, "1 kg cốt ngọt + 0.5 nướng + 0.3 tươi + 0.2 chưng"),
-    ("Hành khô", 0.45, "kg", 25000, "250 g nướng + 200 g chưng"),
+    ("Gừng (cốt ngọt + đồ thơm nướng/tươi)", 1.8, "kg", 40000, "1 kg cốt ngọt + 0.5 nướng + 0.3 tươi (v1.1.2 bỏ 0.2 chưng dầu)"),
+    ("Hành khô", 0.25, "kg", 25000, "250 g nướng (v1.1.2 bỏ 200 g chưng dầu)"),
     ("Hành tây", 0.2, "kg", 20000, "1 củ ~200 g nướng"),
-    ("Quế (đồ thơm lớp 3)", 0.1, "kg", 120000, "100 g chưng dầu"),
-    ("Thảo quả (đồ thơm lớp 3)", 0.08, "kg", 200000, "80 g chưng dầu"),
     ("Nước nèo — mì chính", 0.49, "kg", 50000, "490 g/70L"),
     ("Nước nèo — đường phèn", 0.84, "kg", 30000, "840 g/70L"),
     ("Nước nèo — hạt nêm", 0.35, "kg", 75000, "350 g/70L"),
     ("Nước nèo — muối trắng", 0.28, "kg", 8000, "280 g/70L"),
     ("Nước nèo — nước mắm cốt", 2.45, "kg", 80000, "2450 g/70L"),
     ("Điện năng ninh (nồi Newsun 100L)", 32, "kWh", 3000, "32 kWh/mẻ (điện kinh doanh ~3.000đ/kWh)"),
-    ("Dầu hương vị (1L/mẻ 100L)", 1, "lít", None, "kéo 'đơn giá 1L' từ mẻ dầu 5L bên dưới"),
+    ("Dầu hương vị — Đồ thơm lớp 3 (1L/mẻ 100L)", 1, "lít", None, "kéo 'đơn giá 1L' từ mẻ dầu 5L bên dưới"),
 ]
 broth_first = r
 for name, qty, unit, price, note_ in broth:
@@ -490,9 +488,8 @@ style_cell(f, fill=CALC_FILL, font=BOLD, num_fmt=CURRENCY, align=RIGHT)
 ws2.cell(row=r, column=7, value="= tổng giá vốn ÷ 0.42").alignment = LEFT
 r += 2
 
-note(ws2, r, "Ghi chú: 'Đồ thơm lớp 3 (chưng dầu)' và 'Dầu hương vị 5L' là 2 thông số chủ quán cung cấp riêng; "
-            "bảng này giữ nguyên theo recipe-nuoc-dung-pho-bo.yaml và phân bổ dầu 1L/mẻ theo giả định v1.1.1. "
-            "Nếu chủ quán xác nhận 'lớp 3' chính là phần dầu 5L phân bổ, bỏ các dòng gừng/hành/quế/thảo quả 'chưng dầu' khỏi mẻ nước dùng để tránh tính trùng.", 7); r += 1
+note(ws2, r, "Ghi chú (v1.1.2): 'Đồ thơm lớp 3 (chưng dầu)' = 1,0 L dầu hương vị múc từ mẻ 5L (chủ quán xác nhận). "
+            "Các hương liệu chưng (gừng, hành, quế, thảo quả) đã nằm trong giá vốn mẻ dầu 5L, nên bảng mẻ nước dùng 100L KHÔNG itemize lại chúng.", 7); r += 1
 note(ws2, r, "Mọi giá là GIÁ THAM KHẢO (nhập sỉ thị trường VN); thay bằng giá nhập thực tế từng tuần.", 7)
 
 ws2.freeze_panes = "A4"

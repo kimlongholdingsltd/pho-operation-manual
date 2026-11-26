@@ -238,13 +238,14 @@ Dashboard hiển thị theo ngày:
 
 - **Mục tiêu:** App tự tính `cost_per_serving`, `total_food_cost`, `food_cost_percent` từ công thức.
 - **Đầu vào:** `recipe-costing-sample.yaml` (Phở Bò Tái Chín: tái 60g, nạm chín 40g, xương 20kg bò + 5kg heo, `price_selling` 45.000đ).
-- **Kết quả mong đợi:** `total_food_cost` = 35.099đ, `food_cost_percent` = 78,0% (khớp `summary` trong YAML, giá tham khảo).
+- **Kết quả mong đợi:** `total_food_cost` = 35.963đ, `food_cost_percent` = 79,9% (khớp `summary` trong YAML, giá tham khảo).
+- **Quy tắc làm tròn:** hệ thống tính bằng số thực chính xác của mẻ (35.963,0588đ/tô — gồm phân bổ 1,0 L dầu hương vị = 65.800đ ÷ 140 tô = 470đ/tô), chỉ làm tròn đến hàng đơn vị (VNĐ) tại bước hiển thị cuối cùng.
 - **Tiêu chí ĐẠT:** sai số = 0 so với file YAML; áp dụng đúng `yield_factor` (nạm 0.68 → `40 / 0.68 = 58,8g` thô); gia vị tính theo phân bổ itemized (nước nèo ×7 + tôm khô + đồ thơm 3 lớp) ÷ 140 tô.
 
 ### TC-02 — Cảnh báo food cost theo trần từng món (Phân hệ 1 · ĐC-01)
 
 - **Mục tiêu:** Cảnh báo VÀNG/ĐỎ theo trần của chính món đó, không dùng một ngưỡng chung cho cả menu.
-- **Đầu vào:** Phở Bò Tái Chín food cost 78,0% (vượt trần chủ lực 45%); một món khác 40% (vượt 38% toàn menu nhưng dưới 45%).
+- **Đầu vào:** Phở Bò Tái Chín food cost 79,9% (vượt trần chủ lực 45%); một món khác 40% (vượt 38% toàn menu nhưng dưới 45%).
 - **Kết quả mong đợi:** Tái Chín → cảnh báo ĐỎ (chặn xuất nếu cấu hình yêu cầu); món 40% → cảnh báo VÀNG.
 - **Tiêu chí ĐẠT:** ngưỡng đọc từ `food-cost-cogs.yaml.food_cost_thresholds.canh_bao`, không hard-code 35–38%.
 

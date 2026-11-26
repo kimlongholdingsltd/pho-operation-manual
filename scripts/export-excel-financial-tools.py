@@ -535,11 +535,11 @@ header(ws3, r, ["Kênh", "Biến phí kênh/tô", "Lãi đóng góp/tô", "Hòa 
 
 # Kênh tại quán
 ws3.cell(row=r, column=1, value="Tại quán (ăn tại chỗ)").alignment = LEFT
-b = ws3.cell(row=r, column=2, value=0); style_cell(b, fill=INPUT_FILL, num_fmt=CURRENCY, align=RIGHT)
+b = ws3.cell(row=r, column=2, value=3000); style_cell(b, fill=INPUT_FILL, num_fmt=CURRENCY, align=RIGHT)
 c = ws3.cell(row=r, column=3, value=f"=B{gia_ban_row}-B{gia_von_row}-B{r}"); style_cell(c, fill=CALC_FILL, num_fmt=CURRENCY, align=RIGHT)
-d = ws3.cell(row=r, column=4, value=f"=B{cpcd_row}/C{r}/B{songay_row}"); style_cell(d, fill=CALC_FILL, num_fmt='#,##0.0', align=RIGHT)
+d = ws3.cell(row=r, column=4, value=f'=IF(C{r}<=0,"Không thể hòa vốn",ROUNDUP(B{cpcd_row}/B{songay_row}/C{r},0))'); style_cell(d, fill=CALC_FILL, num_fmt=INT, align=RIGHT)
 e = ws3.cell(row=r, column=5, value=f"=B{cpcd_row}/C{r}"); style_cell(e, fill=CALC_FILL, num_fmt=INT, align=RIGHT)
-ws3.cell(row=r, column=6, value="Biến phí ~0 (ăn tại chỗ)").alignment = LEFT
+ws3.cell(row=r, column=6, value="Bao bì + khuyến mãi 3.000đ (ăn tại chỗ)").alignment = LEFT
 atquan_row = r
 r += 1
 
@@ -547,14 +547,14 @@ r += 1
 ws3.cell(row=r, column=1, value="App giao đồ ăn").alignment = LEFT
 b = ws3.cell(row=r, column=2, value=f"=0.2*B{gia_ban_row}+2000"); style_cell(b, fill=CALC_FILL, num_fmt=CURRENCY, align=RIGHT)
 c = ws3.cell(row=r, column=3, value=f"=B{gia_ban_row}-B{gia_von_row}-B{r}"); style_cell(c, fill=CALC_FILL, num_fmt=CURRENCY, align=RIGHT)
-d = ws3.cell(row=r, column=4, value=f"=B{cpcd_row}/C{r}/B{songay_row}"); style_cell(d, fill=CALC_FILL, num_fmt='#,##0.0', align=RIGHT)
+d = ws3.cell(row=r, column=4, value=f'=IF(C{r}<=0,"Không thể hòa vốn",ROUNDUP(B{cpcd_row}/B{songay_row}/C{r},0))'); style_cell(d, fill=CALC_FILL, num_fmt=INT, align=RIGHT)
 e = ws3.cell(row=r, column=5, value=f"=B{cpcd_row}/C{r}"); style_cell(e, fill=CALC_FILL, num_fmt=INT, align=RIGHT)
 ws3.cell(row=r, column=6, value="Phí sàn 20% + bao bì 2.000đ").alignment = LEFT
 app_row = r
 r += 2
 
 note(ws3, r, "Biến phí kênh App = 20% × giá bán + 2.000đ bao bì (chỉnh hệ số 0.2 và 2000 trong ô công thức B-app nếu phí sàn khác).", 9); r += 1
-note(ws3, r, "Điểm hòa vốn tô/ngày = CP cố định ÷ lãi đóng góp ÷ số ngày bán. Số ngày bán càng ít → phải bán càng nhiều tô/ngày để bù CP cố định.", 9); r += 2
+note(ws3, r, "Điểm hòa vốn tô/ngày = CP cố định ÷ lãi đóng góp ÷ số ngày bán. Nếu lãi đóng góp ≤ 0 (giá vốn quá cao) → hiển thị 'Không thể hòa vốn' thay vì số tô âm. Số ngày bán càng ít → phải bán càng nhiều tô/ngày để bù CP cố định.", 9); r += 2
 
 # --- Block C: dòng tiền 13 tuần ---
 subhead(ws3, r, "DÒNG TIỀN 13 TUẦN (kịch bản CƠ SỞ — ramp 40→100 tô/ngày)", 9); r += 1

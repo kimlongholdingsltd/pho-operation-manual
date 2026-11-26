@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cẩm Nang Mở &amp; Vận Hành Quán Phở Chuẩn Hóa Từ A–Z (v1.2.1) — 499.000đ</title>
+  <meta name="description" content="Sở hữu trọn bộ Cẩm Nang Vận Hành Quán Phở Chuẩn Hóa Từ A–Z (29 tài liệu SOP bếp & quản trị) kèm Bộ Công Cụ Excel tự tính giá vốn & dòng tiền 13 tuần. Đúc kết từ quy trình nấu mẻ 100L thực tế." />
+
+  <!-- Open Graph / chia sẻ link Bio TikTok · Reels · Zalo -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:title" content="Đừng để 300 triệu 'bốc hơi' vì mở quán phở theo cảm tính" />
+  <meta property="og:description" content="Cẩm nang vận hành quán phở chuẩn hóa từ A–Z: 29 tài liệu SOP + Excel tự tính giá vốn & dòng tiền 13 tuần. Giá ra mắt 499.000đ." />
+  <meta name="theme-color" content="#B45309" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%9C%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    /* =====================================================================
+       Bảng màu Editorial Culinary Modern — đồng bộ với Web Docs nội bộ.
+       Nền trắng #FFFFFF + kem ấm #FAF8F5 · chữ than chì #1E1B18 ·
+       nhấn vàng đồng mật ong #B45309 (hover #92400E) ·
+       badge ngọc lục bảo #047857 cho chỉ số kiểm toán.
+       ===================================================================== */
+    :root {
+      --bg: #FFFFFF;
+      --bg-warm: #FAF8F5;
+      --ink: #1E1B18;
+      --ink-2: #6B6259;
+      --ink-3: #9A8F83;
+      --brand: #B45309;
+      --brand-hover: #92400E;
+      --brand-soft: #FEF3C7;
+      --emerald: #047857;
+      --emerald-soft: #ECFDF5;
+      --emerald-border: #A7F3D0;
+      --border: #EAE4DC;
+      --border-strong: #D8CFC3;
+      --danger: #B91C1C;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-lg: 0 4px 20px rgba(0,0,0,0.04);
+      --shadow-xl: 0 16px 48px rgba(30,27,24,0.10);
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto,
+              'Helvetica Neue', Arial, 'Noto Sans', 'Noto Sans Vietnamese', sans-serif;
+      --font-mono: ui-monospace, 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+      --max-w: 1120px;
+      --header-h: 64px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { color: var(--brand-hover); }
+
+    .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 20px; }
+
+    /* ---------- Thanh điều hướng trên cùng ---------- */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      height: var(--header-h);
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .brand { font-weight: 800; color: var(--ink); font-size: 1.02rem; letter-spacing: -0.01em; }
+    .brand .emoji { font-size: 1.15rem; }
+    .brand small { display: block; font-weight: 600; color: var(--ink-3); font-size: 0.72rem; letter-spacing: 0.02em; }
+
+    /* ---------- Nút bấm ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 0.85rem 1.5rem; border-radius: var(--radius);
+      font-weight: 700; font-size: 1rem; line-height: 1.2; cursor: pointer;
+      border: 1px solid transparent; text-align: center;
+      transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none; color: inherit;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .btn-brand { background: var(--brand); color: #fff; box-shadow: var(--shadow-lg); }
+    .btn-brand:hover { background: var(--brand-hover); color: #fff; }
+    .btn-ghost { background: #fff; color: var(--ink); border-color: var(--border-strong); }
+    .btn-ghost:hover { border-color: var(--brand); color: var(--brand); }
+    .btn-emerald { background: var(--emerald); color: #fff; }
+    .btn-emerald:hover { background: #065F46; color: #fff; }
+    .btn-lg { padding: 1rem 1.9rem; font-size: 1.05rem; }
+    .btn-sm { padding: 0.55rem 1rem; font-size: 0.9rem; }
+    .btn-block { width: 100%; }
+
+    /* ---------- Badge ---------- */
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 0.35rem 0.9rem; border-radius: 999px;
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.02em;
+    }
+    .badge-emerald { background: var(--emerald-soft); color: var(--emerald); border: 1px solid var(--emerald-border); }
+    .badge-brand { background: var(--brand-soft); color: var(--brand-hover); border: 1px solid #F3DDB0; }
+    .badge .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+    /* ---------- Khối 1 · Hero ---------- */
+    .hero { padding: 56px 0 48px; background:
+      radial-gradient(1200px 500px at 50% -10%, #FEF7EA 0%, rgba(254,247,234,0) 60%),
+      var(--bg); border-bottom: 1px solid var(--border); }
+    .hero-inner { text-align: center; max-width: 820px; margin: 0 auto; }
+    .hero h1 {
+      margin: 18px 0 14px; font-size: 2rem; line-height: 1.15; font-weight: 800; letter-spacing: -0.02em;
+    }
+    .hero .lead { font-size: 1.06rem; color: var(--ink-2); margin: 0 auto 28px; max-width: 640px; }
+    .hero .lead strong { color: var(--ink); }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 34px; }
+
+    .trust-bar {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+      margin: 0 auto; max-width: 720px;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px; text-align: left;
+      padding: 12px 14px; background: var(--bg-warm); border: 1px solid var(--border);
+      border-radius: var(--radius); font-size: 0.9rem; font-weight: 600; color: var(--ink-2);
+    }
+    .trust-item .check {
+      flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--emerald-soft); color: var(--emerald);
+      display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 800;
+    }
+
+    /* ---------- Khối chung ---------- */
+    section { padding: 60px 0; scroll-margin-top: calc(var(--header-h) + 12px); }
+    .section-head { max-width: 720px; margin: 0 auto 34px; text-align: center; }
+    .section-head h2 { margin: 0 0 10px; font-size: 1.7rem; line-height: 1.2; font-weight: 800; letter-spacing: -0.02em; }
+    .section-head p { margin: 0; color: var(--ink-2); font-size: 1.02rem; }
+    .kicker { display: inline-block; margin-bottom: 8px; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand); }
+
+    /* ---------- Khối 2 · Nỗi đau ---------- */
+    .pain { background: var(--bg-warm); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .pain-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    .pain-card {
+      background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 26px 24px; box-shadow: var(--shadow-sm);
+    }
+    .pain-card .stat {
+      display: inline-block; margin-bottom: 14px; padding: 4px 10px; border-radius: 8px;
+      background: #FEF2F2; color: var(--danger); font-weight: 800; font-size: 0.85rem;
+      border: 1px solid #FECACA;
+    }
+    .pain-card h3 { margin: 0 0 8px; font-size: 1.15rem; font-weight: 800; }
+    .pain-card p { margin: 0; color: var(--ink-2); font-size: 0.96rem; }
+
+    /* ---------- Khối 3 · Deliverables ---------- */
+    .deliver-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    .deliver-card {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--bg); overflow: hidden; box-shadow: var(--shadow-sm);
+    }
+    .deliver-head { padding: 20px 22px; border-bottom: 1px solid var(--border); }
+    .deliver-head .tag { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+    .deliver-a .tag { color: var(--brand); }
+    .deliver-b .tag { color: var(--emerald); }
+    .deliver-head h3 { margin: 6px 0 4px; font-size: 1.2rem; font-weight: 800; }
+    .deliver-head p { margin: 0; color: var(--ink-3); font-size: 0.88rem; }
+    .deliver-body { padding: 20px 22px; }
+    .deliver-body ul { list-style: none; margin: 0; padding: 0; }
+    .deliver-body li {
+      position: relative; padding: 0 0 12px 26px; margin-bottom: 12px;
+      border-bottom: 1px dashed var(--border); color: var(--ink-2); font-size: 0.96rem;
+    }
+    .deliver-body li:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+    .deliver-body li::before {
+      content: ''; position: absolute; left: 2px; top: 7px; width: 9px; height: 9px;
+      border-radius: 50%; background: var(--brand);
+    }
+    .deliver-b .deliver-body li::before { background: var(--emerald); }
+    .deliver-body li strong { color: var(--ink); }
+    .deliver-foot { padding: 0 22px 22px; }
+
+    /* ---------- Khối 4 · Bảng so sánh ---------- */
+    .compare-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+    table.compare { width: 100%; border-collapse: collapse; min-width: 640px; background: var(--bg); }
+    .compare th, .compare td { padding: 16px 18px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); }
+    .compare thead th { background: #F5EFE6; font-size: 0.92rem; font-weight: 800; }
+    .compare thead th.crit { width: 26%; }
+    .compare thead th.col-bad { color: var(--ink-2); }
+    .compare thead th.col-good { color: var(--emerald); }
+    .compare tbody tr:last-child td { border-bottom: 0; }
+    .compare td.crit { font-weight: 700; color: var(--ink); font-size: 0.95rem; }
+    .compare td.col-bad { color: var(--ink-2); font-size: 0.93rem; }
+    .compare td.col-bad::before { content: '✕  '; color: var(--danger); font-weight: 800; }
+    .compare td.col-good { color: var(--ink); font-size: 0.93rem; background: #FBFDFB; }
+    .compare td.col-good::before { content: '✓  '; color: var(--emerald); font-weight: 800; }
+
+    /* ---------- Khối 5 · Giá & Thanh toán ---------- */
+    .pricing { background: var(--bg-warm); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .price-card {
+      max-width: 560px; margin: 0 auto 40px; text-align: center;
+      background: var(--bg); border: 1px solid var(--border-strong); border-radius: var(--radius-lg);
+      padding: 34px 26px; box-shadow: var(--shadow-xl);
+    }
+    .price-card .price-old { color: var(--ink-3); text-decoration: line-through; font-size: 1.05rem; }
+    .price-card .price-now { font-size: 3.4rem; font-weight: 800; letter-spacing: -0.03em; color: var(--brand); line-height: 1; margin: 8px 0; }
+    .price-card .price-now small { font-size: 1.3rem; font-weight: 700; }
+    .price-card .price-note { color: var(--ink-2); font-size: 0.98rem; margin: 0 0 20px; }
+
+    .checkout { max-width: 720px; margin: 0 auto; }
+    .step {
+      display: flex; gap: 16px; padding: 22px 0; border-top: 1px solid var(--border);
+    }
+    .step:first-of-type { border-top: 0; }
+    .step-num {
+      flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%;
+      background: var(--brand); color: #fff; font-weight: 800; font-size: 1.1rem;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .step-body { flex: 1; min-width: 0; }
+    .step-body h3 { margin: 2px 0 8px; font-size: 1.12rem; font-weight: 800; }
+    .step-body p { margin: 0 0 12px; color: var(--ink-2); font-size: 0.96rem; }
+    .bank-info {
+      background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 16px 18px; margin-bottom: 12px;
+    }
+    .bank-info .row { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; font-size: 0.96rem; }
+    .bank-info .row .lbl { color: var(--ink-3); }
+    .bank-info .row .val { font-weight: 700; font-family: var(--font-mono); color: var(--ink); word-break: break-all; text-align: right; }
+    .step-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .step-actions .btn { padding: 0.6rem 1.1rem; font-size: 0.9rem; }
+    .webdocs-link { font-family: var(--font-mono); font-size: 0.9rem; color: var(--brand); word-break: break-all; }
+
+    /* ---------- Khối 6 · FAQ ---------- */
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; background: var(--bg); overflow: hidden; }
+    .faq-q {
+      width: 100%; text-align: left; padding: 18px 20px; font: inherit; font-weight: 700; font-size: 1.02rem;
+      background: var(--bg); border: 0; cursor: pointer; color: var(--ink);
+      display: flex; justify-content: space-between; align-items: center; gap: 14px;
+    }
+    .faq-q:hover { color: var(--brand); }
+    .faq-q .icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: inline-flex; align-items: center; justify-content: center; font-weight: 800; transition: transform 0.2s ease; }
+    .faq-item.open .faq-q .icon { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.28s ease; }
+    .faq-a-inner { padding: 0 20px 20px; color: var(--ink-2); font-size: 0.97rem; }
+    .faq-a-inner strong { color: var(--ink); }
+
+    /* ---------- Khối 7 · Footer ---------- */
+    .site-footer { background: var(--ink); color: #CFC7BD; padding: 40px 0 32px; }
+    .site-footer .brand { color: #fff; }
+    .site-footer .brand small { color: #A99F93; }
+    .footer-inner { display: flex; flex-direction: column; gap: 20px; }
+    .footer-note { font-size: 0.9rem; max-width: 640px; }
+    .footer-note strong { color: #fff; }
+    .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; border-top: 1px solid #3A342C; padding-top: 20px; font-size: 0.85rem; }
+    .back-top { color: #FEF3C7; font-weight: 700; }
+    .back-top:hover { color: #fff; }
+
+    /* ---------- Modal xem trước cấu trúc ---------- */
+    .modal-backdrop {
+      position: fixed; inset: 0; z-index: 100; background: rgba(30,27,24,0.5);
+      display: none; align-items: center; justify-content: center; padding: 20px;
+      backdrop-filter: blur(2px);
+    }
+    .modal-backdrop.show { display: flex; }
+    .modal {
+      background: var(--bg); border-radius: var(--radius-lg); max-width: 560px; width: 100%;
+      max-height: 86vh; overflow-y: auto; box-shadow: var(--shadow-xl); padding: 26px 24px;
+      position: relative; animation: modalIn 0.2s ease;
+    }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .modal-close {
+      position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid var(--border); background: var(--bg); cursor: pointer; font-size: 1.1rem; color: var(--ink-2);
+    }
+    .modal-close:hover { color: var(--brand); border-color: var(--brand); }
+    .modal h3 { margin: 0 0 4px; font-size: 1.25rem; font-weight: 800; }
+    .modal .modal-sub { color: var(--ink-3); font-size: 0.88rem; margin: 0 0 18px; }
+    .structure-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .structure-item:last-child { border-bottom: 0; }
+    .structure-num { flex-shrink: 0; font-weight: 800; color: var(--brand); font-size: 0.88rem; min-width: 34px; }
+    .structure-item h4 { margin: 0 0 2px; font-size: 0.98rem; font-weight: 700; }
+    .structure-item p { margin: 0; font-size: 0.86rem; color: var(--ink-2); }
+
+    .toast {
+      position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(80px);
+      background: var(--ink); color: #fff; padding: 12px 20px; border-radius: 999px;
+      font-size: 0.92rem; font-weight: 600; box-shadow: var(--shadow-xl); z-index: 120;
+      opacity: 0; transition: transform 0.25s ease, opacity 0.25s ease; pointer-events: none;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    /* ---------- Responsive (tablet/desktop) ---------- */
+    @media (min-width: 640px) {
+      .hero { padding: 72px 0 60px; }
+      .hero h1 { font-size: 2.6rem; }
+      .hero .lead { font-size: 1.13rem; }
+      .trust-bar { grid-template-columns: repeat(4, 1fr); }
+      .pain-grid { grid-template-columns: repeat(3, 1fr); }
+      .section-head h2 { font-size: 2rem; }
+    }
+    @media (min-width: 900px) {
+      .hero h1 { font-size: 3rem; }
+      .deliver-grid { grid-template-columns: 1fr 1fr; }
+      .footer-inner { flex-direction: row; justify-content: space-between; align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body id="dau-trang">
+
+  <!-- ======== Thanh điều hướng ======== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#dau-trang">
+        <span class="emoji">🍜</span> Cẩm nang Quán Phở
+        <small>v1.2.1 · Chuẩn hóa từ A–Z</small>
+      </a>
+      <a class="btn btn-brand btn-sm" href="#thanh-toan">Nhận Cẩm Nang</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======== KHỐI 1 · HERO ======== -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <span class="badge badge-emerald"><span class="dot"></span> Phiên bản v1.2.1 · Đã kiểm toán số liệu thực chiến</span>
+
+        <h1>Đừng để 300 triệu tiền vốn “bốc hơi” vì mở quán phở theo cảm tính</h1>
+
+        <p class="lead">
+          Sở hữu trọn bộ <strong>Cẩm Nang Vận Hành Quán Phở Chuẩn Hóa Từ A–Z</strong>
+          (29 tài liệu SOP bếp &amp; quản trị) kèm <strong>Bộ Công Cụ Excel Tự Tính Giá Vốn
+          &amp; Dòng Tiền 13 Tuần</strong> — Đúc kết từ quy trình nấu mẻ 100L thực tế.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-brand btn-lg" href="#thanh-toan">Nhận Bộ Cẩm Nang Ngay (499.000đ)</a>
+          <a class="btn btn-ghost btn-lg" href="#chi-tiet">Xem chi tiết bên trong có gì</a>
+        </div>
+
+        <div class="trust-bar">
+          <div class="trust-item"><span class="check">✓</span> 29 Tài liệu SOP chuẩn hóa</div>
+          <div class="trust-item"><span class="check">✓</span> Định lượng chuẩn mẻ 100L</div>
+          <div class="trust-item"><span class="check">✓</span> File Excel tự động 100%</div>
+          <div class="trust-item"><span class="check">✓</span> Cập nhật trọn đời</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== KHỐI 2 · NỖI ĐAU ======== -->
+    <section class="pain" id="noi-dau">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Sự thật phũ phàng</span>
+          <h2>3 nỗi đau chí mạng đang âm thầm “ăn” hết lợi nhuận của chủ quán mới</h2>
+        </div>
+
+        <div class="pain-grid">
+          <article class="pain-card">
+            <span class="stat">Giá vốn chạm 79,9%</span>
+            <h3>Ảo tưởng lợi nhuận</h3>
+            <p>
+              Bán 45.000đ/tô tưởng lãi to, nhưng giá vốn thực tế đã chạm
+              <strong>35.963đ/tô</strong> — tức 79,9% doanh thu bay theo hao hụt
+              <strong>30% nước dùng</strong> và <strong>32 số điện mỗi mẻ</strong>.
+              Không đo, không cân, bạn đang làm công không cho chính mình.
+            </p>
+          </article>
+
+          <article class="pain-card">
+            <span class="stat">Mỗi nồi một vị</span>
+            <h3>Nước dùng thất thường</h3>
+            <p>
+              Hôm đậm hôm nhạt, khách ăn một lần không quay lại — vì thả gia vị quá lâu,
+              hoặc luộc thịt chung nồi làm đục nước. Không có quy trình chuẩn,
+              <strong>mỗi nồi là một canh bạc</strong>.
+            </p>
+          </article>
+
+          <article class="pain-card">
+            <span class="stat">Cạn tiền xoay vòng</span>
+            <h3>Cạn vốn lưu động 13 tuần đầu</h3>
+            <p>
+              Dồn hết tiền sửa mặt bằng đẹp long lanh, quên để dành tiền mua nguyên liệu
+              và trả lương. <strong>13 tuần đầu chưa hòa vốn đã hết tiền xoay vòng</strong>.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== KHỐI 3 · DELIVERABLES ======== -->
+    <section id="chi-tiet">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Trọn bộ bên trong</span>
+          <h2>Đúng thứ bạn cần, không nhồi nhét</h2>
+          <p>Hai phần bổ trợ nhau: đọc quy trình chuẩn + nhập số liệu tự tính tài chính.</p>
+        </div>
+
+        <div class="deliver-grid">
+          <!-- Phần A -->
+          <article class="deliver-card deliver-a">
+            <div class="deliver-head">
+              <span class="tag">Phần A</span>
+              <h3>Hệ thống Web Docs tra cứu trọn đời</h3>
+              <p>29 tài liệu SOP · 6 phân hệ</p>
+            </div>
+            <div class="deliver-body">
+              <ul>
+                <li><strong>Công thức &amp; định lượng mẻ 100L chuẩn:</strong> nồi Newsun, nước nèo 10L, hộp gia vị inox 45 phút, mẻ dầu hương vị chưng cất 5L.</li>
+                <li><strong>Quy trình kiểm soát nhiệt độ &amp; làm nguội chuẩn FDA.</strong></li>
+                <li><strong>Phân bổ vốn 300 triệu thành 6 giỏ an toàn</strong> &amp; khung lương thưởng nhân sự.</li>
+              </ul>
+            </div>
+            <div class="deliver-foot">
+              <button class="btn btn-ghost" type="button" data-modal-open="structure-modal">Xem trước cấu trúc cẩm nang</button>
+            </div>
+          </article>
+
+          <!-- Phần B -->
+          <article class="deliver-card deliver-b">
+            <div class="deliver-head">
+              <span class="tag">Phần B</span>
+              <h3>Bộ Công Cụ Tài Chính Excel</h3>
+              <p>Phiên bản v1.1 · công thức sống, mở bằng Excel / Google Sheets</p>
+            </div>
+            <div class="deliver-body">
+              <ul>
+                <li><strong>Tự động tính giá vốn từng tô</strong> theo giá thịt/xương địa phương.</li>
+                <li><strong>Cảnh báo đỏ khi Food Cost vượt trần</strong> 45%.</li>
+                <li><strong>Tính chính xác số tô hòa vốn ngày/tháng</strong> cho cả kênh tại quán &amp; App giao hàng.</li>
+                <li><strong>Bảng dự phóng dòng tiền 13 tuần</strong> với 3 kịch bản.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== KHỐI 4 · BẢNG SO SÁNH ======== -->
+    <section id="so-sanh">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Vì sao không nên tự mò</span>
+          <h2>Tự mò mẫm hay dùng Cẩm nang chuẩn hóa?</h2>
+        </div>
+
+        <div class="compare-table-wrap">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th class="crit">Tiêu chí</th>
+                <th class="col-bad">Tự mò mẫm</th>
+                <th class="col-good">Dùng Cẩm nang chuẩn hóa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="crit">Chi phí thử sai nguyên liệu</td>
+                <td class="col-bad">Đốt 10–30 triệu cho vài chục mẻ hỏng, chưa kể thời gian.</td>
+                <td class="col-good">Định lượng sẵn theo mẻ 100L, bắt đầu đúng ngay từ nồi đầu.</td>
+              </tr>
+              <tr>
+                <td class="crit">Thời gian chuẩn hóa công thức</td>
+                <td class="col-bad">3–6 tháng vừa bán vừa chỉnh, khách là “chuột bạch”.</td>
+                <td class="col-good">Công thức + SOP 6 phần có sẵn, nhân viên đọc là làm được.</td>
+              </tr>
+              <tr>
+                <td class="crit">Kiểm soát thất thoát bếp</td>
+                <td class="col-bad">Không cân trước/sau, thất thoát 20–30% không ai hay.</td>
+                <td class="col-good">Biểu mẫu cân + hệ số thu hồi, phát hiện hao hụt bất thường.</td>
+              </tr>
+              <tr>
+                <td class="crit">Tính toán điểm hòa vốn</td>
+                <td class="col-bad">Ước chừng, không biết ngày nào mới có lãi.</td>
+                <td class="col-good">Excel tự tính số tô hòa vốn ngày/tháng, cả kênh quán &amp; App.</td>
+              </tr>
+              <tr>
+                <td class="crit">Quy trình an toàn thực phẩm</td>
+                <td class="col-bad">Bảo quản tùy hứng, rủi ro ngộ độc &amp; mất khách.</td>
+                <td class="col-good">Quy trình nhiệt độ &amp; làm nguội chuẩn FDA, có checklist hằng ngày.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== KHỐI 5 · GIÁ & THANH TOÁN ======== -->
+    <section class="pricing" id="thanh-toan">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Ưu đãi ra mắt</span>
+          <h2>Nhận trọn bộ hôm nay</h2>
+        </div>
+
+        <div class="price-card">
+          <div class="price-old">Giá gốc: 1.290.000đ</div>
+          <div class="price-now"><small>đ</small>499.000</div>
+          <p class="price-note">Sở hữu trọn đời · Tặng miễn phí mọi bản cập nhật sau</p>
+          <a class="btn btn-brand btn-lg btn-block" href="#thanh-toan-buoc">Kích hoạt ngay</a>
+        </div>
+
+        <div class="checkout" id="thanh-toan-buoc">
+          <!-- Bước 1 -->
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h3>Chuyển khoản 499.000đ</h3>
+              <p>Nội dung chuyển khoản ghi <strong>SĐT + Email của bạn</strong> để chúng tôi xác nhận.</p>
+              <div class="bank-info">
+                <div class="row"><span class="lbl">Ngân hàng</span><span class="val" id="ten-ngan-hang">[TEN_NGAN_HANG]</span></div>
+                <div class="row"><span class="lbl">Số tài khoản</span><span class="val" id="so-tai-khoan">[SO_TAI_KHOAN]</span></div>
+                <div class="row"><span class="lbl">Chủ tài khoản</span><span class="val" id="chu-tai-khoan">[CHU_TAI_KHOAN]</span></div>
+              </div>
+              <div class="step-actions">
+                <button class="btn btn-ghost" type="button" data-copy-target="#so-tai-khoan">Copy số tài khoản</button>
+                <button class="btn btn-ghost" type="button" data-copy="Cẩm nang Phở 499.000đ — SĐT: [SĐT của bạn] — Email: [Email của bạn]">Copy nội dung chuyển khoản mẫu</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bước 2 -->
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h3>Nhắn xác nhận qua Zalo</h3>
+              <p>Gửi ảnh biên lai chuyển khoản để chúng tôi kích hoạt tài khoản cho bạn.</p>
+              <div class="step-actions">
+                <a class="btn btn-emerald" href="https://zalo.me/[SO_ZALO]" target="_blank" rel="noopener">Gửi biên lai &amp; Kích hoạt qua Zalo</a>
+                <button class="btn btn-ghost" type="button" data-copy-target="#so-zalo">Copy số Zalo</button>
+              </div>
+              <p style="margin-top:10px; font-size:0.88rem;">Số Zalo: <strong id="so-zalo">[SO_ZALO]</strong></p>
+            </div>
+          </div>
+
+          <!-- Bước 3 -->
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h3>Nhận quyền đăng nhập bảo mật OTP</h3>
+              <p>Chỉ sau <strong>15 giây</strong>, bạn nhận link đăng nhập Web Docs bảo mật OTP (không cần mật khẩu phức tạp):</p>
+              <p><a class="webdocs-link" href="https://pho-operation-manual.kimlongholdings-ltd.workers.dev" target="_blank" rel="noopener">https://pho-operation-manual.kimlongholdings-ltd.workers.dev</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== KHỐI 6 · FAQ ======== -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Giải đáp nhanh</span>
+          <h2>Câu hỏi thường gặp</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item open">
+            <button class="faq-q" type="button" aria-expanded="true">
+              Tôi chưa từng mở quán, không biết nấu phở — có làm được không?
+              <span class="icon">+</span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">
+              Làm được. Cẩm nang viết theo kiểu <strong>cầm tay chỉ việc</strong>: từ chọn xương, định lượng gia vị theo gram, tới cách ra tô và bảo quản. Bạn không cần là đầu bếp — chỉ cần làm đúng từng bước SOP kèm biểu mẫu đối chiếu.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              Giá thịt, xương ở địa phương tôi khác thì tính giá vốn sao?
+              <span class="icon">+</span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">
+              Bộ Excel cho phép bạn <strong>nhập giá nguyên liệu tại chợ của bạn</strong>. Nó tự tính lại giá vốn từng tô, số tô hòa vốn và dòng tiền — không cần sửa công thức. Bạn chỉ điền giá, hệ thống lo phần còn lại.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              Sau khi chuyển khoản, bao lâu tôi nhận được tài liệu?
+              <span class="icon">+</span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">
+              Chỉ sau <strong>15 giây</strong> kể từ khi bạn gửi biên lai qua Zalo, chúng tôi kích hoạt tài khoản OTP. Bạn đăng nhập Web Docs và đọc ngay trên điện thoại hoặc máy tính, trọn đời.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false">
+              Tôi có thể chia sẻ tài liệu cho nhân viên bếp không?
+              <span class="icon">+</span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">
+              Được. Bạn có thể mở Web Docs trên máy tính tiền của quán để nhân viên tra cứu SOP hằng ngày, hoặc in biểu mẫu treo ở bếp. Điều khoản chỉ giới hạn: <strong>không phát tán ra ngoài hoặc bán lại cho bên thứ ba</strong>.
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======== KHỐI 7 · FOOTER ======== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="brand">🍜 Cẩm Nang Vận Hành Quán Phở <small>v1.2.1 · Chuẩn hóa từ A–Z</small></div>
+      </div>
+      <div class="footer-note">
+        <p>
+          <strong>Cam kết bảo mật:</strong> thông tin liên hệ &amp; biên lai của bạn chỉ được dùng
+          để kích hoạt tài khoản, <strong>không chia sẻ cho bên thứ ba</strong>.
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 · Cẩm Nang Vận Hành Quán Phở v1.2.1 — Mọi con số được kiểm toán thực chiến.</span>
+      <a class="back-top" href="#dau-trang">↑ Quay lại đầu trang</a>
+    </div>
+  </footer>
+
+  <!-- ======== MODAL XEM TRƯỚC CẤU TRÚC ======== -->
+  <div class="modal-backdrop" id="structure-modal" role="dialog" aria-modal="true" aria-labelledby="structure-title">
+    <div class="modal">
+      <button class="modal-close" type="button" data-modal-close aria-label="Đóng">✕</button>
+      <h3 id="structure-title">Cấu trúc Cẩm nang</h3>
+      <p class="modal-sub">6 phân hệ · 29 đầu mục chuẩn hóa (SOP + biểu mẫu + tài chính)</p>
+
+      <div class="structure-item"><span class="structure-num">01</span><div><h4>Mô hình tài chính</h4><p>Quyết định đầu tư 300 triệu · tỷ lệ giá thành / COGS · dữ liệu YAML.</p></div></div>
+      <div class="structure-item"><span class="structure-num">02</span><div><h4>Mở quán &amp; Mặt bằng</h4><p>Trình tự chuẩn bị · điều kiện tiên quyết · thiết bị · máy tính tiền · chọn vị trí.</p></div></div>
+      <div class="structure-item"><span class="structure-num">03</span><div><h4>SOP Vận hành bếp</h4><p>Chọn nguyên liệu · ninh xương 100L · ra tô chuẩn · bảo quản thịt + 4 biểu mẫu nghiệm thu.</p></div></div>
+      <div class="structure-item"><span class="structure-num">04</span><div><h4>Nhân sự &amp; Đào tạo</h4><p>Tuyển dụng, đào tạo và chấm công theo ca vận hành.</p></div></div>
+      <div class="structure-item"><span class="structure-num">05</span><div><h4>Marketing &amp; Khai trương</h4><p>Thiết kế menu &amp; định giá · bán online – offline · chọn khung giờ bán.</p></div></div>
+      <div class="structure-item"><span class="structure-num">06</span><div><h4>Đặc tả hệ thống App</h4><p>Database schema 6 bảng · 4 phân hệ · bộ ca kiểm thử bàn giao.</p></div></div>
+    </div>
+  </div>
+
+  <!-- ======== TOAST ======== -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ---------- 1. FAQ accordion ---------- */
+      var faqItems = document.querySelectorAll('.faq-item');
+
+      // Mở sẵn câu hỏi nào đang có class .open khi tải trang (giảm lực cản mua hàng).
+      faqItems.forEach(function (item) {
+        if (item.classList.contains('open')) {
+          var ans = item.querySelector('.faq-a');
+          ans.style.maxHeight = ans.scrollHeight + 'px';
+        }
+      });
+
+      faqItems.forEach(function (item) {
+        var q = item.querySelector('.faq-q');
+        var a = item.querySelector('.faq-a');
+        q.addEventListener('click', function () {
+          var isOpen = item.classList.contains('open');
+          // đóng tất cả, rồi mở item được bấm (nếu đang đóng)
+          faqItems.forEach(function (other) {
+            other.classList.remove('open');
+            other.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+            other.querySelector('.faq-a').style.maxHeight = null;
+          });
+          if (!isOpen) {
+            item.classList.add('open');
+            q.setAttribute('aria-expanded', 'true');
+            a.style.maxHeight = a.scrollHeight + 'px';
+          }
+        });
+      });
+
+      /* ---------- 2. Copy nhanh ---------- */
+      var toast = document.getElementById('toast');
+      var toastTimer = null;
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2000);
+      }
+
+      function copyText(text, btn) {
+        var done = function () {
+          var original = btn.textContent;
+          btn.textContent = 'Đã sao chép ✓';
+          showToast('Đã sao chép vào bộ nhớ tạm');
+          setTimeout(function () { btn.textContent = original; }, 2000);
+        };
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(done).catch(function () { legacyCopy(text); done(); });
+        } else {
+          legacyCopy(text);
+          done();
+        }
+      }
+
+      function legacyCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+
+      document.querySelectorAll('[data-copy], [data-copy-target]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var text;
+          if (btn.hasAttribute('data-copy')) {
+            text = btn.getAttribute('data-copy');
+          } else {
+            var target = document.querySelector(btn.getAttribute('data-copy-target'));
+            text = target ? target.textContent.trim() : '';
+          }
+          if (text) copyText(text, btn);
+        });
+      });
+
+      /* ---------- 3. Modal xem trước cấu trúc ---------- */
+      var modal = document.getElementById('structure-modal');
+      function openModal() { modal.classList.add('show'); document.body.style.overflow = 'hidden'; }
+      function closeModal() { modal.classList.remove('show'); document.body.style.overflow = ''; }
+
+      document.querySelectorAll('[data-modal-open]').forEach(function (btn) {
+        btn.addEventListener('click', function () { openModal(); });
+      });
+      document.querySelectorAll('[data-modal-close]').forEach(function (btn) {
+        btn.addEventListener('click', closeModal);
+      });
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+      });
+
+      /* ---------- 4. Cuộn mượt (dự phòng cho trình duyệt cũ) ---------- */
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var id = a.getAttribute('href');
+          if (id.length <= 1) return;
+          var target = document.querySelector(id);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

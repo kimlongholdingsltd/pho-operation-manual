@@ -100,8 +100,10 @@ batch_spec:
 dien_nang:
   noi: "Nồi điện Newsun 100L — công suất max 6kW"
   kwh_per_batch: 32                 # tổng điện năng ~32 kWh/mẻ ninh 20 giờ
-  electricity_unit_price: TBD_OWNER_INPUT   # VND/kWh — bậc giá điện kinh doanh khu vực (chủ quán điền)
+  electricity_unit_price: 3000      # VND/kWh — giá tham khảo ~3.000đ/kWh (thay bằng giá điện kinh doanh thực tế)
   don_vi_gia_dien: "VND/kWh"
+  cost_per_batch_vnd: 96000         # 32 kWh × 3.000đ = 96.000đ/mẻ (v1.1.1)
+  cost_per_to_vnd: 686              # 96.000đ ÷ 140 tô = 685,7đ (v1.1.1)
   breakdown:
     - giai_doan: "Đun sôi ban đầu (max 6kW)"
       thoi_gian_gio: 1.5            # ~1.5 giờ đun sôi max công suất
@@ -140,7 +142,7 @@ xuong_cost_allocation:
   physical_yield_factor: 0.45       # tỷ lệ xác xương thu hồi VẬT LÝ sau ninh (chỉ dùng theo dõi hao hụt vật lý)
   cost_allocation_ratio: 1.0        # 100% chi phí xương mua vào phân bổ vào nồi nước dùng
   cach_tinh_cost_per_to: "Cost xương/tô = (kg_xuong_bo_per_me × giá bò + kg_xuong_heo_per_me × giá heo) × cost_allocation_ratio / so_to_thanh_pham"
-  vi_du: "20 kg bò × 60.000 + 5 kg heo × TBD_OWNER_INPUT → ÷ 140 tô (xem recipe-costing-sample.yaml)"
+  vi_du: "20 kg bò × 60.000 + 5 kg heo × 30.000 → ÷ 140 tô (xem recipe-costing-sample.yaml)"
   ghi_chu: "physical_yield_factor 0.45 chỉ theo dõi hao hụt VẬT LÝ (bã xương bỏ); cost_allocation_ratio 1.0 nghĩa là toàn bộ xương mua vào tính chi phí (không dùng hệ số 0.45 để tính giá vốn)."
 
 # -----------------------------------------------------------------------------
@@ -188,7 +190,11 @@ dau_huong_vi_chung_cat:
   ky_thuat_nhiet:
     - "Chưng gừng thái lát trước cho đến khi gừng quắt lại"
     - "Sau đó mới thả hành tím đập dập, tỏi, hoa hồi, thảo quả, quế vào chưng tiếp để lấy hương, tránh bị đắng/cháy thảo mộc"
-  phan_bo_cho_noi_100L: "TBD_OWNER_INPUT (lượng dầu hương vị dùng cho 1 mẻ 100L do chủ quán chốt theo thực tế)."
+  phan_bo_cho_noi_100L: "1 lít dầu hương vị / mẻ 100L (tức 1/5 mẻ 5L) — giả định v1.1.1, chủ quán chỉnh theo thực tế."
+  cost_gia_tham_khao:
+    tong_me_5L_vnd: 329000          # dầu 5L×40k + gừng 1,5kg×40k + hành tím 900g×25k + tỏi 200g×50k + quế 100g×120k + thảo quả 70g×200k + hoa hồi 70g×150k
+    cost_1_lit_vnd: 65800           # 329.000 ÷ 5
+    cost_per_to_vnd: 470            # 65.800 ÷ 140 tô
 
 acceptance:                     # tiêu chuẩn nước dùng đạt
   - "Nước trong vắt"

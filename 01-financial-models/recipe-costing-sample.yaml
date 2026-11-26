@@ -27,8 +27,8 @@ meta:
   updated_at: 2026-11-25
   notes: >
     Giá nguyên liệu là giá THAM KHẢO (nhập sỉ thị trường VN). Phải cập nhật theo
-    giá nhập thực tế từng tuần — đây là biến số, không phải hằng số. Điện năng và
-    lượng dầu hương vị phân bổ/mẻ là TBD_OWNER_INPUT (chủ quán điền).
+    giá nhập thực tế từng tuần — đây là biến số, không phải hằng số. v1.1.1: điện
+    năng (3.000đ/kWh) và dầu hương vị (1L/mẻ 100L) đã được phân bổ vào tổng giá vốn.
 
 # -----------------------------------------------------------------------------
 # BIẾN SỐ — HỆ SỐ HAO HỤT / THU HỒI SAU SƠ CHẾ (yield_factor)
@@ -92,10 +92,10 @@ ingredients:
 
   - name: "Điện năng ninh (nồi Newsun 100L)"
     unit: kWh
-    price_per_unit: TBD_OWNER_INPUT # electricity_unit_price (VND/kWh) — bậc giá điện kinh doanh
+    price_per_unit: 3000            # đơn giá điện kinh doanh ~3.000đ/kWh (tham khảo)
     yield_factor: 1.0
     qty_raw_per_serving_kwh: 0.229  # 32 kWh / 140 tô
-    cost_per_serving: TBD_OWNER_INPUT # = 0.2286 × electricity_unit_price
+    cost_per_serving: 686           # 32 kWh × 3.000đ ÷ 140 tô = 685,7đ
 
   # --- Cốt ngọt + đồ thơm 3 lớp + nước nèo (thay ước tính 2.000đ cũ) ---
   - name: "Tôm khô (cốt ngọt)"
@@ -175,12 +175,13 @@ ingredients:
     qty_raw_per_serving_gram: 17.5  # 2450g (350g×7) / 140
     cost_per_serving: 1400          # 2.45 × 80000 / 140
 
-  - name: "Dầu hương vị chưng cất (mẻ 5L, phân bổ)"
-    unit: batch
-    price_per_unit: TBD_OWNER_INPUT # lượng dùng/mẻ 100L do chủ quán chốt (xem recipe-nuoc-dung-pho-bo.yaml)
+  - name: "Dầu hương vị chưng cất (1L/mẻ 100L)"
+    unit: lit
+    price_per_unit: 65800           # giá 1 L dầu hương vị = tổng mẻ 5L (329.000đ) ÷ 5
     yield_factor: 1.0
-    qty_raw_per_serving_gram: 0
-    cost_per_serving: TBD_OWNER_INPUT
+    qty_raw_per_serving_lit: 0.00714  # 1 L ÷ 140 tô
+    cost_per_serving: 470           # 65.800đ ÷ 140 tô
+    ghi_chu: "Mẻ 5L: dầu 5L×40k + gừng 1,5kg×40k + hành tím 900g×25k + tỏi 200g×50k + quế 100g×120k + thảo quả 70g×200k + hoa hồi 70g×150k = 329.000đ"
 
   # --- Gia vị kèm (giữ nguyên) ---
   - name: "Hành lá, rau thơm, giá đỗ"
@@ -201,21 +202,35 @@ ingredients:
 # KẾT QUẢ (tổng hợp)
 # -----------------------------------------------------------------------------
 summary:
-  # Tổng theo GIÁ THAM KHẢO (chưa gồm điện năng + dầu hương vị phân bổ):
-  # 3200 + 9000 + 7647 + 8571 + 1071 + 771 + 571 + 80 + 29 + 86 + 114
-  #   + 175 + 180 + 188 + 16 + 1400 + 1200 + 800
-  total_food_cost_nguyen_lieu: 35099   # giá tham khảo, chưa gồm điện + dầu hương vị
-  electricity_cost_per_serving: TBD_OWNER_INPUT
-  dau_huong_vi_cost_per_serving: TBD_OWNER_INPUT
+  # Tổng theo GIÁ THAM KHẢO (đã gồm điện năng 686đ + dầu hương vị 470đ):
+  # 3200 + 9000 + 7647 + 8571 + 1071 + 686 + 771 + 571 + 80 + 29 + 86 + 114
+  #   + 175 + 180 + 188 + 16 + 1400 + 470 + 1200 + 800
+  total_food_cost_nguyen_lieu: 36255   # giá tham khảo, đã gồm điện năng + dầu hương vị
+  electricity_cost_per_serving: 686     # 32 kWh × 3.000đ ÷ 140 tô
+  dau_huong_vi_cost_per_serving: 470    # 1L dầu hương vị (65.800đ) ÷ 140 tô
   price_selling: 45000
-  food_cost_percent_nguyen_lieu: 0.780 # 35099 / 45000 = 78.0% (giá tham khảo, chưa gồm điện + dầu)
-  gross_margin_nguyen_lieu: 9901       # 45000 - 35099
-  gross_margin_percent_nguyen_lieu: 0.220
+  food_cost_percent_nguyen_lieu: 0.806  # 36255 / 45000 = 80.6% (giá tham khảo, đầy đủ chi phí)
+  gross_margin_nguyen_lieu: 8745        # 45000 - 36255
+  gross_margin_percent_nguyen_lieu: 0.194
   vs_target: >
-    Food cost nguyên liệu 78.0% (giá tham khảo, CHƯA gồm điện năng + dầu hương vị)
+    Food cost nguyên liệu 80.6% (giá tham khảo, đã gồm điện năng + dầu hương vị)
     — CAO hơn nhiều so với mục tiêu 38% và trần món chủ lực 42–45%. Nguyên nhân:
     (1) định lượng thịt tăng (tái 60g, chín 40g) → thịt 16.647đ/tô (37% giá bán);
-    (2) xương bò+heo 9.642đ/tô (21%); (3) gia vị/tôm khô/đồ thơm đã itemized
-    3.610đ/tô thay ước tính 2.000đ. Đây là tín hiệu CHƯA tối ưu: bắt buộc tăng giá
-    bán, giảm định lượng thịt, đàm phán giá xương/thịt sỉ, hoặc dùng phần thịt rẻ
-    hơn (gầu, bắp). Điện năng (~0.23 kWh/tô) và dầu hương vị cộng thêm tùy giá thực.
+    (2) xương bò+heo 9.642đ/tô (21%); (3) gia vị/tôm khô/đồ thơm itemized 3.610đ/tô;
+    (4) điện năng 686đ + dầu hương vị 470đ. Đây là tín hiệu CHƯA tối ưu — xem
+    gia_ban_de_xuat bên dưới để thấy giá bán cần đạt cho food cost 42%.
+
+# -----------------------------------------------------------------------------
+# GIÁ BÁN ĐỀ XUẤT ĐẠT CHUẨN FOOD COST (v1.1.1)
+# -----------------------------------------------------------------------------
+gia_ban_de_xuat:
+  cong_thuc: "Gia_ban = total_food_cost_nguyen_lieu / food_cost_target_percent"
+  food_cost_target_percent: 0.42     # trần món chủ lực nhiều thịt (ĐC-01)
+  gia_ban_hien_tai: 45000
+  gia_ban_dat_42_percent: 86321      # 36.255 / 0.42
+  chenh_lech_can_tang: 41321         # 86.321 - 45.000
+  ghi_chu: >
+    Với định lượng thịt hiện tại (tái 60g + chín 40g) và giá tham khảo, muốn đạt
+    food cost 42% phải bán ~86.300đ/tô — chênh rất xa so với 45.000đ hiện tại.
+    Đòn bẩy ngược lại: giảm định lượng thịt/xương, hoặc đàm phán giá nguyên liệu
+    sỉ về mức để food cost nằm trong 42–45% ở mức giá bán mong muốn.

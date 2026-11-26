@@ -1,6 +1,6 @@
 # Bộ Cẩm Nang Mở & Vận Hành Quán Phở Thực Chiến
 
-> **Phiên bản hiện tại: v1.1.0** — bổ sung công thức chi tiết 100L nước dùng, dầu chưng cất 5L, nước nèo & định lượng thịt ra tô.
+> **Phiên bản hiện tại: v1.1.1** — hoàn thiện phân bổ chi phí điện/dầu chưng cất vào giá vốn & xuất bộ công cụ tài chính Excel.
 
 > Tài liệu vận hành F&B chuẩn **Docs-as-Code**: mọi quy trình là file có phiên bản, review được; mọi thông số định lượng là **biến số trong YAML** — sẵn sàng chuyển thẳng thành phần mềm quản lý mà đội lập trình không cần đoán nghĩa.
 
@@ -59,6 +59,7 @@ Toàn bộ 20 ghi chú thực chiến ban đầu, giữ nguyên làm nguồn tha
 | [`equipment-specs.yaml`](01-financial-models/equipment-specs.yaml) | Thông số thiết bị bếp/quầy + POS |
 | [`investment-decision-300m.md`](01-financial-models/investment-decision-300m.md) | Bảng quyết định đầu tư 300 triệu + dòng tiền 13 tuần |
 | [`ty-le-gia-thanh-COGS.md`](01-financial-models/ty-le-gia-thanh-COGS.md) | Giải thích tỷ lệ giá thành / COGS |
+| [`Bo-Cong-Cu-Tai-Chinh-Quan-Pho-v1.1.xlsx`](assets/Bo-Cong-Cu-Tai-Chinh-Quan-Pho-v1.1.xlsx) | Bộ công cụ tài chính Excel (dự toán vốn 300tr · giá vốn food cost · hòa vốn & dòng tiền 13 tuần) — sinh từ `scripts/export-excel-financial-tools.py` |
 
 ### 02 — Mở quán & Mặt bằng
 
@@ -133,6 +134,7 @@ Toàn bộ 20 ghi chú thực chiến ban đầu, giữ nguyên làm nguồn tha
 | **v0.5.0** | Bản vá kiểm toán: đóng 6 điểm ĐC-01/04/05/06/07/08, chuẩn làm nguội FDA §3-501.14, chuẩn hóa nồi 100L Newsun, tách hệ số xương (vật lý vs chi phí), bổ sung ca mẫu điền đầy đủ. |
 | **v1.0.0 (Commercial Release)** | Trang chủ README + đặc tả hệ thống App (6 bảng DB + 4 phân hệ + bộ 6 ca kiểm thử bàn giao); phát hành thương mại với tag `v1.0.0`. |
 | **v1.1.0** | Bổ sung công thức chi tiết: xương 20kg bò + 5kg heo, cốt ngọt tôm khô + gừng, đồ thơm 3 lớp định lượng, nước nèo (cơ sở 10L ×7), dầu hương vị chưng cất 5L; chuẩn hóa định lượng thịt ra tô (tái 60/chín 40/bắp 60/gân 80/xào lăn 70/đuôi 150); thay ước tính gia vị 2.000đ bằng phân bổ itemized chính xác. |
+| **v1.1.1** | Hoàn thiện phân bổ chi phí điện năng (32 kWh × 3.000đ = 96.000đ/mẻ → 686đ/tô) + dầu hương vị chưng cất (1L/mẻ 100L = 1/5 mẻ 5L → 470đ/tô) vào tổng giá vốn; bổ sung mô phỏng "giá bán đạt chuẩn food cost 42%"; xuất bộ công cụ tài chính Excel 3 sheet (dự toán vốn 300tr · tính giá vốn food cost · hòa vốn theo kênh & dòng tiền 13 tuần) với công thức sống `=SUM`/`=IF` và cảnh báo đỏ khi vượt trần 45%. |
 
 ---
 

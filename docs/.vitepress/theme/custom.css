@@ -1,60 +1,168 @@
 /**
  * Giao diện Web Docs thương mại — Cẩm nang Mở & Vận hành Quán Phở.
- * Bảng màu "nước dùng phở": hổ phách / nâu cam ấm, thay cho xanh mặc định.
+ * Phong cách "Editorial Culinary Modern": nền sáng, giấy kem, nhấn hổ phách,
+ * chữ có độ thở (line-height 1.75), thẻ bo góc mềm và đổ bóng nhẹ như tạp chí ẩm thực.
+ * Chế độ tối đã tắt trong config (appearance: false) nên toàn bộ chỉ dùng :root.
  */
 
 :root {
-  /* Nhãn hiệu (brand) — sáng */
-  --vp-c-brand-1: #b45309; /* amber-700 */
-  --vp-c-brand-2: #d97706; /* amber-600 */
-  --vp-c-brand-3: #f59e0b; /* amber-500 */
-  --vp-c-brand-soft: rgba(180, 83, 9, 0.14);
+  /* ===== Bảng màu nền & chữ ===== */
+  --vp-c-bg: #ffffff; /* nền trang chính */
+  --vp-c-bg-alt: #faf8f5; /* nền phụ / khối code */
+  --vp-c-bg-elv: #ffffff; /* bề mặt nổi (card) */
+  --vp-c-bg-soft: #faf8f5; /* bề mặt mềm (badge, code nhẹ) */
 
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(
-    120deg,
-    #b45309 10%,
-    #ea580c 45%,
-    #d97706 80%
-  );
+  --vp-c-text-1: #1e1b18; /* chữ chính */
+  --vp-c-text-2: #6b6259; /* chữ phụ */
+  --vp-c-text-3: #9a8f83; /* chữ mờ / chú thích */
+
+  /* ===== Màu thương hiệu "hổ phách nước dùng" ===== */
+  --vp-c-brand-1: #b45309; /* hổ phách chủ đạo */
+  --vp-c-brand-2: #92400e; /* hover — đậm hơn */
+  --vp-c-brand-3: #b45309; /* active / nền nút */
+  --vp-c-brand-soft: #fef3c7; /* nền nhấn vàng nhạt */
+
+  /* ===== Đường kẻ & viền ===== */
+  --vp-c-border: #eae4dc; /* viền mảnh */
+  --vp-c-border-hard: #d8cfc3;
+  --vp-c-divider: #eae4dc; /* đường phân cách */
+  --vp-c-gutter: #faf8f5; /* rãnh / gutter */
+
+  /* ===== Thanh điều hướng & sidebar ===== */
+  --vp-nav-bg-color: #ffffff;
+  --vp-local-nav-bg-color: #ffffff;
+  --vp-sidebar-bg-color: #faf8f5;
+
+  /* ===== Typography ===== */
+  --vp-font-family-base: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont,
+    'Helvetica Neue', Arial, 'Noto Sans', 'Noto Sans Vietnamese', sans-serif;
+  --vp-font-family-mono: ui-monospace, 'SFMono-Regular', 'Menlo', 'Consolas',
+    monospace;
+
+  /* ===== Bóng & bo góc chuẩn Editorial ===== */
+  --vp-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
+  --vp-shadow-2: 0 4px 20px rgba(0, 0, 0, 0.04);
+
+  /* ===== Hero ===== */
+  /* Tiêu đề dùng màu đặc (không gradient) cho cảm giác in ấn cao cấp */
+  --vp-home-hero-name-color: #1e1b18;
+  --vp-home-hero-name-background: transparent;
 }
 
-.dark {
-  --vp-c-brand-1: #fbbf24; /* amber-400 */
-  --vp-c-brand-2: #f59e0b; /* amber-500 */
-  --vp-c-brand-3: #d97706; /* amber-600 */
-  --vp-c-brand-soft: rgba(251, 191, 36, 0.16);
-
-  --vp-home-hero-name-background: linear-gradient(
-    120deg,
-    #fbbf24 10%,
-    #f59e0b 50%,
-    #fb923c 90%
-  );
+/* ---------- Thân văn bản: độ thở thoáng, chữ mềm ---------- */
+.vp-doc {
+  line-height: 1.75;
 }
 
-/* Nút tải Excel nổi bật trên landing page */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3 {
+  color: var(--vp-c-text-1);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Link ---------- */
+.vp-doc a {
+  color: var(--vp-c-brand-1);
+  text-decoration-color: rgba(180, 83, 9, 0.35);
+  text-underline-offset: 3px;
+}
+
+.vp-doc a:hover {
+  color: var(--vp-c-brand-2);
+  text-decoration-color: var(--vp-c-brand-2);
+}
+
+/* ---------- Bảng: viền mảnh, đầu bảng màu kem, cột số căn phải ---------- */
+.vp-doc table {
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--vp-shadow-2);
+  width: 100%;
+}
+
+.vp-doc tr {
+  border-top: 1px solid var(--vp-c-divider);
+  transition: background-color 0.15s ease;
+}
+
+.vp-doc tr:hover {
+  background-color: #fcfaf7;
+}
+
+.vp-doc th {
+  background-color: #f5efe6;
+  color: var(--vp-c-text-1);
+  font-weight: 700;
+  text-align: left;
+}
+
+.vp-doc th,
+.vp-doc td {
+  border: 1px solid var(--vp-c-divider);
+  padding: 0.6rem 0.9rem;
+}
+
+/* Cột chứa toàn số sẽ căn phải để dễ so giá tiền / tỷ lệ.
+   Nhắm vào ô chỉ gồm số, dấu chấm/phẩy/%, ₫ và ký hiệu âm. */
+.vp-doc td {
+  text-align: left;
+}
+
+.vp-doc table td[align='right'] {
+  text-align: right;
+}
+
+/* ---------- Khối callout (NOTE / TIP / WARNING ...) ---------- */
+.vp-doc .custom-block {
+  border-radius: 12px;
+  border: 1px solid var(--vp-c-divider);
+  box-shadow: var(--vp-shadow-1);
+  padding: 1rem 1.25rem;
+}
+
+.vp-doc .custom-block.tip {
+  background-color: var(--vp-c-brand-soft);
+  border-color: #f3ddb0;
+}
+
+.vp-doc .custom-block.warning {
+  background-color: #fef7ef;
+  border-color: #f3d8b8;
+}
+
+.vp-doc .custom-block.danger {
+  background-color: #fdf1f1;
+  border-color: #f3cccc;
+}
+
+/* ---------- Nút tải Excel nổi bật trên landing page ---------- */
 .vp-doc .download-cta {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   margin: 0.5rem 0;
-  padding: 0.8rem 1.4rem;
+  padding: 0.85rem 1.5rem;
   border: 1px solid var(--vp-c-brand-1);
-  border-radius: 8px;
+  border-radius: 12px;
   font-weight: 600;
-  color: var(--vp-c-brand-1);
+  color: #ffffff;
+  background: var(--vp-c-brand-1);
   text-decoration: none;
-  transition: all 0.2s ease;
+  box-shadow: var(--vp-shadow-2);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .vp-doc .download-cta:hover {
-  background: var(--vp-c-brand-1);
-  color: #fff;
-  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-2);
+  border-color: var(--vp-c-brand-2);
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
-/* Thẻ "6 phần" trên trang chủ */
+/* ---------- Thẻ "6 phần" trên trang chủ ---------- */
 .landing-sections {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -64,21 +172,24 @@
 
 .landing-sections a {
   display: block;
-  padding: 16px 18px;
+  padding: 20px 22px;
+  background: var(--vp-c-bg-elv);
   border: 1px solid var(--vp-c-divider);
-  border-radius: 10px;
+  border-radius: 12px;
   text-decoration: none;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  box-shadow: var(--vp-shadow-1);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .landing-sections a:hover {
   border-color: var(--vp-c-brand-1);
   transform: translateY(-2px);
+  box-shadow: var(--vp-shadow-2);
 }
 
 .landing-sections .num {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--vp-c-brand-1);
   text-transform: uppercase;
@@ -87,14 +198,65 @@
 
 .landing-sections .title {
   display: block;
-  margin-top: 4px;
+  margin-top: 6px;
   font-weight: 700;
+  font-size: 1.05rem;
   color: var(--vp-c-text-1);
 }
 
 .landing-sections .desc {
   display: block;
-  margin-top: 4px;
+  margin-top: 6px;
   font-size: 0.85rem;
+  line-height: 1.6;
   color: var(--vp-c-text-2);
+}
+
+/* ---------- Nút hero: brand hổ phách + alt trắng viền mảnh ---------- */
+.VPButton {
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+}
+
+.VPButton.brand {
+  border-color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-brand-1);
+  color: #ffffff;
+  box-shadow: var(--vp-shadow-2);
+}
+
+.VPButton.brand:hover {
+  border-color: var(--vp-c-brand-2);
+  background-color: var(--vp-c-brand-2);
+  color: #ffffff;
+}
+
+.VPButton.alt {
+  border: 1px solid var(--vp-c-divider);
+  background-color: #ffffff;
+  color: var(--vp-c-text-1);
+}
+
+.VPButton.alt:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+  background-color: #ffffff;
+}
+
+/* ---------- Huy hiệu phiên bản trên hero ---------- */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  margin-bottom: 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--vp-c-brand-2);
+  background: var(--vp-c-brand-soft);
+  border: 1px solid #f3ddb0;
+  border-radius: 999px;
 }

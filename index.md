@@ -3,12 +3,12 @@ layout: home
 
 hero:
   name: "Mở & Vận hành Quán Phở"
-  text: "Bộ cẩm nang thực chiến — Docs-as-Code"
-  tagline: "SOP 6 phần · Mô hình tài chính YAML · Định lượng & food cost · Đặc tả App. Mọi con số có căn cứ thực đo, tuyệt đối không bịa số."
+  text: "Bộ cẩm nang thực chiến, chuẩn Docs-as-Code"
+  tagline: "Công thức nước dùng 100L · Giá vốn 35.963đ/tô · Dòng tiền 13 tuần · SOP chuẩn F&B. Mọi con số có căn cứ thực đo — không bịa số."
   actions:
     - theme: brand
       text: "Bắt đầu đọc Cẩm nang"
-      link: /02-setup-and-location/cac-buoc-chuan-bi-co-ban
+      link: /01-financial-models/investment-decision-300m
     - theme: alt
       text: "Tải Bộ Công Cụ Excel"
       link: /downloads/Bo-Cong-Cu-Tai-Chinh-Quan-Pho-v1.1.xlsx
@@ -69,6 +69,8 @@ Bộ công cụ Excel 3 sheet (dự toán vốn 300 triệu · tính giá vốn 
 
 | Phiên bản | Nội dung chính |
 |---|---|
+| **v1.3.0** | Thiết kế lại giao diện sáng/cao cấp (Editorial Culinary), khoá giao diện sáng, tái khẳng định tải Excel không 404. |
+| **v1.2.1** | Sửa lỗi tải trực tiếp file Excel bị 404 (đuôi .xlsx bị SPA router chặn). |
 | **v1.2.0** | Xuất bản Web Docs thương mại bằng VitePress (trang chủ, tìm kiếm toàn văn tiếng Việt, tải Excel). |
 | **v1.1.5** | Bảo vệ chia âm/chia 0 cho cột "Hòa vốn theo tháng" E13:E14; đồng bộ nhãn phiên bản. |
 | **v1.1.4** | Đồng bộ số liệu 35.963đ/tô (79,9%) trên toàn bộ tài liệu mẫu. |

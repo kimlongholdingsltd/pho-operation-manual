@@ -48,6 +48,9 @@ export default defineConfig({
 
   lastUpdated: true,
 
+  // Khoá giao diện sáng: tài liệu ấn phẩm ẩm thực, không cần chế độ tối.
+  appearance: false,
+
   vite: {
     publicDir,
   },
@@ -359,9 +362,6 @@ export default defineConfig({
       next: 'Trang sau',
     },
 
-    darkModeSwitchLabel: 'Giao diện',
-    lightModeSwitchTitle: 'Chuyển sang giao diện sáng',
-    darkModeSwitchTitle: 'Chuyển sang giao diện tối',
     sidebarMenuLabel: 'Mục lục',
     returnToTopLabel: 'Về đầu trang',
     langMenuLabel: 'Ngôn ngữ',

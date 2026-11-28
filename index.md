@@ -10,7 +10,7 @@ hero:
       text: "Bắt đầu đọc Cẩm nang"
       link: /01-financial-models/investment-decision-300m
     - theme: alt
-      text: "Tải Bộ Công Cụ Excel"
+      text: "Tải Bộ Công Cụ Tài Chính Excel"
       link: /downloads/Bo-Cong-Cu-Tai-Chinh-Quan-Pho-v1.1.xlsx
       target: _blank
       rel: noopener
@@ -61,27 +61,9 @@ features:
 
 ## Tải Bộ Công Cụ Tài Chính Excel
 
-Bộ công cụ Excel 3 sheet (dự toán vốn 300 triệu · tính giá vốn food cost · hòa vốn theo kênh & dòng tiền 13 tuần) với công thức sống `=SUM`/`=IF` và cảnh báo đỏ khi vượt trần 45% — mở bằng Microsoft Excel hoặc Google Sheets.
+Bộ Công Cụ Tài Chính Excel gồm 3 sheet (dự toán vốn 300 triệu · tính giá vốn food cost · hòa vốn theo kênh & dòng tiền 13 tuần) với công thức sống `=SUM`/`=IF` và cảnh báo đỏ khi vượt trần 45% — mở bằng Microsoft Excel hoặc Google Sheets.
 
-<a class="download-cta" href="/downloads/Bo-Cong-Cu-Tai-Chinh-Quan-Pho-v1.1.xlsx" download="Bo-Cong-Cu-Tai-Chinh-Quan-Pho-v1.1.xlsx" target="_blank" rel="noopener">⬇ Tải Bộ Công Cụ Excel (v1.1.xlsx)</a>
-
-## Lịch sử phiên bản
-
-| Phiên bản | Nội dung chính |
-|---|---|
-| **v1.3.0** | Thiết kế lại giao diện sáng/cao cấp (Editorial Culinary), khoá giao diện sáng, tái khẳng định tải Excel không 404. |
-| **v1.2.2** | Việt hóa thuật ngữ F&B cho chủ quán, khóa giao diện sáng và sửa dứt điểm lỗi 404 khi tải file Excel. |
-| **v1.2.1** | Sửa lỗi tải trực tiếp file Excel bị 404 (đuôi .xlsx bị SPA router chặn). |
-| **v1.2.0** | Xuất bản Web Docs thương mại bằng VitePress (trang chủ, tìm kiếm toàn văn tiếng Việt, tải Excel). |
-| **v1.1.5** | Bảo vệ chia âm/chia 0 cho cột "Hòa vốn theo tháng" E13:E14; đồng bộ nhãn phiên bản. |
-| **v1.1.4** | Đồng bộ số liệu 35.963đ/tô (79,9%) trên toàn bộ tài liệu mẫu. |
-| **v1.1.3** | Đóng 2 điểm chặn kiểm toán cuối (TC-01/TC-02 = 35.963đ; biến phí kênh 3.000đ). |
-| **v1.1.2** | Bỏ tính trùng "đồ thơm lớp 3" khỏi giá vốn mẻ 100L. |
-| **v1.1.1** | Hoàn thiện phân bổ điện năng + dầu hương vị; xuất bộ công cụ Excel 3 sheet. |
-| **v1.1.0** | Bổ sung công thức chi tiết mẻ nước dùng chuẩn 100L + định lượng thịt ra tô. |
-| **v1.0.0** | Phát hành thương mại: trang chủ README + đặc tả ứng dụng quản lý. |
-
-> Xem toàn bộ lịch sử trong file `README.md` tại gốc repository.
+<a class="download-cta" href="/downloads/Bo-Cong-Cu-Tai-Chinh-Quan-Pho-v1.1.xlsx" download="Bo-Cong-Cu-Tai-Chinh-Quan-Pho-v1.1.xlsx" target="_blank" rel="noopener">⬇ Tải Bộ Công Cụ Tài Chính Excel</a>
 
 ## Dành cho ai?
 

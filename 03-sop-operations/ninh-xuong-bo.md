@@ -16,7 +16,7 @@ Hàng ngày (ninh trước ngày bán, tổng thời gian ninh khoảng 20 tiế
 
 **Nguyên liệu làm nước dùng**: xương bò (20 kg) + xương heo (5 kg); tôm khô; gừng tươi; hành khô (hành tím); hành tây; tỏi; quế; thảo quả; cánh hoa hồi; dầu ăn; nước mắm cốt độ đạm cao; mì chính, hạt nêm, đường phèn, muối trắng.
 
-**Định mức mẻ chuẩn** (v1.1.0 — công thức chi tiết của chủ quán, chốt trong `../01-financial-models/recipe-nuoc-dung-pho-bo.yaml`):
+**Định mức mẻ chuẩn** (công thức chi tiết của chủ quán, chốt trong `../01-financial-models/recipe-nuoc-dung-pho-bo.yaml`):
 
 | Hạng mục | Giá trị |
 |---|---|

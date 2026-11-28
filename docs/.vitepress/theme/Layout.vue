@@ -6,9 +6,9 @@ const { Layout } = DefaultTheme
 
 <template>
   <Layout>
-    <!-- Huy hiệu phiên bản xuất hiện phía trên tiêu đề hero trang chủ -->
+    <!-- Huy hiệu ấn bản xuất hiện phía trên tiêu đề hero trang chủ -->
     <template #home-hero-info-before>
-      <span class="hero-badge">Phiên bản thương mại v1.3.0 · Chuẩn hóa 100L</span>
+      <span class="hero-badge">Ấn bản chuẩn hóa thực chiến · Mẻ nấu 100L</span>
     </template>
   </Layout>
 </template>

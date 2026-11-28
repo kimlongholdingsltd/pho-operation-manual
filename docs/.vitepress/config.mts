@@ -205,7 +205,7 @@ export default defineConfig({
         link: '/06-app-specifications/system-architecture-and-specs',
       },
       {
-        text: 'Tải Excel',
+        text: 'Tải Bộ Công Cụ Tài Chính Excel',
         link: '/downloads/Bo-Cong-Cu-Tai-Chinh-Quan-Pho-v1.1.xlsx',
         target: '_blank',
         rel: 'noopener',

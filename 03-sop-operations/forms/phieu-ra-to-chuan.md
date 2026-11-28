@@ -9,7 +9,7 @@
 > Quy tắc giữ nhiệt: duy trì nồi nước chan SÔI suốt giờ bán; tráng tô bằng nước sôi
 > trước khi xếp bánh/thịt để giữ trọn độ nóng (xem `../ra-to-va-giu-nhiet.md`).
 
-## 1. Định lượng thịt ra tô (chuẩn v1.1.0)
+## 1. Định lượng thịt ra tô (chuẩn)
 
 | Loại thịt | Gram / tô |
 |---|---|
@@ -20,7 +20,7 @@
 | Xào lăn | 70 g |
 | Đuôi bò | 150 g |
 
-> Định lượng chuẩn do chủ quán chốt (v1.1.0). Tô mẫu **Phở Bò Tái Chín** = 60 g tái
+> Định lượng chuẩn do chủ quán chốt. Tô mẫu **Phở Bò Tái Chín** = 60 g tái
 > + 40 g chín (xem `../../01-financial-models/recipe-costing-sample.yaml`).
 
 ## 2. Cỡ tô & nước dùng

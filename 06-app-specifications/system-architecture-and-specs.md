@@ -120,7 +120,7 @@ Nguồn: `recipe-nuoc-dung-pho-bo.yaml`.
 | `lai_dong_gop` | decimal | = doanh thu − nguyên liệu − biến phí kênh |
 | `diem_hoa_von_to` | decimal | Đối chiếu điểm hòa vốn (xem Phân hệ 4) |
 
-### 2.7 Bảng `DinhLuongThitRaTo` (định lượng thịt/tô — v1.1.0)
+### 2.7 Bảng `DinhLuongThitRaTo` (định lượng thịt/tô)
 
 Nguồn: `ingredients-standards.yaml.portion_thit_ra_to` + `forms/phieu-ra-to-chuan.md`.
 

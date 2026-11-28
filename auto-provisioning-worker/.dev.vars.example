@@ -1,0 +1,14 @@
+# Sao chép file này thành `.dev.vars` để chạy `npm run dev` ở máy local.
+# TUYỆT ĐỐI không commit `.dev.vars` (đã nằm trong .gitignore).
+
+SEPAY_API_KEY=thay_bang_api_key_webhook_sepay
+MIN_AMOUNT=499000
+
+CF_API_TOKEN=thay_bang_cloudflare_api_token
+CF_ACCOUNT_ID=thay_bang_account_id
+CF_ACCESS_APP_ID=thay_bang_access_app_id
+CF_ACCESS_POLICY_ID=thay_bang_access_policy_id
+
+RESEND_API_KEY=re_thay_bang_api_key_resend
+SENDER_EMAIL=Cẩm Nang Quán Phở - Kim Long Holdings <hotro@kimlongholdings.vn>
+ADMIN_EMAIL=kimlongholdings.ltd@gmail.com

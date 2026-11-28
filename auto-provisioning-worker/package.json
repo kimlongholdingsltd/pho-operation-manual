@@ -1,0 +1,18 @@
+{
+  "name": "pho-auto-provisioning",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Cloudflare Worker tự động cấp quyền Zero Trust và gửi email hướng dẫn sau khi SePay báo tiền vào",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261127.1",
+    "typescript": "^5.9.0",
+    "wrangler": "^4.0.0"
+  }
+}

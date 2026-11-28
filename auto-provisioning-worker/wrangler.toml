@@ -1,0 +1,16 @@
+# Cloudflare Worker: tự động cấp quyền Zero Trust sau khi SePay báo tiền vào.
+# Các giá trị bí mật KHÔNG khai báo ở đây — nạp bằng `npx wrangler secret put`.
+# Biến không bí mật (MIN_AMOUNT) có thể đặt trong [vars] bên dưới.
+
+name = "pho-auto-provisioning"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+workers_dev = true
+
+# Ghi log để tra cứu giao dịch / lỗi Access / lỗi Resend trên dashboard.
+[observability]
+enabled = true
+
+[vars]
+# Ngưỡng tiền vào tối thiểu (VNĐ). Bỏ comment để đổi, mặc định code là 499000.
+# MIN_AMOUNT = "499000"

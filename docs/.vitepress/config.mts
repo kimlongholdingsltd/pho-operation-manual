@@ -60,6 +60,7 @@ export default defineConfig({
     '00-raw-notes/**', // kho ghi chú gốc — lưu trữ, không xuất bản
     'scripts/**', // mã sinh Excel — không phải nội dung thương mại
     'landing-page/**', // landing page bán hàng độc lập — tách khỏi Web Docs
+    'auto-provisioning-worker/**', // Cloudflare Worker webhook SePay — không phải nội dung Web Docs
     'node_modules/**',
     'docs/**', // cấu hình + public + dist/cache của chính VitePress
     'assets/**', // file nguồn Excel (bản tải nằm trong public/downloads)

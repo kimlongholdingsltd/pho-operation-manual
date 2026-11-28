@@ -5,6 +5,10 @@ node_modules/
 docs/.vitepress/dist/
 docs/.vitepress/cache/
 
+# Cloudflare Worker local secrets & state
+auto-provisioning-worker/.dev.vars
+auto-provisioning-worker/.wrangler/
+
 # OS / editor noise
 .DS_Store
 Thumbs.db

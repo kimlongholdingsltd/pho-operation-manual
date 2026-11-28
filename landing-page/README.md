@@ -1,4 +1,4 @@
-# Landing Page Bán Hàng — Cẩm Nang Mở & Vận Hành Quán Phở (v1.2.1)
+# Landing Page Bán Hàng — Cẩm Nang Mở & Vận Hành Quán Phở (v1.2.2)
 
 Trang bán hàng **độc lập** (single-page static website), tách biệt hoàn toàn với
 Web Docs nội bộ trong `docs/`. Trang này được thiết kế để **xuất bản công khai

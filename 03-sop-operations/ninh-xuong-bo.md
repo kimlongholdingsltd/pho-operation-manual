@@ -1,4 +1,4 @@
-# SOP — Ninh xương bò lấy nước dùng
+# Quy trình vận hành chuẩn (SOP) — Ninh xương bò lấy nước dùng
 
 ## 1. Mục tiêu
 

@@ -1,4 +1,4 @@
-# SOP — Chọn rau thơm
+# Quy trình vận hành chuẩn (SOP) — Chọn rau thơm
 
 ## 1. Mục tiêu
 

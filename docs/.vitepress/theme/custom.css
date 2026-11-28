@@ -7,31 +7,31 @@
 
 :root {
   /* ===== Bảng màu nền & chữ ===== */
-  --vp-c-bg: #ffffff; /* nền trang chính */
-  --vp-c-bg-alt: #faf8f5; /* nền phụ / khối code */
-  --vp-c-bg-elv: #ffffff; /* bề mặt nổi (card) */
-  --vp-c-bg-soft: #faf8f5; /* bề mặt mềm (badge, code nhẹ) */
+  --vp-c-bg: #FFFFFF; /* nền trang chính */
+  --vp-c-bg-alt: #FAF8F5; /* nền kem ấm phụ / khối code */
+  --vp-c-bg-elv: #FFFFFF; /* bề mặt nổi (card) */
+  --vp-c-bg-soft: #FAF8F5; /* bề mặt mềm (badge, code nhẹ) */
 
-  --vp-c-text-1: #1e1b18; /* chữ chính */
+  --vp-c-text-1: #1E1B18; /* chữ than chì */
   --vp-c-text-2: #6b6259; /* chữ phụ */
   --vp-c-text-3: #9a8f83; /* chữ mờ / chú thích */
 
   /* ===== Màu thương hiệu "hổ phách nước dùng" ===== */
-  --vp-c-brand-1: #b45309; /* hổ phách chủ đạo */
-  --vp-c-brand-2: #92400e; /* hover — đậm hơn */
-  --vp-c-brand-3: #b45309; /* active / nền nút */
-  --vp-c-brand-soft: #fef3c7; /* nền nhấn vàng nhạt */
+  --vp-c-brand-1: #B45309; /* vàng đồng mật ong chủ đạo */
+  --vp-c-brand-2: #92400E; /* hover — đậm hơn */
+  --vp-c-brand-3: #B45309; /* active / nền nút */
+  --vp-c-brand-soft: #FEF3C7; /* nền nhấn vàng nhạt */
 
   /* ===== Đường kẻ & viền ===== */
   --vp-c-border: #eae4dc; /* viền mảnh */
   --vp-c-border-hard: #d8cfc3;
   --vp-c-divider: #eae4dc; /* đường phân cách */
-  --vp-c-gutter: #faf8f5; /* rãnh / gutter */
+  --vp-c-gutter: #FAF8F5; /* rãnh / gutter */
 
   /* ===== Thanh điều hướng & sidebar ===== */
-  --vp-nav-bg-color: #ffffff;
-  --vp-local-nav-bg-color: #ffffff;
-  --vp-sidebar-bg-color: #faf8f5;
+  --vp-nav-bg-color: #FFFFFF;
+  --vp-local-nav-bg-color: #FFFFFF;
+  --vp-sidebar-bg-color: #FAF8F5;
 
   /* ===== Typography ===== */
   --vp-font-family-base: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont,
@@ -47,6 +47,12 @@
   /* Tiêu đề dùng màu đặc (không gradient) cho cảm giác in ấn cao cấp */
   --vp-home-hero-name-color: #1e1b18;
   --vp-home-hero-name-background: transparent;
+}
+
+/* ---------- Khóa nền sáng ngay cả khi trình duyệt/OS đang ở chế độ tối ---------- */
+html {
+  color-scheme: light;
+  background-color: #ffffff;
 }
 
 /* ---------- Thân văn bản: độ thở thoáng, chữ mềm ---------- */

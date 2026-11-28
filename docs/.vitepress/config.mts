@@ -23,11 +23,35 @@ const foldVietnamese = (term: string): string =>
 // nên phải trỏ tường minh về `docs/public` để nút tải Excel hoạt động chuẩn.
 const publicDir = fileURLToPath(new URL('../public', import.meta.url))
 
+// Tên file Excel bán kèm — dùng chung cho link tải và thuộc tính download.
+const EXCEL_FILE = 'Bo-Cong-Cu-Tai-Chinh-Quan-Pho-v1.1.xlsx'
+
+// Gắn download + target + rel cho MỌI thẻ <a> trỏ tới file Excel ngay trong HTML
+// tĩnh (nav, hero, nội dung). Nhờ vậy trình duyệt tải thẳng file về máy và
+// VitePress SPA router không chen vào báo 404.
+const tagExcelDownload = (html: string): string =>
+  html.replace(
+    new RegExp(`<a\\b[^>]*href="[^"]*${EXCEL_FILE.replace(/\./g, '\\.')}"[^>]*>`, 'g'),
+    (tag) => {
+      let next = tag
+      if (!/\bdownload=/.test(next)) {
+        next = next.replace(/>$/, ` download="${EXCEL_FILE}">`)
+      }
+      if (!/\btarget=/.test(next)) {
+        next = next.replace(/>$/, ' target="_blank">')
+      }
+      if (!/\brel=/.test(next)) {
+        next = next.replace(/>$/, ' rel="noopener">')
+      }
+      return next
+    },
+  )
+
 export default defineConfig({
   lang: 'vi-VN',
   title: 'Cẩm nang Mở & Vận hành Quán Phở',
   description:
-    'Bộ cẩm nang vận hành quán Phở/Bún bò thực chiến theo chuẩn Docs-as-Code: SOP 6 phần, mô hình tài chính YAML, định lượng nguyên liệu, food cost, điểm hòa vốn và đặc tả App.',
+    'Bộ cẩm nang vận hành quán Phở/Bún bò thực chiến: quy trình vận hành chuẩn (SOP) 6 phần, mô hình tài chính chuẩn hóa, định lượng nguyên liệu, giá vốn (food cost), điểm hòa vốn và đặc tả ứng dụng quản lý.',
 
   // Đọc trực tiếp toàn bộ file Markdown sẵn có của repo (từ README + 01..06)
   // mà KHÔNG nhân bản hay xáo trộn file gốc.
@@ -52,19 +76,26 @@ export default defineConfig({
   // Khoá giao diện sáng: tài liệu ấn phẩm ẩm thực, không cần chế độ tối.
   appearance: false,
 
+  // Bảo đảm mọi nút tải Excel đều có thuộc tính download trong HTML tĩnh.
+  transformHtml: tagExcelDownload,
+
   vite: {
     publicDir,
+    define: {
+      // Ép cả SSR lẫn client nhận đuôi .xlsx là file tải, không phải route HTML.
+      'import.meta.env.VITE_EXTRA_EXTENSIONS': JSON.stringify('xlsx,xls'),
+    },
   },
 
   head: [
-    ['meta', { name: 'theme-color', content: '#b45309' }],
+    ['meta', { name: 'theme-color', content: '#B45309' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:locale', content: 'vi_VN' }],
     [
       'meta',
       {
         property: 'og:title',
-        content: 'Cẩm nang Mở & Vận hành Quán Phở — Bộ cẩm nang thực chiến v1.1.5',
+        content: 'Cẩm nang Mở & Vận hành Quán Phở — Chuẩn hóa vận hành từ A–Z',
       },
     ],
     [
@@ -72,7 +103,7 @@ export default defineConfig({
       {
         property: 'og:description',
         content:
-          'SOP 6 phần · Mô hình tài chính YAML · Định lượng nguyên liệu · Food cost & điểm hòa vốn · Đặc tả App quản lý.',
+          'Quy trình vận hành 6 phần · Mô hình tài chính chuẩn hóa · Định lượng nguyên liệu · Giá vốn (Food Cost) & điểm hòa vốn · Đặc tả ứng dụng quản lý.',
       },
     ],
     [
@@ -130,7 +161,7 @@ export default defineConfig({
         ],
       },
       {
-        text: '03 · SOP Vận hành',
+        text: '03 · Quy trình vận hành',
         items: [
           { text: 'Chọn xương bò', link: '/03-sop-operations/chon-xuong-bo' },
           { text: 'Ninh xương lấy nước dùng', link: '/03-sop-operations/ninh-xuong-bo' },
@@ -170,7 +201,7 @@ export default defineConfig({
         ],
       },
       {
-        text: '06 · Đặc tả App',
+        text: '06 · Đặc tả ứng dụng',
         link: '/06-app-specifications/system-architecture-and-specs',
       },
       {
@@ -230,7 +261,7 @@ export default defineConfig({
       ],
       '/03-sop-operations/': [
         {
-          text: '03 · SOP Vận hành',
+          text: '03 · Quy trình vận hành',
           items: [
             { text: 'Chọn xương bò', link: '/03-sop-operations/chon-xuong-bo' },
             {
@@ -308,7 +339,7 @@ export default defineConfig({
       ],
       '/06-app-specifications/': [
         {
-          text: '06 · Đặc tả hệ thống App',
+          text: '06 · Đặc tả ứng dụng quản lý',
           items: [
             {
               text: 'Kiến trúc hệ thống & đặc tả',
@@ -370,7 +401,7 @@ export default defineConfig({
 
     footer: {
       message:
-        'Tài liệu vận hành F&B chuẩn Docs-as-Code — mọi con số định lượng là biến số trong YAML.',
+        'Tài liệu vận hành F&B thực chiến — mọi con số định lượng đều được chuẩn hóa thành dữ liệu rõ ràng, sẵn sàng chuyển thành ứng dụng quản lý.',
       copyright: '© 2026 · Bộ Cẩm Nang Mở & Vận hành Quán Phở',
     },
   },

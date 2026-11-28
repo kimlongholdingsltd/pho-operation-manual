@@ -1,4 +1,4 @@
-# SOP — Chọn bánh phở
+# Quy trình vận hành chuẩn (SOP) — Chọn bánh phở
 
 ## 1. Mục tiêu
 

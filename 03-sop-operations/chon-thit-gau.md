@@ -1,4 +1,4 @@
-# SOP — Chọn thịt gầu bò
+# Quy trình vận hành chuẩn (SOP) — Chọn thịt gầu bò
 
 ## 1. Mục tiêu
 

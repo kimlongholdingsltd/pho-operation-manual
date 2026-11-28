@@ -1,8 +1,9 @@
-# Đặc tả hệ thống — App quản lý vận hành quán Phở
+# Đặc tả hệ thống — Ứng dụng quản lý vận hành quán Phở
 
-> Mục tiêu: chuyển toàn bộ dữ liệu vận hành hiện có (YAML + SOP) thành **Database
-> Schema** và **đặc tả tính năng** cho đội lập trình — không cần đoán nghĩa, giữ
-> nguyên các biến số thực tế (`yield_factor`, `kwh_per_batch`, `dinh_muc_ml_per_to`...).
+> Mục tiêu: chuyển toàn bộ dữ liệu vận hành hiện có (bảng định lượng + quy trình
+> vận hành chuẩn) thành **cấu trúc dữ liệu** và **đặc tả tính năng** cho đội lập
+> trình — không cần đoán nghĩa, giữ nguyên các biến số thực tế (`yield_factor`,
+> `kwh_per_batch`, `dinh_muc_ml_per_to`...).
 
 ---
 
@@ -19,13 +20,13 @@
 
 ---
 
-## 2. Database Schema
+## 2. Cấu trúc dữ liệu
 
 ### 2.1 Bảng `NguyenVatLieu` (nguyên vật liệu)
 
 Nguồn: `ingredients-standards.yaml` + `recipe-costing-sample.yaml`.
 
-| Cột | Kiểu | Ý nghĩa | Nguồn (key YAML) |
+| Cột | Kiểu | Ý nghĩa | Nguồn (khóa dữ liệu) |
 |---|---|---|---|
 | `id` | int (PK) | Mã nguyên liệu | — |
 | `name` | varchar | Tên nguyên liệu ("Xương bò", "Nạm bò"…) | `ingredients[].name` |
@@ -42,7 +43,7 @@ Nguồn: `ingredients-standards.yaml` + `recipe-costing-sample.yaml`.
 
 Nguồn: `recipe-costing-sample.yaml`.
 
-| Cột | Kiểu | Ý nghĩa | Nguồn (key YAML) |
+| Cột | Kiểu | Ý nghĩa | Nguồn (khóa dữ liệu) |
 |---|---|---|---|
 | `id` | int (PK) | Mã món | `recipe_id` |
 | `ten_mon` | varchar | Tên món | `recipe_name` |
@@ -56,7 +57,7 @@ Nguồn: `recipe-costing-sample.yaml`.
 
 Nguồn: `recipe-nuoc-dung-pho-bo.yaml`.
 
-| Cột | Kiểu | Ý nghĩa | Nguồn (key YAML) |
+| Cột | Kiểu | Ý nghĩa | Nguồn (khóa dữ liệu) |
 |---|---|---|---|
 | `id` | int (PK) | Mã mẻ | — |
 | `ngay` | date | Ngày ninh | — |
@@ -136,7 +137,7 @@ Nguồn: `ingredients-standards.yaml.portion_thit_ra_to` + `forms/phieu-ra-to-ch
 
 Nguồn: `recipe-nuoc-dung-pho-bo.yaml` (`.cot_tao_ngot`, `.dong_thom_3_lop`, `.nuoc_neo`, `.dau_huong_vi_chung_cat`).
 
-| Khối cấu hình | Biến chính | Cách App dùng |
+| Khối cấu hình | Biến chính | Cách ứng dụng dùng |
 |---|---|---|
 | `cot_tao_ngot` | `tom_kho_g` 600, `gung_tuoi_g` 1000 | phân bổ ÷ 140 tô |
 | `dong_thom_3_lop` | lớp 1 nướng (gừng 500, hành khô 250, hành tây 200) · lớp 2 tươi (gừng 300) · lớp 3 chưng dầu (gừng 200, hành khô 200, quế 100, thảo quả 80) | phân bổ ÷ 140 tô |
@@ -170,7 +171,7 @@ Ví dụ (từ `recipe-costing-sample.yaml`): nạm 40g chín → `40 / 0.68 = 5
 
 ### Phân hệ 2 — Quản lý mẻ nước dùng & Luộc thịt (đồng hồ đếm ngược)
 
-Từ SOP `ninh-xuong-bo.md` + `recipe-nuoc-dung-pho-bo.yaml`, lập **timer đếm ngược từng mốc** cho mỗi mẻ `MeNuocDung`:
+Từ quy trình vận hành chuẩn (SOP) `ninh-xuong-bo.md` + `recipe-nuoc-dung-pho-bo.yaml`, lập **timer đếm ngược từng mốc** cho mỗi mẻ `MeNuocDung`:
 
 | # | Mốc sự kiện | Thời điểm | Cảnh báo |
 |---|---|---|---|
@@ -222,7 +223,7 @@ Dashboard hiển thị theo ngày:
 
 ## 4. Lưu ý triển khai
 
-- Mọi biến số có `TBD_OWNER_INPUT` (giá điện, tỷ lệ gia vị bí quyết) là **ô nhập liệu** trong App — không hard-code, không đoán nghĩa.
+- Mọi biến số có `TBD_OWNER_INPUT` (giá điện, tỷ lệ gia vị bí quyết) là **ô nhập liệu** trong ứng dụng — không hard-code, không đoán nghĩa.
 - `yield_factor` và `kwh_per_batch` là biến cấu hình toàn cục, cho phép chủ quán cập nhật khi đo thực tế lệch.
 - Chuẩn dữ liệu tuân thủ quy ước `name / unit / qty_raw / price_per_unit / yield_factor / qty_net / cost` trong `CLAUDE.md`.
 
@@ -230,17 +231,17 @@ Dashboard hiển thị theo ngày:
 
 ## 5. Bộ 6 ca kiểm thử bàn giao (Acceptance Test Cases)
 
-> Dùng khi bàn giao App cho chủ quán: đội lập trình chạy đủ 6 ca, ca nào ĐẠT mới đánh
+> Dùng khi bàn giao ứng dụng cho chủ quán: đội lập trình chạy đủ 6 ca, ca nào ĐẠT mới đánh
 > dấu nghiệm thu. Mỗi ca gắn đúng 1 bảng schema + 1 phân hệ, đối chiếu số liệu gốc
 > trong `01-financial-models/*.yaml` — **không bịa số, không đoán nghĩa**.
 
 ### TC-01 — Tính giá vốn 1 bát tự động (Phân hệ 1 · bảng `CongThucMon`)
 
-- **Mục tiêu:** App tự tính `cost_per_serving`, `total_food_cost`, `food_cost_percent` từ công thức.
+- **Mục tiêu:** Ứng dụng tự tính `cost_per_serving`, `total_food_cost`, `food_cost_percent` từ công thức.
 - **Đầu vào:** `recipe-costing-sample.yaml` (Phở Bò Tái Chín: tái 60g, nạm chín 40g, xương 20kg bò + 5kg heo, `price_selling` 45.000đ).
-- **Kết quả mong đợi:** `total_food_cost` = 35.963đ, `food_cost_percent` = 79,9% (khớp `summary` trong YAML, giá tham khảo).
+- **Kết quả mong đợi:** `total_food_cost` = 35.963đ, `food_cost_percent` = 79,9% (khớp bảng tổng hợp dữ liệu, giá tham khảo).
 - **Quy tắc làm tròn:** hệ thống tính bằng số thực chính xác của mẻ (35.963,0588đ/tô — gồm phân bổ 1,0 L dầu hương vị = 65.800đ ÷ 140 tô = 470đ/tô), chỉ làm tròn đến hàng đơn vị (VNĐ) tại bước hiển thị cuối cùng.
-- **Tiêu chí ĐẠT:** sai số = 0 so với file YAML; áp dụng đúng `yield_factor` (nạm 0.68 → `40 / 0.68 = 58,8g` thô); gia vị tính theo phân bổ itemized (nước nèo ×7 + tôm khô + đồ thơm 3 lớp) ÷ 140 tô.
+- **Tiêu chí ĐẠT:** sai số = 0 so với dữ liệu chuẩn; áp dụng đúng `yield_factor` (nạm 0.68 → `40 / 0.68 = 58,8g` thô); gia vị tính theo phân bổ itemized (nước nèo ×7 + tôm khô + đồ thơm 3 lớp) ÷ 140 tô.
 
 ### TC-02 — Cảnh báo food cost theo trần từng món (Phân hệ 1 · ĐC-01)
 

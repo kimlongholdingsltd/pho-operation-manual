@@ -1,8 +1,8 @@
 # Bộ Cẩm Nang Mở & Vận Hành Quán Phở Thực Chiến
 
-> **Phiên bản hiện tại: v1.1.5** — bảo vệ chia âm/chia 0 cho cột "Hòa vốn theo tháng" (E13:E14) khớp cột D; đồng bộ nhãn phiên bản phát hành.
+> **Phiên bản hiện tại: v1.2.2** — Việt hóa thuật ngữ F&B cho chủ quán, khóa giao diện sáng và sửa dứt điểm lỗi 404 khi tải file Excel.
 
-> Tài liệu vận hành F&B chuẩn **Docs-as-Code**: mọi quy trình là file có phiên bản, review được; mọi thông số định lượng là **biến số trong YAML** — sẵn sàng chuyển thẳng thành phần mềm quản lý mà đội lập trình không cần đoán nghĩa.
+> Tài liệu vận hành F&B thực chiến: mọi quy trình là file có phiên bản, review được; mọi thông số định lượng được **chuẩn hóa thành dữ liệu rõ ràng** — sẵn sàng chuyển thẳng thành phần mềm quản lý mà đội lập trình không cần đoán nghĩa.
 
 **Dành cho ai:** người lần đầu mở quán phở/bún bò, chủ quán đang vận hành muốn chuẩn hóa lại quy trình, và đội phát triển phần mềm cần đặc tả dữ liệu gốc.
 
@@ -12,8 +12,8 @@
 
 - **Tránh bẫy mất vốn** — phân tách rõ 4 khoản vốn (cọc, trả trước, dự phòng CAPEX 5–10%, quỹ tiền mặt ≥ 3 tháng chi phí cố định); quyết định đầu tư 300 triệu đi kèm dòng tiền 13 tuần × 3 kịch bản thay vì "bán càng nhiều càng tốt".
 - **Kiểm soát Food Cost** — chốt ngưỡng 35–38% (toàn menu) và trần 42–45% (món chủ lực nhiều thịt); công thức hòa vốn theo **lãi đóng góp** chứ không phải lãi gộp.
-- **Kiểm soát thất thoát nguyên liệu** — mỗi nguyên liệu có `yield_factor` (hệ số thu hồi sau sơ chế) + biểu mẫu cân trước/sau luộc và phiếu kiểm kho để phát hiện hao hụt bất thường.
-- **Không bịa số** — mọi số liệu đều có căn cứ thực đo hoặc đánh dấu `TBD_OWNER_INPUT` (chủ quán tự điền theo quy mô nồi), tuyệt đối không nhét số lý thuyết vào bí quyết nấu nướng.
+- **Kiểm soát thất thoát nguyên liệu** — mỗi nguyên liệu có hệ số thu hồi sau sơ chế + biểu mẫu cân trước/sau luộc và phiếu kiểm kho để phát hiện hao hụt bất thường.
+- **Không bịa số** — mọi số liệu đều có căn cứ thực đo hoặc được đánh dấu là ô chủ quán tự điền theo quy mô nồi, tuyệt đối không nhét số lý thuyết vào bí quyết nấu nướng.
 
 ---
 
@@ -46,7 +46,7 @@ Toàn bộ 20 ghi chú thực chiến ban đầu, giữ nguyên làm nguồn tha
 | [`dieu-kien-tien-quyet.md`](00-raw-notes/dieu-kien-tien-quyet.md) | Ghi chú gốc — điều kiện tiên quyết |
 | [`nhuong-quyen-hay-khong.md`](00-raw-notes/nhuong-quyen-hay-khong.md) | Ghi chú gốc — nhượng quyền |
 
-### 01 — Mô hình tài chính (dữ liệu YAML cho App)
+### 01 — Mô hình tài chính (dữ liệu chuẩn hóa cho ứng dụng quản lý)
 
 | Tài liệu | Nội dung |
 |---|---|
@@ -72,7 +72,7 @@ Toàn bộ 20 ghi chú thực chiến ban đầu, giữ nguyên làm nguồn tha
 | [`nguyen-tac-chon-vi-tri.md`](02-setup-and-location/nguyen-tac-chon-vi-tri.md) | Nguyên tắc chọn vị trí |
 | [`nhuong-quyen-hay-khong.md`](02-setup-and-location/nhuong-quyen-hay-khong.md) | Tự xây thương hiệu hay nhượng quyền |
 
-### 03 — SOP Vận hành (chuẩn 6 phần)
+### 03 — Quy trình vận hành (chuẩn 6 phần, SOP)
 
 | Tài liệu | Nội dung |
 |---|---|
@@ -111,7 +111,7 @@ Toàn bộ 20 ghi chú thực chiến ban đầu, giữ nguyên làm nguồn tha
 | [`chon-gio-ban-hang.md`](05-marketing-launch/chon-gio-ban-hang.md) | Chọn khung giờ bán hàng |
 | [`chua-co-thuong-hieu.md`](05-marketing-launch/chua-co-thuong-hieu.md) | Vận hành khi chưa có thương hiệu |
 
-### 06 — Đặc tả hệ thống (App)
+### 06 — Đặc tả ứng dụng quản lý
 
 | Tài liệu | Nội dung |
 |---|---|
@@ -119,7 +119,7 @@ Toàn bộ 20 ghi chú thực chiến ban đầu, giữ nguyên làm nguồn tha
 
 ### Quy tắc làm việc cho AI
 
-- [`CLAUDE.md`](CLAUDE.md) — tiêu chuẩn SOP 6 phần, quy ước YAML, quản lý phiên bản.
+- [`CLAUDE.md`](CLAUDE.md) — tiêu chuẩn quy trình vận hành 6 phần, quy ước dữ liệu chuẩn hóa, quản lý phiên bản.
 
 ---
 
@@ -127,23 +127,26 @@ Toàn bộ 20 ghi chú thực chiến ban đầu, giữ nguyên làm nguồn tha
 
 | Phiên bản | Nội dung chính |
 |---|---|
-| **v0.1.0** | Khởi tạo cấu trúc dự án Docs-as-Code + `CLAUDE.md` (tiêu chuẩn SOP 6 phần, quy ước dữ liệu YAML, Conventional Commits). |
-| **v0.2.0** | Biên tập 20 ghi chú gốc (`00-raw-notes/`) thành tài liệu chuẩn theo 5 thư mục chức năng + tách toàn bộ thông số định lượng/hệ số hao hụt thành `.yaml`. Cập nhật `yield_factor` gầu bò luộc = 0.65. |
-| **v0.3.0** | Đồng bộ 10 điểm kiểm toán ĐC-01…ĐC-10 giữa Markdown & YAML; bổ sung bảng quyết định đầu tư 300 triệu + dòng tiền 13 tuần; bộ 3 biểu mẫu nghiệm thu; nâng cấp SOP ninh xương. |
-| **v0.4.0** | Chốt định mức mẻ nước dùng chuẩn 100L (25kg xương/100L nước/70L thành phẩm/140 tô), điện năng Newsun ~32 kWh/mẻ, bí quyết tạo hương 3 lớp + hộp gia vị inox, SOP ra tô & giữ nhiệt. |
+| **v0.1.0** | Khởi tạo cấu trúc dự án chuẩn hóa tài liệu + `CLAUDE.md` (tiêu chuẩn quy trình vận hành 6 phần, quy ước dữ liệu, Conventional Commits). |
+| **v0.2.0** | Biên tập 20 ghi chú gốc (`00-raw-notes/`) thành tài liệu chuẩn theo 5 thư mục chức năng + tách toàn bộ thông số định lượng/hệ số hao hụt thành file dữ liệu chuẩn hóa riêng. Cập nhật hệ số thu hồi gầu bò luộc = 0.65. |
+| **v0.3.0** | Đồng bộ 10 điểm kiểm toán ĐC-01…ĐC-10 giữa Markdown & dữ liệu chuẩn hóa; bổ sung bảng quyết định đầu tư 300 triệu + dòng tiền 13 tuần; bộ 3 biểu mẫu nghiệm thu; nâng cấp quy trình ninh xương. |
+| **v0.4.0** | Chốt định mức mẻ nước dùng chuẩn 100L (25kg xương/100L nước/70L thành phẩm/140 tô), điện năng Newsun ~32 kWh/mẻ, bí quyết tạo hương 3 lớp + hộp gia vị inox, quy trình ra tô & giữ nhiệt. |
 | **v0.5.0** | Bản vá kiểm toán: đóng 6 điểm ĐC-01/04/05/06/07/08, chuẩn làm nguội FDA §3-501.14, chuẩn hóa nồi 100L Newsun, tách hệ số xương (vật lý vs chi phí), bổ sung ca mẫu điền đầy đủ. |
-| **v1.0.0 (Commercial Release)** | Trang chủ README + đặc tả hệ thống App (6 bảng DB + 4 phân hệ + bộ 6 ca kiểm thử bàn giao); phát hành thương mại với tag `v1.0.0`. |
+| **v1.0.0 (Commercial Release)** | Trang chủ README + đặc tả ứng dụng quản lý (6 bảng dữ liệu + 4 phân hệ + bộ 6 ca kiểm thử bàn giao); phát hành thương mại với tag `v1.0.0`. |
 | **v1.1.0** | Bổ sung công thức chi tiết: xương 20kg bò + 5kg heo, cốt ngọt tôm khô + gừng, đồ thơm 3 lớp định lượng, nước nèo (cơ sở 10L ×7), dầu hương vị chưng cất 5L; chuẩn hóa định lượng thịt ra tô (tái 60/chín 40/bắp 60/gân 80/xào lăn 70/đuôi 150); thay ước tính gia vị 2.000đ bằng phân bổ itemized chính xác. |
 | **v1.1.1** | Hoàn thiện phân bổ chi phí điện năng (32 kWh × 3.000đ = 96.000đ/mẻ → 686đ/tô) + dầu hương vị chưng cất (1L/mẻ 100L = 1/5 mẻ 5L → 470đ/tô) vào tổng giá vốn; bổ sung mô phỏng "giá bán đạt chuẩn food cost 42%"; xuất bộ công cụ tài chính Excel 3 sheet (dự toán vốn 300tr · tính giá vốn food cost · hòa vốn theo kênh & dòng tiền 13 tuần) với công thức sống `=SUM`/`=IF` và cảnh báo đỏ khi vượt trần 45%. |
 | **v1.1.2** | Xác nhận "Đồ thơm lớp 3 (chưng dầu)" = 1,0 L dầu hương vị múc từ mẻ 5L; bỏ các dòng chưng dầu lẻ (gừng 200g, hành khô 200g, quế 100g, thảo quả 80g) khỏi giá vốn mẻ 100L để không tính trùng 2 lần (tổng giá vốn mẫu còn 35.963đ/tô, food cost 79,9%). |
 | **v1.1.3** | Đóng 2 điểm chặn kiểm toán cuối: (1) đồng bộ ca kiểm thử TC-01/TC-02 về 35.963đ/tô (79,9%) + ghi rõ quy tắc làm tròn (tính số thực 35.963,0588đ, chỉ làm tròn đơn vị ở hiển thị); (2) thống nhất biến phí kênh tại quán 3.000đ/tô (số dư tiền mặt cuối tuần 13 = ~178,58–178,60 triệu) + chặn chia âm ở công thức hòa vốn Excel (hiển thị "Không thể hòa vốn" khi lãi đóng góp ≤ 0). |
 | **v1.1.4** | Đồng bộ số liệu 35.963đ/tô (79,9% — đã gồm điện năng 32 kWh + 1,0L dầu hương vị chưng cất) trên toàn bộ tài liệu mẫu (`ty-le-gia-thanh-COGS.md` + `example-filled-forms.md`). |
 | **v1.1.5** | Bảo vệ chia âm/chia 0 cho cột "Hòa vốn theo tháng" E13:E14 (khớp công thức bảo vệ cột D: hiển thị "Không thể hòa vốn" khi lãi đóng góp ≤ 0); đồng bộ nhãn phiên bản README. |
+| **v1.2.0** | Xuất bản Web Docs thương mại bằng VitePress (trang chủ, tìm kiếm toàn văn tiếng Việt, tải Excel). |
+| **v1.2.1** | Sửa lỗi tải trực tiếp file Excel bị 404 (đuôi .xlsx bị SPA router chặn). |
+| **v1.2.2** | Việt hóa thuật ngữ F&B cho chủ quán, khóa giao diện sáng và sửa dứt điểm lỗi 404 khi tải file Excel. |
 
 ---
 
 ## Cách dùng nhanh
 
-1. **Người mới mở quán** — đọc theo trình tự: `02-setup-and-location/cac-buoc-chuan-bi-co-ban.md` → `01-financial-models/investment-decision-300m.md` → toàn bộ SOP trong `03-sop-operations/`.
-2. **Chủ quán đang vận hành** — in bộ biểu mẫu trong `03-sop-operations/forms/` và chạy checklist hằng ngày theo SOP.
-3. **Đội phát triển phần mềm** — bắt đầu từ `06-app-specifications/system-architecture-and-specs.md`, đối chiếu biến số gốc trong `01-financial-models/*.yaml`.
+1. **Người mới mở quán** — đọc theo trình tự: `02-setup-and-location/cac-buoc-chuan-bi-co-ban.md` → `01-financial-models/investment-decision-300m.md` → toàn bộ quy trình vận hành trong `03-sop-operations/`.
+2. **Chủ quán đang vận hành** — in bộ biểu mẫu trong `03-sop-operations/forms/` và chạy checklist hằng ngày theo quy trình chuẩn (SOP).
+3. **Đội phát triển phần mềm** — bắt đầu từ `06-app-specifications/system-architecture-and-specs.md`, đối chiếu bộ dữ liệu chuẩn hóa trong `01-financial-models/`.

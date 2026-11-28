@@ -1,4 +1,4 @@
-# SOP — Chọn xương bò ninh nước dùng
+# Quy trình vận hành chuẩn (SOP) — Chọn xương bò ninh nước dùng
 
 ## 1. Mục tiêu
 

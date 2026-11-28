@@ -1,4 +1,4 @@
-# SOP — Chọn và thái thịt bò tái
+# Quy trình vận hành chuẩn (SOP) — Chọn và thái thịt bò tái
 
 ## 1. Mục tiêu
 

@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: "Mở & Vận hành Quán Phở"
-  text: "Bộ cẩm nang thực chiến, chuẩn Docs-as-Code"
-  tagline: "Công thức nước dùng 100L · Giá vốn 35.963đ/tô · Dòng tiền 13 tuần · SOP chuẩn F&B. Mọi con số có căn cứ thực đo — không bịa số."
+  text: "Bộ cẩm nang thực chiến — Chuẩn hóa từ A–Z"
+  tagline: "Quy trình vận hành 6 phần · Mô hình tài chính chuẩn hóa · Định lượng & giá vốn (Food Cost) · Đặc tả ứng dụng quản lý. Mọi con số đều có căn cứ thực đo, tuyệt đối không bịa số."
   actions:
     - theme: brand
       text: "Bắt đầu đọc Cẩm nang"
@@ -21,16 +21,16 @@ features:
   - title: "Kiểm soát Food Cost"
     details: "Chốt ngưỡng 35–38% toàn menu và trần 42–45% món chủ lực nhiều thịt. Tính điểm hòa vốn theo lãi đóng góp, không phải lãi gộp."
   - title: "Chặn thất thoát nguyên liệu"
-    details: "Mỗi nguyên liệu có yield_factor (hệ số thu hồi sau sơ chế), kèm biểu mẫu cân trước/sau luộc và phiếu kiểm kho để phát hiện hao hụt bất thường."
-  - title: "Sẵn sàng chuyển thành App"
-    details: "Mọi định lượng là biến số trong YAML (name, unit, qty_raw, price_per_unit, yield_factor, qty_net, cost). Đội lập trình chuyển thẳng thành database không cần đoán nghĩa."
+    details: "Mỗi nguyên liệu đều có hệ số thu hồi sau sơ chế, kèm biểu mẫu cân trước/sau luộc và phiếu kiểm kho để phát hiện hao hụt bất thường."
+  - title: "Sẵn sàng chuyển thành ứng dụng quản lý"
+    details: "Mọi định lượng — tên nguyên liệu, đơn vị, số lượng thô, đơn giá, hệ số thu hồi sau sơ chế, số lượng tinh và giá vốn — đều được ghi thành từng trường dữ liệu rõ ràng. Đội phát triển chuyển thẳng thành phần mềm quản lý mà không cần đoán nghĩa."
 ---
 
 <div class="landing-sections">
   <a href="/01-financial-models/investment-decision-300m">
     <span class="num">01 · Tài chính</span>
     <span class="title">Mô hình tài chính</span>
-    <span class="desc">Quyết định đầu tư 300 triệu · dòng tiền 13 tuần · food cost & hòa vốn · dữ liệu YAML.</span>
+    <span class="desc">Quyết định đầu tư 300 triệu · dòng tiền 13 tuần · food cost & hòa vốn · dữ liệu chuẩn hóa.</span>
   </a>
   <a href="/02-setup-and-location/cac-buoc-chuan-bi-co-ban">
     <span class="num">02 · Mở quán</span>
@@ -38,8 +38,8 @@ features:
     <span class="desc">Trình tự chuẩn bị · điều kiện tiên quyết · thiết bị · POS · chọn vị trí.</span>
   </a>
   <a href="/03-sop-operations/chon-xuong-bo">
-    <span class="num">03 · SOP</span>
-    <span class="title">SOP Vận hành</span>
+    <span class="num">03 · Quy trình</span>
+    <span class="title">Quy trình vận hành</span>
     <span class="desc">Chọn nguyên liệu · ninh xương 100L · ra tô chuẩn · bảo quản thịt + biểu mẫu nghiệm thu.</span>
   </a>
   <a href="/04-hr-and-training/quy-trinh-tuyen-dung-va-dao-tao">
@@ -53,9 +53,9 @@ features:
     <span class="desc">Thiết kế menu & định giá · bán online – offline · chọn khung giờ bán.</span>
   </a>
   <a href="/06-app-specifications/system-architecture-and-specs">
-    <span class="num">06 · App</span>
-    <span class="title">Đặc tả hệ thống App</span>
-    <span class="desc">Database Schema 6 bảng · 4 phân hệ · bộ 6 ca kiểm thử bàn giao.</span>
+    <span class="num">06 · Ứng dụng</span>
+    <span class="title">Đặc tả ứng dụng quản lý</span>
+    <span class="desc">Sơ đồ dữ liệu 6 bảng · 4 phân hệ vận hành · bộ 6 tình huống kiểm tra khi bàn giao.</span>
   </a>
 </div>
 
@@ -70,6 +70,7 @@ Bộ công cụ Excel 3 sheet (dự toán vốn 300 triệu · tính giá vốn 
 | Phiên bản | Nội dung chính |
 |---|---|
 | **v1.3.0** | Thiết kế lại giao diện sáng/cao cấp (Editorial Culinary), khoá giao diện sáng, tái khẳng định tải Excel không 404. |
+| **v1.2.2** | Việt hóa thuật ngữ F&B cho chủ quán, khóa giao diện sáng và sửa dứt điểm lỗi 404 khi tải file Excel. |
 | **v1.2.1** | Sửa lỗi tải trực tiếp file Excel bị 404 (đuôi .xlsx bị SPA router chặn). |
 | **v1.2.0** | Xuất bản Web Docs thương mại bằng VitePress (trang chủ, tìm kiếm toàn văn tiếng Việt, tải Excel). |
 | **v1.1.5** | Bảo vệ chia âm/chia 0 cho cột "Hòa vốn theo tháng" E13:E14; đồng bộ nhãn phiên bản. |
@@ -78,12 +79,12 @@ Bộ công cụ Excel 3 sheet (dự toán vốn 300 triệu · tính giá vốn 
 | **v1.1.2** | Bỏ tính trùng "đồ thơm lớp 3" khỏi giá vốn mẻ 100L. |
 | **v1.1.1** | Hoàn thiện phân bổ điện năng + dầu hương vị; xuất bộ công cụ Excel 3 sheet. |
 | **v1.1.0** | Bổ sung công thức chi tiết mẻ nước dùng chuẩn 100L + định lượng thịt ra tô. |
-| **v1.0.0** | Phát hành thương mại: trang chủ README + đặc tả hệ thống App. |
+| **v1.0.0** | Phát hành thương mại: trang chủ README + đặc tả ứng dụng quản lý. |
 
 > Xem toàn bộ lịch sử trong file `README.md` tại gốc repository.
 
 ## Dành cho ai?
 
-- **Người lần đầu mở quán** — đọc theo trình tự: *Các bước chuẩn bị* → *Quyết định đầu tư 300 triệu* → toàn bộ SOP vận hành.
-- **Chủ quán đang vận hành** — in bộ biểu mẫu trong phần *03 · SOP Vận hành* và chạy checklist hằng ngày.
-- **Đội phát triển phần mềm** — bắt đầu từ *06 · Đặc tả App*, đối chiếu biến số gốc trong `01-financial-models/*.yaml`.
+- **Người lần đầu mở quán** — đọc theo trình tự: *Các bước chuẩn bị* → *Quyết định đầu tư 300 triệu* → toàn bộ quy trình vận hành chuẩn (SOP).
+- **Chủ quán đang vận hành** — in bộ biểu mẫu trong phần *03 · Quy trình vận hành* và chạy checklist hằng ngày.
+- **Đội phát triển phần mềm** — bắt đầu từ *06 · Đặc tả ứng dụng quản lý*, đối chiếu bộ dữ liệu chuẩn hóa trong `01-financial-models/`.

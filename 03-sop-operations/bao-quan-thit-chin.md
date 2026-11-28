@@ -1,4 +1,4 @@
-# SOP — Bảo quản thịt bò chín (bán không hết)
+# Quy trình vận hành chuẩn (SOP) — Bảo quản thịt bò chín (bán không hết)
 
 ## 1. Mục tiêu
 

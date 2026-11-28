@@ -1,4 +1,4 @@
-# SOP — Chọn thịt nạm bò
+# Quy trình vận hành chuẩn (SOP) — Chọn thịt nạm bò
 
 ## 1. Mục tiêu
 

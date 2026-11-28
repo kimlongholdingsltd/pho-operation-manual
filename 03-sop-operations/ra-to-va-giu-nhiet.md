@@ -1,4 +1,4 @@
-# SOP — Ra tô chuẩn & Giữ nhiệt phục vụ
+# Quy trình vận hành chuẩn (SOP) — Ra tô chuẩn & Giữ nhiệt phục vụ
 
 ## 1. Mục tiêu
 

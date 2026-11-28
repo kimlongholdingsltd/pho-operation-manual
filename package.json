@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "private": true,
   "type": "module",
-  "description": "Bộ cẩm nang mở & vận hành quán phở thực chiến — Docs-as-Code, xuất bản Web Docs bằng VitePress",
+  "description": "Bộ cẩm nang mở & vận hành quán phở thực chiến — chuẩn hóa từ A–Z, xuất bản Web Docs bằng VitePress",
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
